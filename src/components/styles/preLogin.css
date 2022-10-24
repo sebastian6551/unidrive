@@ -1,0 +1,115 @@
+.base {
+	position: relative;
+	width: 360px;
+	height: 800px;
+
+	background: #ffffff;
+	border-radius: 10px;
+}
+
+h1 {
+	position: absolute;
+	width: 221px;
+	height: 42px;
+	left: calc(50% - 221px / 2 - 0.5px);
+	top: calc(50% - 42px / 2 - 162px);
+
+	font-family: 'Urbanist';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 50px;
+	line-height: 60px;
+	display: flex;
+	align-items: center;
+	color: #111111;
+}
+
+h2 {
+	position: absolute;
+	width: 302px;
+	height: 49px;
+	left: calc(50% - 302px / 2);
+	top: calc(50% - 49px / 2 - 52.5px);
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 26px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	color: #111111;
+}
+
+.buttonPasajero {
+	position: absolute;
+	width: 293px;
+	height: 49px;
+	left: 33px;
+	top: 403px;
+
+	background: #efd8f5;
+	border-radius: 10px;
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 26px;
+	align-items: center;
+	text-align: center;
+	color: #111111;
+}
+
+.buttonOfertante {
+	position: absolute;
+	width: 293px;
+	height: 49px;
+	left: 33px;
+	top: 483px;
+
+	background: #e7c1f2;
+	border-radius: 10px;
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 26px;
+	align-items: center;
+	text-align: center;
+	color: #111111;
+}
+
+
+footer{
+  font-family: 'Jost';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 22px;
+display: flex;
+align-items: center;
+text-align: center;
+}
+
+
+.tienesCuenta{
+  position: absolute;
+width: 144px;
+height: 49px;
+left: calc(50% - 144px/2 - 75px);
+top: calc(50% - 49px/2 + 313.5px);
+color: #111111;
+}
+
+.registrate{
+  position: absolute;
+width: 134px;
+height: 49px;
+left: calc(50% - 134px/2 + 79px);
+top: calc(50% - 49px/2 + 313.5px);
+color: #E50914;
+}
