@@ -1,0 +1,73 @@
+/* Style sheet for login and registration */
+.backArrow {
+	position: absolute;
+	top: 52px;
+	left: 520px;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+
+.tittle {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 40px;
+	text-align: center;
+	color: #111111;
+}
+
+.loginForm {
+	text-align: center;
+}
+
+.textField {
+	box-sizing: border-box;
+	width: 293px;
+	height: 49px;
+	background: #e8eef5;
+	border: 1px solid #e8eef5;
+	border-radius: 10px;
+
+	font-family: 'Jost', sans-serif;
+	padding: 20px;
+	font-style: normal;
+	font-size: 15px;
+	color: #111111;
+}
+
+.textField::placeholder {
+	color: #111111;
+}
+
+.logInButton {
+	box-sizing: border-box;
+	width: 293px;
+	height: 49px;
+	background: #2645e5;
+	border: 1px solid #2645e5;
+	border-radius: 10px;
+	cursor: pointer;
+
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.errorMessage {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-size: 15px;
+	color: rgb(83, 0, 0);
+}
+
+.spaceAboveLoginTittle {
+	padding: 100px;
+}
+
+.spaceForEmailPasswordAndLogInButton {
+	padding: 16px;
+}
