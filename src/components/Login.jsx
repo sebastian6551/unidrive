@@ -36,7 +36,7 @@ function Login() {
 			</button>
 			<div className='spaceAboveLoginTittle'></div>
 			<h1 className='tittle'>Inicia sesión</h1>
-			<br />
+			<div className='spaceBetweenTittleAndForm'></div>
 			<form className='loginForm'>
 				<input
 					className='textField'

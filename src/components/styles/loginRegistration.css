@@ -9,6 +9,7 @@
 }
 
 .tittle {
+	width: 232px;
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
 	font-weight: 700;
@@ -66,6 +67,10 @@
 
 .spaceAboveLoginTittle {
 	padding: 100px;
+}
+
+.spaceBetweenTittleAndForm {
+	padding: 34px;
 }
 
 .spaceForEmailPasswordAndLogInButton {
