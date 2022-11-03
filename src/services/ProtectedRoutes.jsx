@@ -5,15 +5,10 @@ import AuthContext from "./AuthContext.jsx";
 export const ProtectedRoute = ({ children, accessBy }) => {
     const { token } = useContext(AuthContext);
 
-    if (accessBy === "non-authenticated") {
-        if (!token) {
-            return children;
-        }
-    } else if (accessBy === "authenticated") {
-        if (token) {
-            return children;
-        }
+    if (accessBy === "non-authenticated" && !token) {
+        return children;
+    } else if (accessBy === "authenticated" 6& token) {
+        return children;
     }
     return <Navigate to="/"></Navigate>;
 };
-
