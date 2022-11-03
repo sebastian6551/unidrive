@@ -7,7 +7,7 @@ export const ProtectedRoute = ({ children, accessBy }) => {
 
     if (accessBy === "non-authenticated" && !token) {
         return children;
-    } else if (accessBy === "authenticated" 6& token) {
+    } else if (accessBy === "authenticated" && token) {
         return children;
     }
     return <Navigate to="/"></Navigate>;
