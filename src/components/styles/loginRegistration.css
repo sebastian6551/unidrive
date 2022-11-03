@@ -1,15 +1,16 @@
 /* Style sheet for login and registration */
 .backArrow {
 	position: absolute;
-	top: 52px;
-	left: 520px;
+	width: 36px;
+	height: 36px;
+	left: calc(50% - 22px / 2 - 150px);
+	top: calc(50% - 22px / 2 - 260px);
 	border: none;
 	cursor: pointer;
 	background: none;
 }
 
-.tittle {
-	width: 232px;
+.login-tittle {
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
 	font-weight: 700;
@@ -58,6 +59,11 @@
 	color: #ffffff;
 }
 
+.logInButton:hover {
+	background: #192d98;
+	border: 1px solid #192d98;
+}
+
 .errorMessage {
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
@@ -70,7 +76,7 @@
 }
 
 .spaceBetweenTittleAndForm {
-	padding: 34px;
+	padding: 10px;
 }
 
 .spaceForEmailPasswordAndLogInButton {

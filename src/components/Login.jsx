@@ -1,24 +1,25 @@
 import './styles/loginRegistration.css';
 import AuthContext from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { useContext, useRef } from "react";
+import { useContext, useRef } from 'react';
+// import { useForm } from 'react-hook-form';
 import backArrow from '../assets/icons/backArrow.png';
 
 function Login() {
-	const email = useRef("");
-	const password = useRef("");
+	const email = useRef('');
+	const password = useRef('');
 	const { login } = useContext(AuthContext);
 	const navigate = useNavigate();
 
-	const handleBack = (event) => {
+	const handleBack = event => {
 		event.preventDefault();
-		navigate("/");
-	}
+		navigate('/');
+	};
 
-	const loginSubmit = async (event) => {
+	const loginSubmit = async event => {
 		event.preventDefault();
-		console.log(email.current.value)
-		console.log(password.current.value)
+		console.log(email.current.value);
+		console.log(password.current.value);
 		const data = {
 			email: email.current.value,
 			password: password.current.value,
@@ -26,16 +27,15 @@ function Login() {
 		await login(data);
 	};
 
+	// const { register, handleSubmit } = useForm();
+
 	return (
 		<div>
-			<button
-				className='backArrow'
-				title='Volver'
-				onClick={handleBack}>
+			<button className='backArrow' title='Volver' onClick={handleBack}>
 				<img src={backArrow} />
 			</button>
 			<div className='spaceAboveLoginTittle'></div>
-			<h1 className='tittle'>Inicia sesión</h1>
+			<h1 className='login-tittle'>Inicia sesión</h1>
 			<div className='spaceBetweenTittleAndForm'></div>
 			<form className='loginForm'>
 				<input

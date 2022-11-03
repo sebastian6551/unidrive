@@ -6,23 +6,24 @@ export const PreLogin = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		navigate("/login");
-	}
+		navigate('/login');
+	};
 	return (
 		<div className='base'>
-			<h1> Uni-Drive</h1>
-			<h2>¡Hola!, selecciona tu tipo de cuenta:</h2>
+			<h1 className='uni-drive-tittle'> Uni-Drive</h1>
+			<h2 className='select-account-caption'>
+				¡Hola!, selecciona tu tipo de cuenta:
+			</h2>
 			<div>
-				<button
-					className='buttonPasajero'
-					onClick={handleSubmit}>
-					Pasajero </button>
-				<button className='buttonOfertante'
-					onClick={handleSubmit}>
-					Ofertante </button>
+				<button className='buttonPasajero' onClick={handleSubmit}>
+					Pasajero{' '}
+				</button>
+				<button className='buttonOfertante' onClick={handleSubmit}>
+					Ofertante{' '}
+				</button>
 			</div>
 
-			<footer>
+			<footer className='pre-login-footer'>
 				<a className='tienesCuenta'>¿No tienes una cuenta?</a>
 				<a className='registrate'>Registrate</a>
 			</footer>
