@@ -1,30 +1,17 @@
 import './styles/loginRegistration.css';
 import AuthContext from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import backArrow from '../assets/icons/backArrow.png';
 
 function Login() {
-	const email = useRef('');
-	const password = useRef('');
 	const { login } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const handleBack = event => {
 		event.preventDefault();
 		navigate('/');
-	};
-
-	const loginSubmit = async event => {
-		event.preventDefault();
-		console.log(email.current.value);
-		console.log(password.current.value);
-		const data = {
-			email: email.current.value,
-			password: password.current.value,
-		};
-		await login(data);
 	};
 
 	const {
@@ -34,7 +21,6 @@ function Login() {
 	} = useForm();
 
 	const onSubmit = data => {
-		console.log(data);
 		login(data);
 	};
 
@@ -50,7 +36,6 @@ function Login() {
 				<input
 					className='textField'
 					type='email'
-					ref={email}
 					{...register('email', {
 						required: true,
 					})}
@@ -60,7 +45,6 @@ function Login() {
 				<input
 					className='textField'
 					type='password'
-					ref={password}
 					{...register('password', {
 						required: true,
 					})}
