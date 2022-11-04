@@ -6,13 +6,13 @@ export const PreLogin = () => {
 			<h1> Uni-Drive</h1>
 			<h2>¡Hola!, selecciona tu tipo de cuenta:</h2>
 			<div>
-				<button className='buttonPasajero'> Pasajero </button>
-				<button className='buttonOfertante'> Ofertante </button>
+				<button className='riderButton'> Pasajero </button>
+				<button className='bidderButton'> Conductor </button>
 			</div>
 
 			<footer>
-				<a className='tienesCuenta'>¿No tienes una cuenta?</a>
-				<a className='registrate'>Registrate</a>
+				<a className='questionAccount'>¿No tienes una cuenta?</a>
+				<a className='singUpLink'>Registrate</a>
 			</footer>
 		</div>
 	);
