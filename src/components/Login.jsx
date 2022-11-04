@@ -35,6 +35,7 @@ function Login() {
 
 	const onSubmit = data => {
 		console.log(data);
+		login(data);
 	};
 
 	return (
@@ -71,7 +72,6 @@ function Login() {
 					className='logInButton'
 					type='submit'
 					value='Iniciar sesión'
-					onClick={loginSubmit}
 				/>
 				<div className='space16px'></div>
 				<span id='error' className='errorMessage'>

@@ -17,7 +17,9 @@ function RegistrationPage3() {
 		password: Yup.string()
 			.required('Completa el campo.')
 			.min(8, 'Ingresa al menos 8 caracteres.'),
-		confirmPassword: Yup.string().oneOf(
+		confirmPassword: Yup.string()
+            // .string().marches(regex)
+            .oneOf(
 			[Yup.ref('password')],
 			'Las contraseñas no coinciden.'
 		),
