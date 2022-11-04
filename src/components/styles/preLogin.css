@@ -43,7 +43,7 @@ h2 {
 	color: #111111;
 }
 
-.buttonPasajero {
+.riderButton {
 	position: absolute;
 	width: 293px;
 	height: 49px;
@@ -63,7 +63,7 @@ h2 {
 	color: #111111;
 }
 
-.buttonOfertante {
+.bidderButton {
 	position: absolute;
 	width: 293px;
 	height: 49px;
@@ -96,7 +96,7 @@ text-align: center;
 }
 
 
-.tienesCuenta{
+.questionAccount{
   position: absolute;
 width: 144px;
 height: 49px;
@@ -105,7 +105,7 @@ top: calc(50% - 49px/2 + 313.5px);
 color: #111111;
 }
 
-.registrate{
+.singUpLink{
   position: absolute;
 width: 134px;
 height: 49px;
