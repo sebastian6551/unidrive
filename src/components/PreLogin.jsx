@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './styles/preLogin.css';
 
 export const PreLogin = () => {
@@ -25,7 +25,9 @@ export const PreLogin = () => {
 
 			<footer className='preloginFooter'>
 				<a className='tienesCuenta'>¿No tienes una cuenta?</a>
-				<a className='registrate'>Registrate</a>
+				<Link to="/register">
+					<a className='registrate'>Registrate</a>
+				</Link>
 			</footer>
 		</div>
 	);
