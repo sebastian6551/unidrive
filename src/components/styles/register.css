@@ -1,0 +1,67 @@
+.base {
+	position: relative; 
+	width: 360px;
+	height: 800px;
+
+	background: #ffffff;
+	border-radius: 10px;
+    
+}
+
+h1 {
+    position: relative;
+    width: 189px;
+    height: 58px;
+    left: calc(50% - 189px/2 - 0.5px);
+    top: calc(50% - 58px/2 - 220px);
+    
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 58px;
+    /* identical to box height */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #111111;
+    
+}
+
+form{
+position: absolute;
+width: 331px;
+height: 436px;
+left: 16px;
+top: 237px;
+text-align: center;
+
+}
+.inputStyle {
+position: relative;
+width: 293px;
+height: 49px;
+
+background: #E8EEF5;
+backdrop-filter: blur(2px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 10px;
+}
+
+.labelStyle {
+position: relative;
+width: 253px;
+height: 22px;
+font-family: 'Jost';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 22px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+color: #111111;
+}
