@@ -68,17 +68,30 @@
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
 	font-size: 15px;
-	color: rgb(83, 0, 0);
+	color: #9f0000;
 }
 
-.spaceAboveLoginTittle {
+.space100px {
 	padding: 100px;
 }
 
-.spaceBetweenTittleAndForm {
+.space10px {
 	padding: 10px;
 }
 
-.spaceForEmailPasswordAndLogInButton {
+.space16px {
 	padding: 16px;
+}
+
+.createAPasswordCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	text-align: center;
+	color: #111111;
+}
+
+.space30px {
+	padding: 30px;
 }

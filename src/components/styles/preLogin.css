@@ -7,7 +7,7 @@
 	border-radius: 10px;
 }
 
-.uni-drive-tittle {
+.uniDriveTittle {
 	position: absolute;
 	width: 221px;
 	height: 42px;
@@ -24,7 +24,7 @@
 	color: #111111;
 }
 
-.select-account-caption {
+.selectAccountCaption {
 	position: absolute;
 	width: 277px;
 	height: 49px;
@@ -97,7 +97,7 @@
 	border: 1px solid #b698bf;
 }
 
-.pre-login-footer {
+.preloginFooter {
 	font-family: 'Jost';
 	font-style: normal;
 	font-weight: 400;

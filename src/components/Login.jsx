@@ -2,7 +2,7 @@ import './styles/loginRegistration.css';
 import AuthContext from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useRef } from 'react';
-// import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import backArrow from '../assets/icons/backArrow.png';
 
 function Login() {
@@ -27,33 +27,45 @@ function Login() {
 		await login(data);
 	};
 
-	// const { register, handleSubmit } = useForm();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+
+	const onSubmit = data => {
+		console.log(data);
+	};
 
 	return (
 		<div>
 			<button className='backArrow' title='Volver' onClick={handleBack}>
 				<img src={backArrow} />
 			</button>
-			<div className='spaceAboveLoginTittle'></div>
+			<div className='space100px'></div>
 			<h1 className='login-tittle'>Inicia sesión</h1>
-			<div className='spaceBetweenTittleAndForm'></div>
-			<form className='loginForm'>
+			<div className='space10px'></div>
+			<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
 				<input
 					className='textField'
 					type='email'
 					ref={email}
+					{...register('email', {
+						required: true,
+					})}
 					placeholder='Correo electrónico'
-					required=''
 				/>
-				<div className='spaceForEmailPasswordAndLogInButton'></div>
+				<div className='space16px'></div>
 				<input
 					className='textField'
 					type='password'
 					ref={password}
+					{...register('password', {
+						required: true,
+					})}
 					placeholder='Contraseña'
-					required=''
 				/>
-				<div className='spaceForEmailPasswordAndLogInButton'></div>
+				<div className='space16px'></div>
 				<input
 					title='Iniciar sesión'
 					className='logInButton'
@@ -61,8 +73,18 @@ function Login() {
 					value='Iniciar sesión'
 					onClick={loginSubmit}
 				/>
-				<div className='spaceForEmailPasswordAndLogInButton'></div>
+				<div className='space16px'></div>
 				<span id='error' className='errorMessage'>
+					{errors.email && (
+						<span>
+							Ingresa un correo electrónico.<br></br>
+						</span>
+					)}
+					{errors.password && (
+						<span>
+							Ingresa una contraseña.<br></br>
+						</span>
+					)}
 					{/* Here you may get an error message like "Datos incorrectos, intente nuevamente" */}
 				</span>
 			</form>

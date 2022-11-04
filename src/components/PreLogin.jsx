@@ -10,8 +10,8 @@ export const PreLogin = () => {
 	};
 	return (
 		<div className='base'>
-			<h1 className='uni-drive-tittle'> Uni-Drive</h1>
-			<h2 className='select-account-caption'>
+			<h1 className='uniDriveTittle'> Uni-Drive</h1>
+			<h2 className='selectAccountCaption'>
 				¡Hola!, selecciona tu tipo de cuenta:
 			</h2>
 			<div>
@@ -23,7 +23,7 @@ export const PreLogin = () => {
 				</button>
 			</div>
 
-			<footer className='pre-login-footer'>
+			<footer className='preloginFooter'>
 				<a className='tienesCuenta'>¿No tienes una cuenta?</a>
 				<a className='registrate'>Registrate</a>
 			</footer>
