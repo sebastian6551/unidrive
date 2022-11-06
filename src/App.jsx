@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { DashBoard } from "./components/DashBoard";
 import { Register } from "./components/Register"
+import { Register2 } from "./components/Register2"
 import Login from "./components/Login"
 import { PreLogin } from './components/PreLogin';
 import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
@@ -32,6 +33,14 @@ function App() {
 					element={
 						<ProtectedRoute accessBy="non-authenticated">
 							<Register />
+						</ProtectedRoute>
+					}>
+				</Route>
+				<Route
+					path="/register2"
+					element={
+						<ProtectedRoute accessBy="non-authenticated">
+							<Register2 />
 						</ProtectedRoute>
 					}>
 				</Route>

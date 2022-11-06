@@ -5,12 +5,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';
 
-function RegistrationPage3() {
+export const Register2 = () => {
 	const navigate = useNavigate();
 
 	const handleBack = event => {
 		event.preventDefault();
-		navigate('/');
+		navigate('/register');
 	};
 
 	const formSchema = Yup.object().shape({
@@ -18,11 +18,8 @@ function RegistrationPage3() {
 			.required('Completa el campo.')
 			.min(8, 'Ingresa al menos 8 caracteres.'),
 		confirmPassword: Yup.string()
-            // .string().marches(regex)
-            .oneOf(
-			[Yup.ref('password')],
-			'Las contraseñas no coinciden.'
-		),
+			// .string().marches(regex)
+			.oneOf([Yup.ref('password')], 'Las contraseñas no coinciden.'),
 	});
 
 	const formOptions = {
@@ -41,9 +38,12 @@ function RegistrationPage3() {
 
 	return (
 		<div>
-			<button className='backArrow' title='Volver' onClick={handleBack}>
-				<img src={backArrow} />
-			</button>
+			<div className='space10px'></div>
+			<span className='spaceRight'>
+				<button className='backArrow' title='Volver' onClick={handleBack}>
+					<img src={backArrow} />
+				</button>
+			</span>
 			<div className='space100px'></div>
 			<h2 className='createAPasswordCaption'>
 				Por último, crea una contraseña segura:
@@ -87,5 +87,3 @@ function RegistrationPage3() {
 		</div>
 	);
 }
-
-export default RegistrationPage3;

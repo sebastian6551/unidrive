@@ -1,4 +1,4 @@
-.base {
+.preLoginBase {
 	position: relative;
 	width: 360px;
 	height: 800px;
@@ -124,4 +124,8 @@
 	left: calc(50% - 75px / 2 + 96.5px);
 	top: calc(50% - 49px / 2 + 313.5px);
 	color: #e50914;
+}
+
+.registrate:hover {
+	color: #98050d;
 }

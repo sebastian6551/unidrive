@@ -9,7 +9,7 @@ export const PreLogin = () => {
 		navigate('/login');
 	};
 	return (
-		<div className='base'>
+		<div className='preLoginBase'>
 			<h1 className='uniDriveTittle'> Uni-Drive</h1>
 			<h2 className='selectAccountCaption'>
 				¡Hola!, selecciona tu tipo de cuenta:

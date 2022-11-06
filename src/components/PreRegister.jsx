@@ -2,7 +2,7 @@
 
 const PreRegister = () => {
   return (
-    <div className="base">
+    <div className="preRegisterBase">
         
         
     </div>
