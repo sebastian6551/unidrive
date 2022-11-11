@@ -1,12 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import './styles/preLogin.css';
+import { Button } from '@mui/material';
 
 export const PreLogin = () => {
 	const navigate = useNavigate();
 
-	const handleSubmit = (event) => {
+	const handleSubmit = event => {
 		event.preventDefault();
 		navigate('/login');
+	};
+
+
+	const handlePreRegister = event => {
+		event.preventDefault();
+		navigate('/preRegister');
 	};
 	return (
 		<div className='base'>
@@ -24,8 +31,11 @@ export const PreLogin = () => {
 			</div>
 
 			<footer className='preloginFooter'>
-				<a className='tienesCuenta'>¿No tienes una cuenta?</a>
-				<a className='registrate'>Registrate</a>
+				<Button
+					onClick={() => handlePreRegister}
+				>
+					Registrate
+				</Button>
 			</footer>
 		</div>
 	);

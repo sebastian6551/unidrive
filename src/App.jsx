@@ -4,12 +4,13 @@ import Login from "./components/Login"
 import { PreLogin } from './components/PreLogin';
 import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
 import { AuthContextProvider } from "./services/AuthContext";
+// import { Register } from './components/Register';
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Routes>
-				<Route path="/" element={<PreLogin />}></Route>
+				<Route path="/" element={<PreLogin/>}></Route>
 				<Route
 					path="/login"
 					element={
