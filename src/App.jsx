@@ -4,7 +4,7 @@ import Login from "./components/Login"
 import { PreLogin } from './components/PreLogin';
 import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
 import { AuthContextProvider } from "./services/AuthContext";
-// import { Register } from './components/Register';
+import { Register } from './components/Register';
 
 function App() {
 	return (
@@ -27,6 +27,14 @@ function App() {
 						</ProtectedRoute>
 					}
 				></Route>
+				<Route
+					path="/register"
+					element={
+						<ProtectedRoute accessBy="non-authenticated">
+							<Register />
+						</ProtectedRoute>
+					}>
+				</Route>
 			</Routes >
 		</AuthContextProvider>
 	);

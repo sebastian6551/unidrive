@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './styles/preLogin.css';
 
 export const PreLogin = () => {
@@ -7,11 +7,6 @@ export const PreLogin = () => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		navigate('/login');
-	};
-
-	const handlePreRegister = event => {
-		event.preventDefault();
-		navigate('/preRegister');
 	};
 
 	return (
@@ -31,7 +26,9 @@ export const PreLogin = () => {
 
 			<footer className='preloginFooter'>
 				<label className='tienesCuenta'>¿No tienes una cuenta?</label>
-				<label onClick={handlePreRegister} className='registrate'>Registrate</label>
+				<Link to="/register">
+					<label className='registrate'>Registrate</label>
+				</Link>
 			</footer>
 		</div>
 	);
