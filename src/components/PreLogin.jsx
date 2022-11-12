@@ -26,7 +26,7 @@ export const PreLogin = () => {
 
 			<footer className='preloginFooter'>
 				<label className='tienesCuenta'>¿No tienes una cuenta?</label>
-				<Link to="/register">
+				<Link to="/preregister">
 					<label className='registrate'>Registrate</label>
 				</Link>
 			</footer>

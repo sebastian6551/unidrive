@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { DashBoard } from "./components/DashBoard";
 import { Register } from "./components/Register"
 import { Register2 } from "./components/Register2"
+import { PreRegister } from "./components/PreRegister"
 import Login from "./components/Login"
 import { PreLogin } from './components/PreLogin';
 import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
@@ -28,6 +29,14 @@ function App() {
 						</ProtectedRoute>
 					}
 				></Route>
+				<Route
+					path="/preregister"
+					element={
+						<ProtectedRoute accessBy="non-authenticated">
+							<PreRegister />
+						</ProtectedRoute>
+					}>
+				</Route>
 				<Route
 					path="/register"
 					element={

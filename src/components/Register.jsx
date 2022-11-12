@@ -13,7 +13,7 @@ export const Register = () => {
 
 	const handleBack = event => {
 		event.preventDefault();
-		navigate('/');
+		navigate('/preregister');
 	};
 
 	function goForward() {
