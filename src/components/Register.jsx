@@ -1,10 +1,14 @@
 import './styles/loginRegistration.css';
+import './styles/register.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import {useState} from 'react';
 import backArrow from '../assets/icons/backArrow.png';
 import forwardArrow from '../assets/icons/forwardArrow.png';
 
+
 export const Register = () => {
+	
 	const navigate = useNavigate();
 
 	const handleBack = event => {
@@ -26,6 +30,8 @@ export const Register = () => {
 		console.log(data);
 		goForward();
 	};
+
+   	const [setDate] = useState();
 
 	return (
 		<div>
@@ -75,7 +81,8 @@ export const Register = () => {
 					<div className='space10px'></div>
 					<input
 						className='textField'
-						type='text'
+						type='date'
+						onChange={e=>setDate(e.target.value)} 
 						placeholder='Fecha de nacimiento'
 						{...register('birthday', {
 							required: true,
@@ -148,7 +155,7 @@ export const Register = () => {
 					<span className='spaceLeft'>
 						<button className='forwardArrow' title='Continuar' type='submit'>
 							<img src={forwardArrow} />
-						</button>
+							</button>
 					</span>
 				</form>
 			</div>

@@ -11,7 +11,7 @@ function App() {
 	return (
 		<AuthContextProvider>
 			<Routes>
-				<Route path="/" element={<PreLogin />}></Route>
+				<Route path="/" element={<PreLogin/>}></Route>
 				<Route
 					path="/login"
 					element={

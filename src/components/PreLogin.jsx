@@ -1,13 +1,14 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './styles/preLogin.css';
 
 export const PreLogin = () => {
 	const navigate = useNavigate();
 
-	const handleSubmit = (event) => {
+	const handleSubmit = event => {
 		event.preventDefault();
 		navigate('/login');
 	};
+
 	return (
 		<div className='preLoginBase'>
 			<h1 className='uniDriveTittle'> Uni-Drive</h1>
@@ -24,9 +25,9 @@ export const PreLogin = () => {
 			</div>
 
 			<footer className='preloginFooter'>
-				<a className='tienesCuenta'>¿No tienes una cuenta?</a>
+				<label className='tienesCuenta'>¿No tienes una cuenta?</label>
 				<Link to="/register">
-					<a className='registrate'>Registrate</a>
+					<label className='registrate'>Registrate</label>
 				</Link>
 			</footer>
 		</div>

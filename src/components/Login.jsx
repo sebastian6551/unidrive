@@ -20,7 +20,8 @@ function Login() {
 		formState: { errors },
 	} = useForm();
 
-	const onSubmit = data => {
+	const loginSubmit = data => {
+		console.log(data);
 		login(data);
 	};
 
@@ -35,7 +36,7 @@ function Login() {
 			<div className='space30px'></div>
 			<h1 className='login-tittle'>Inicia sesión</h1>
 			<div className='space10px'></div>
-			<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
+			<form className='loginForm' onSubmit={handleSubmit(loginSubmit)}>
 				<input
 					className='textField'
 					type='email'
