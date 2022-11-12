@@ -1,12 +1,18 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { createContext } from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import './styles/preLogin.css';
 
+
+export const TypeUser = createContext('admin');
+
 export const PreLogin = () => {
+
 	const navigate = useNavigate();
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		navigate('/login');
+		TypeUser.Provider = event.target.value;
+		navigate("/login");
 	};
 
 	return (
@@ -16,10 +22,16 @@ export const PreLogin = () => {
 				¡Hola!, selecciona tu tipo de cuenta:
 			</h2>
 			<div>
-				<button className='buttonPasajero' onClick={handleSubmit}>
+				<button
+					className='buttonPasajero'
+					onClick={handleSubmit}
+					value={'bidder'}>
 					Pasajero{' '}
 				</button>
-				<button className='buttonOfertante' onClick={handleSubmit}>
+				<button
+					className='buttonOfertante'
+					onClick={handleSubmit}
+					value={'rider'}>
 					Ofertante{' '}
 				</button>
 			</div>

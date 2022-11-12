@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import backArrow from '../assets/icons/backArrow.png';
+import {TypeUser} from "./PreLogin.jsx";
 
 function Login() {
 	const { login } = useContext(AuthContext);
@@ -21,8 +22,8 @@ function Login() {
 	} = useForm();
 
 	const loginSubmit = data => {
-		console.log(data);
-		login(data);
+		const user = TypeUser.Provider;
+		login(data,user);
 	};
 
 	return (
