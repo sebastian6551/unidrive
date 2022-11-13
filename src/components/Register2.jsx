@@ -2,15 +2,19 @@ import './styles/loginRegistration.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { UserContext } from "../pages/Singup"
+import { useContext } from 'react';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';
+import RegisterServices from "../services/registerServices"
 
 export const Register2 = () => {
 	const navigate = useNavigate();
-
+	const { prevStep, userData, typeUser } = useContext(UserContext);
+	const createBidder = RegisterServices.createBidder;
 	const handleBack = event => {
 		event.preventDefault();
-		navigate('/register');
+		prevStep();
 	};
 
 	const formSchema = Yup.object().shape({
@@ -32,8 +36,20 @@ export const Register2 = () => {
 		formState: { errors },
 	} = useForm(formOptions);
 
+
 	const onSubmit = data => {
-		console.log(data);
+		userData.password = data.password;
+		JSON.stringify(userData);
+		const user = JSON.parse(JSON.stringify(userData,
+			["firstName", "lastName", "email", "password", "birthDate", "number"]));
+		createBidder(user, typeUser)
+			.then(res => {
+				if (res.status === 201) {
+					navigate("/");
+				} else if (res.status === 409) {
+					console.log("Ya existe un conductor con ese email registrado");
+				}
+			})
 	};
 
 	return (

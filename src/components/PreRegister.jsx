@@ -1,8 +1,18 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 import './styles/preRegister.css';
+import { UserContext } from "../pages/Singup"
+import { useContext } from 'react';
 
 export const PreRegister = () => {
+	const { SetTypeUser, nextStep } = useContext(UserContext);
+
+
+	const handleClick = event => {
+		event.preventDefault();
+		SetTypeUser(event.target.value);
+		nextStep()
+	}
+
 	return (
 		<Container maxWidth='md'>
 			<Box
@@ -35,23 +45,23 @@ export const PreRegister = () => {
 				>
 					Selecciona tu tipo de cuenta
 				</Typography>
-				<Link to="/register">
 					<Button
-						sx={{
-							marginTop: 6,
-							borderRadius: 10,
-							width: 293,
-							fontFamily: 'Jost',
-							fontStyle: 'normal',
-							fontWeight: 400,
-							background: '#EFD8F5',
-							color: '#111111',
-						}}
-						variant='contained'
-					>
-						Pasajero
-					</Button>
-				</Link>
+					onClick={handleClick}
+					value={'bidder'}
+					sx={{
+						marginTop: 6,
+						borderRadius: 10,
+						width: 293,
+						fontFamily: 'Jost',
+						fontStyle: 'normal',
+						fontWeight: 400,
+						background: '#EFD8F5',
+						color: '#111111',
+					}}
+					variant='contained'
+				>
+					Pasajero
+				</Button>
 				<Typography
 					padding={1}
 					textAlign='center'
@@ -64,24 +74,23 @@ export const PreRegister = () => {
 				>
 					PIDE, separa y organiza tus viajes
 				</Typography>
-
-				<Link to="/register">
 					<Button
-						sx={{
-							marginTop: 6,
-							borderRadius: 10,
-							width: 293,
-							fontFamily: 'Jost',
-							fontStyle: 'normal',
-							fontWeight: 400,
-							background: '#E7C1F2',
-							color: '#111111',
-						}}
-						variant='contained'
-					>
-						Conductor
-					</Button>
-				</Link>
+					onClick={handleClick}
+					value={'rider'}
+					sx={{
+						marginTop: 6,
+						borderRadius: 10,
+						width: 293,
+						fontFamily: 'Jost',
+						fontStyle: 'normal',
+						fontWeight: 400,
+						background: '#E7C1F2',
+						color: '#111111',
+					}}
+					variant='contained'
+				>
+					Conductor
+				</Button>
 				<Typography
 					padding={1}
 					textAlign='center'

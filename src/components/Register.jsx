@@ -1,23 +1,22 @@
 import './styles/loginRegistration.css';
 import './styles/register.css';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import {useState} from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from "../pages/Singup"
 import backArrow from '../assets/icons/backArrow.png';
 import forwardArrow from '../assets/icons/forwardArrow.png';
 
 
 export const Register = () => {
-	
-	const navigate = useNavigate();
+	const { nextStep, prevStep, handleChange } = useContext(UserContext);
 
 	const handleBack = event => {
 		event.preventDefault();
-		navigate('/preregister');
+		prevStep();
 	};
 
 	function goForward() {
-		navigate('/register2');
+		nextStep();
 	}
 
 	const {
@@ -27,7 +26,7 @@ export const Register = () => {
 	} = useForm();
 
 	const onSubmit = data => {
-		console.log(data);
+		handleChange(data)
 		goForward();
 	};
 
@@ -49,13 +48,13 @@ export const Register = () => {
 						className='textField'
 						type='text'
 						placeholder='Nombre'
-						{...register('name', {
+						{...register('firstName', {
 							required: true,
 							maxLength: 20,
 						})}
 					/>
 					<span id='error' className='errorMessage'>
-						{errors.name?.type === 'required' && (
+						{errors.firstName?.type === 'required' && (
 							<small>
 								<br></br>El campo no puede estar vacío.
 							</small>
@@ -66,13 +65,13 @@ export const Register = () => {
 						className='textField'
 						type='text'
 						placeholder='Apellido'
-						{...register('lname', {
+						{...register('lastName', {
 							required: true,
 							maxLength: 20,
 						})}
 					/>
 					<span id='error' className='errorMessage'>
-						{errors.lname?.type === 'required' && (
+						{errors.lastName?.type === 'required' && (
 							<small>
 								<br></br>El campo no puede estar vacío.
 							</small>
@@ -84,12 +83,12 @@ export const Register = () => {
 						type='date'
 						onChange={e=>setDate(e.target.value)} 
 						placeholder='Fecha de nacimiento'
-						{...register('birthday', {
+						{...register('birthDate', {
 							required: true,
 						})}
 					/>
 					<span id='error' className='errorMessage'>
-						{errors.birthday?.type === 'required' && (
+						{errors.birthDate?.type === 'required' && (
 							<small>
 								<br></br>El campo no puede estar vacío.
 							</small>
@@ -100,14 +99,14 @@ export const Register = () => {
 						className='textField'
 						type='number'
 						placeholder='Celular'
-						{...register('phoneNumber', {
+						{...register('number', {
 							required: true,
 							minLength: 10,
 							maxLength: 10,
 						})}
 					/>
 					<span id='error' className='errorMessage'>
-						{errors.phoneNumber && (
+						{errors.number && (
 							<small>
 								<br></br>Ingrese un celular válido.
 							</small>
