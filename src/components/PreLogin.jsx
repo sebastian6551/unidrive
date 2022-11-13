@@ -38,7 +38,7 @@ export const PreLogin = () => {
 
 			<footer className='preloginFooter'>
 				<label className='tienesCuenta'>¿No tienes una cuenta?</label>
-				<Link to="/preregister">
+				<Link to="/SingUp">
 					<label className='registrate'>Registrate</label>
 				</Link>
 			</footer>

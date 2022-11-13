@@ -1,14 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { DashBoard } from "./components/DashBoard";
-import { Register } from "./components/Register"
-import { Register2 } from "./components/Register2"
-import { PreRegister } from "./components/PreRegister"
+import { SingUp } from "./pages/Singup"
 import Login from "./components/Login"
 import { PreLogin } from './components/PreLogin';
 import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
 import { AuthContextProvider } from "./services/AuthContext";
 import {HomeBidder} from "./pages/HomeBidder";
 import {HomeRider} from "./pages/HomeRider";
+import { PreRegister } from "./components/PreRegister";
 
 function App() {
 	return (
@@ -48,26 +47,12 @@ function App() {
 					}
 				></Route>
 				<Route
-					path="/preregister"
+					path="/SingUp"
 					element={
 						<ProtectedRoute accessBy="non-authenticated">
-							<PreRegister />
-						</ProtectedRoute>
-					}>
-				</Route>
-				<Route
-					path="/register"
-					element={
-						<ProtectedRoute accessBy="non-authenticated">
-							<Register />
-						</ProtectedRoute>
-					}>
-				</Route>
-				<Route
-					path="/register2"
-					element={
-						<ProtectedRoute accessBy="non-authenticated">
-							<Register2 />
+							<SingUp>
+								<PreRegister />
+							</SingUp>
 						</ProtectedRoute>
 					}>
 				</Route>
