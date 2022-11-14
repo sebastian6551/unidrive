@@ -2,24 +2,28 @@ import './styles/loginRegistration.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { UserContext } from '../pages/Singup';
+import { useContext } from 'react';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';
+import RegisterServices from '../services/registerServices';
 
-function RegistrationPage3() {
+export const Register2 = () => {
 	const navigate = useNavigate();
-
+	const { prevStep, userData, typeUser } = useContext(UserContext);
+	const createBidder = RegisterServices.createBidder;
 	const handleBack = event => {
 		event.preventDefault();
-		navigate('/');
+		prevStep();
 	};
 
 	const formSchema = Yup.object().shape({
 		password: Yup.string()
-			.required('Completa el campo.')
-			.min(8, 'Ingresa al menos 8 caracteres.'),
-		confirmPassword: Yup.string()
-            // .string().marches(regex)
-            .oneOf(
+			.required()
+			.matches(
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/
+			),
+		confirmPassword: Yup.string().oneOf(
 			[Yup.ref('password')],
 			'Las contraseñas no coinciden.'
 		),
@@ -36,14 +40,35 @@ function RegistrationPage3() {
 	} = useForm(formOptions);
 
 	const onSubmit = data => {
-		console.log(data);
+		userData.password = data.password;
+		JSON.stringify(userData);
+		const user = JSON.parse(
+			JSON.stringify(userData, [
+				'firstName',
+				'lastName',
+				'email',
+				'password',
+				'birthDate',
+				'number',
+			])
+		);
+		createBidder(user, typeUser).then(res => {
+			if (res.status === 201) {
+				navigate('/');
+			} else if (res.status === 409) {
+				console.log('Ya existe un conductor con ese email registrado');
+			}
+		});
 	};
 
 	return (
 		<div>
-			<button className='backArrow' title='Volver' onClick={handleBack}>
-				<img src={backArrow} />
-			</button>
+			<div className='space10px'></div>
+			<span className='spaceRight'>
+				<button className='backArrow' title='Volver' onClick={handleBack}>
+					<img src={backArrow} />
+				</button>
+			</span>
 			<div className='space100px'></div>
 			<h2 className='createAPasswordCaption'>
 				Por último, crea una contraseña segura:
@@ -75,17 +100,28 @@ function RegistrationPage3() {
 				<div className='space16px'></div>
 				<span id='error' className='errorMessage'>
 					<span>
-						{errors.password?.message}
-						<br></br>
+						{errors.password?.type === 'required' && (
+							<small>
+								Completa el campo.
+								<br></br>
+							</small>
+						)}
+						{errors.password?.type === 'matches' && (
+							<small>
+								<br></br>Ingresa entre 8 a 15 caracteres y al menos
+								<br></br>una letra mayúscula, una minúscula, un número y un
+								caracter especial.
+								<br></br>No ingreses espacios en blanco.
+								<br></br>
+							</small>
+						)}
 					</span>
 					<span>
-						{errors.confirmPassword?.message}
+						<small>{errors.confirmPassword?.message}</small>
 						<br></br>
 					</span>
 				</span>
 			</form>
 		</div>
 	);
-}
-
-export default RegistrationPage3;
+};

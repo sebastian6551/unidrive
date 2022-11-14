@@ -1,13 +1,12 @@
 import './styles/loginRegistration.css';
 import AuthContext from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import backArrow from '../assets/icons/backArrow.png';
+import {TypeUser} from "./PreLogin.jsx";
 
 function Login() {
-	const email = useRef('');
-	const password = useRef('');
 	const { login } = useContext(AuthContext);
 	const navigate = useNavigate();
 
@@ -16,41 +15,32 @@ function Login() {
 		navigate('/');
 	};
 
-	const loginSubmit = async event => {
-		event.preventDefault();
-		console.log(email.current.value);
-		console.log(password.current.value);
-		const data = {
-			email: email.current.value,
-			password: password.current.value,
-		};
-		await login(data);
-	};
-
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
 
-	const onSubmit = data => {
-		console.log(data);
-		login(data);
+	const loginSubmit = data => {
+		const user = TypeUser.Provider;
+		login(data,user);
 	};
 
 	return (
 		<div>
-			<button className='backArrow' title='Volver' onClick={handleBack}>
-				<img src={backArrow} />
-			</button>
-			<div className='space100px'></div>
+			<div className='space10px'></div>
+			<span className='spaceRight'>
+				<button className='backArrow' title='Volver' onClick={handleBack}>
+					<img src={backArrow} />
+				</button>
+			</span>
+			<div className='space30px'></div>
 			<h1 className='login-tittle'>Inicia sesión</h1>
 			<div className='space10px'></div>
-			<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
+			<form className='loginForm' onSubmit={handleSubmit(loginSubmit)}>
 				<input
 					className='textField'
 					type='email'
-					ref={email}
 					{...register('email', {
 						required: true,
 					})}
@@ -60,7 +50,6 @@ function Login() {
 				<input
 					className='textField'
 					type='password'
-					ref={password}
 					{...register('password', {
 						required: true,
 					})}

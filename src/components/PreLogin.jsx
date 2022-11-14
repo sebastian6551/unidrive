@@ -1,31 +1,46 @@
-import { useNavigate } from 'react-router-dom';
+import { createContext } from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import './styles/preLogin.css';
 
+
+export const TypeUser = createContext('admin');
+
 export const PreLogin = () => {
+
 	const navigate = useNavigate();
 
-	const handleSubmit = (event) => {
+	const handleSubmit = event => {
 		event.preventDefault();
-		navigate('/login');
+		TypeUser.Provider = event.target.value;
+		navigate("/login");
 	};
+
 	return (
-		<div className='base'>
+		<div className='preLoginBase'>
 			<h1 className='uniDriveTittle'> Uni-Drive</h1>
 			<h2 className='selectAccountCaption'>
 				¡Hola!, selecciona tu tipo de cuenta:
 			</h2>
 			<div>
-				<button className='buttonPasajero' onClick={handleSubmit}>
+				<button
+					className='buttonPasajero'
+					onClick={handleSubmit}
+					value={'bidder'}>
 					Pasajero{' '}
 				</button>
-				<button className='buttonOfertante' onClick={handleSubmit}>
+				<button
+					className='buttonOfertante'
+					onClick={handleSubmit}
+					value={'rider'}>
 					Ofertante{' '}
 				</button>
 			</div>
 
 			<footer className='preloginFooter'>
-				<a className='tienesCuenta'>¿No tienes una cuenta?</a>
-				<a className='registrate'>Registrate</a>
+				<label className='tienesCuenta'>¿No tienes una cuenta?</label>
+				<Link to="/SingUp">
+					<label className='registrate'>Registrate</label>
+				</Link>
 			</footer>
 		</div>
 	);

@@ -23,8 +23,8 @@ export const AuthContextProvider = ({ children }) => {
      * @param {String} type
      * @returns json
      */
-    const login = async (data) => {
-        const comp = "admin" + "/login";
+    const login = async (data, typeUser) => {
+        const comp = typeUser + "/login";
         return await fetch(baseUrl + comp, {
             method: 'POST',
             mode: 'cors',
@@ -41,7 +41,7 @@ export const AuthContextProvider = ({ children }) => {
                 if (res.jwt) {
                     localStorage.setItem("token", res.jwt)
                     setToken(res.jwt)
-                    navigate("/dash")
+                    navigate("/"+typeUser)
                 }
             })
     };

@@ -1,21 +1,25 @@
 import { Route, Routes } from "react-router-dom";
 import { DashBoard } from "./components/DashBoard";
+import { SingUp } from "./pages/Singup"
 import Login from "./components/Login"
 import { PreLogin } from './components/PreLogin';
 import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
 import { AuthContextProvider } from "./services/AuthContext";
+import {HomeBidder} from "./pages/HomeBidder";
+import {HomeRider} from "./pages/HomeRider";
+import { PreRegister } from "./components/PreRegister";
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Routes>
-				<Route path="/" element={<PreLogin />}></Route>
+				<Route path="/" element={<PreLogin/>}></Route>
 				<Route
 					path="/login"
 					element={
-						<ProtectedRoute accessBy="non-authenticated">
-							<Login />
-						</ProtectedRoute>
+					<ProtectedRoute accessBy="non-authenticated">
+						<Login />
+					</ProtectedRoute>
 					}
 				></Route>
 				<Route
@@ -26,6 +30,32 @@ function App() {
 						</ProtectedRoute>
 					}
 				></Route>
+				<Route
+					path="/rider"
+					element={
+						<ProtectedRoute accessBy="authenticated">
+							<HomeRider />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path="/bidder"
+					element={
+						<ProtectedRoute accessBy="authenticated">
+							<HomeBidder />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path="/SingUp"
+					element={
+						<ProtectedRoute accessBy="non-authenticated">
+							<SingUp>
+								<PreRegister />
+							</SingUp>
+						</ProtectedRoute>
+					}>
+				</Route>
 			</Routes >
 		</AuthContextProvider>
 	);
