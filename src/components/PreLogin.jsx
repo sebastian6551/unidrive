@@ -25,14 +25,14 @@ export const PreLogin = () => {
 				<button
 					className='buttonPasajero'
 					onClick={handleSubmit}
-					value={'bidder'}>
+					value={'rider'}>
 					Pasajero{' '}
 				</button>
 				<button
 					className='buttonOfertante'
 					onClick={handleSubmit}
-					value={'rider'}>
-					Ofertante{' '}
+					value={'bidder'}>
+					Conductor{' '}
 				</button>
 			</div>
 

@@ -21,7 +21,7 @@ export const Register2 = () => {
 		password: Yup.string()
 			.required()
 			.matches(
-				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_-]{8,15}$/
 			),
 		confirmPassword: Yup.string().oneOf(
 			[Yup.ref('password')],

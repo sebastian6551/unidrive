@@ -47,7 +47,7 @@ export const PreRegister = () => {
 				</Typography>
 					<Button
 					onClick={handleClick}
-					value={'bidder'}
+					value={'rider'}
 					sx={{
 						marginTop: 6,
 						borderRadius: 10,
@@ -76,7 +76,7 @@ export const PreRegister = () => {
 				</Typography>
 					<Button
 					onClick={handleClick}
-					value={'rider'}
+					value={'bidder'}
 					sx={{
 						marginTop: 6,
 						borderRadius: 10,
