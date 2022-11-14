@@ -195,7 +195,7 @@ export const RegisterVehicle = () => {
 						{errors.password?.type === 'matches' && (
 							<small>
 								<br></br>Ingresa entre 8 a 15 caracteres y al menos
-								<br></br>una letra mayúscula, una minúscula, un dígito y un
+								<br></br>una letra mayúscula, una minúscula, un número y un
 								caracter especial.
 								<br></br>No ingreses espacios en blanco.
 								<br></br>
