@@ -2,10 +2,9 @@ import './styles/loginRegistration.css';
 import './styles/register.css';
 import { useForm } from 'react-hook-form';
 import { useState, useContext } from 'react';
-import { UserContext } from "../pages/Singup"
+import { UserContext } from '../pages/Singup';
 import backArrow from '../assets/icons/backArrow.png';
 import forwardArrow from '../assets/icons/forwardArrow.png';
-
 
 export const Register = () => {
 	const { nextStep, prevStep, handleChange } = useContext(UserContext);
@@ -26,11 +25,11 @@ export const Register = () => {
 	} = useForm();
 
 	const onSubmit = data => {
-		handleChange(data)
+		handleChange(data);
 		goForward();
 	};
 
-   	const [setDate] = useState();
+	const [setDate] = useState();
 
 	return (
 		<div>
@@ -81,7 +80,7 @@ export const Register = () => {
 					<input
 						className='textField'
 						type='date'
-						onChange={e=>setDate(e.target.value)} 
+						onChange={e => setDate(e.target.value)}
 						placeholder='Fecha de nacimiento'
 						{...register('birthDate', {
 							required: true,
@@ -108,7 +107,7 @@ export const Register = () => {
 					<span id='error' className='errorMessage'>
 						{errors.number && (
 							<small>
-								<br></br>Ingrese un celular válido.
+								<br></br>Ingresa un celular válido.
 							</small>
 						)}
 					</span>
@@ -124,7 +123,7 @@ export const Register = () => {
 					<span id='error' className='errorMessage'>
 						{errors.email?.type === 'required' && (
 							<small>
-								<br></br>Ingrese un correo válido.
+								<br></br>Ingresa un correo válido.
 							</small>
 						)}
 					</span>
@@ -146,7 +145,7 @@ export const Register = () => {
 					<span id='error' className='errorMessage'>
 						{errors.residenceCity && (
 							<small>
-								<br></br>Seleccione una ciudad.
+								<br></br>Selecciona una ciudad.
 							</small>
 						)}
 					</span>
@@ -154,7 +153,7 @@ export const Register = () => {
 					<span className='spaceLeft'>
 						<button className='forwardArrow' title='Continuar' type='submit'>
 							<img src={forwardArrow} />
-							</button>
+						</button>
 					</span>
 				</form>
 			</div>
