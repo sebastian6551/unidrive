@@ -79,6 +79,24 @@ export const Register = () => {
 					<div className='space10px'></div>
 					<input
 						className='textField'
+						type='number'
+						placeholder='Número de identificación'
+						{...register('document', {
+							required: true,
+							minLength: 10,
+							maxLength: 10,
+						})}
+					/>
+					<span id='error' className='errorMessage'>
+						{errors.document && (
+							<small>
+								<br></br>Ingresa un número de identificación valido.
+							</small>
+						)}
+					</span>
+					<div className='space10px'></div>
+					<input
+						className='textField'
 						type='date'
 						onChange={e => setDate(e.target.value)}
 						placeholder='Fecha de nacimiento'

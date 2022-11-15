@@ -7,7 +7,6 @@ import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
 import { AuthContextProvider } from "./services/AuthContext";
 import {HomeBidder} from "./pages/HomeBidder";
 import {HomeRider} from "./pages/HomeRider";
-import { PreRegister } from "./components/PreRegister";
 
 function App() {
 	return (
