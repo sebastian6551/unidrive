@@ -56,7 +56,7 @@ export const Register2 = () => {
 			if (res.status === 201) {
 				navigate('/');
 			} else if (res.status === 409) {
-				console.log('Ya existe un conductor con ese email registrado');
+				alert('Ya existe un conductor con ese email registrado');
 			}
 		});
 	};

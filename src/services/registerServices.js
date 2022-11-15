@@ -20,9 +20,9 @@ const createUser = async (data, typeUser) => {
 };
 
 const createVehicle = async (email) => {
-    await fetch(baseUrl + "/rider/getuser", {
+    await fetch(baseUrl + "bidder/getuser", {
         method: 'POST',
-        mode: 'cors',
+        mode: 'no-cors',
         cache: 'default',
         credentials: 'same-origin',
         headers: {

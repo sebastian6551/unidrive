@@ -71,9 +71,8 @@ export const RegisterVehicle = () => {
 		createUser(user, typeUser).then(res => {
 			if (res.status === 201) {
 				createVehicle(userData.email);
-				navigate('/');
 			} else if (res.status === 409) {
-				console.log('Ya existe un conductor con ese email registrado');
+				alert('Ya existe un conductor con ese email registrado');
 			}
 		});
 	};
