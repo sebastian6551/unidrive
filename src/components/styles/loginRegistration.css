@@ -5,11 +5,15 @@
 	background: none;
 }
 
+.space2vh {
+	padding: 2vh;
+}
+
 .login-tittle {
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
 	font-weight: 700;
-	font-size: 40px;
+	font-size: 2em;
 	text-align: center;
 	color: #111111;
 }
@@ -20,8 +24,12 @@
 
 .textField {
 	box-sizing: border-box;
-	width: 293px;
-	height: 49px;
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
 	background: #e8eef5;
 	border: 1px solid #e8eef5;
 	border-radius: 10px;
@@ -29,7 +37,7 @@
 	font-family: 'Jost', sans-serif;
 	padding: 20px;
 	font-style: normal;
-	font-size: 15px;
+	font-size: 0.9375em;
 	color: #111111;
 }
 
@@ -39,8 +47,12 @@
 
 .logInButton {
 	box-sizing: border-box;
-	width: 293px;
-	height: 49px;
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
 	background: #2645e5;
 	border: 1px solid #2645e5;
 	border-radius: 10px;
@@ -48,8 +60,8 @@
 
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
+	font-weight: 600;
+	font-size: 0.9375em;
 	text-align: center;
 	color: #ffffff;
 }
@@ -62,27 +74,27 @@
 .errorMessage {
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
-	font-size: 15px;
+	font-size: 0.9375em;
 	color: #9f0000;
 }
 
 .space100px {
-	padding: 100px;
+	padding: 10vh;
 }
 
 .space10px {
-	padding: 10px;
+	padding: 9px;
 }
 
 .space16px {
-	padding: 16px;
+	padding: 14.4px;
 }
 
 .createAPasswordCaption {
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 15px;
+	font-size: 0.9375em;
 	text-align: center;
 	color: #111111;
 }
@@ -97,8 +109,12 @@
 
 .selectButtonRegister {
 	box-sizing: border-box;
-	width: 293px;
-	height: 49px;
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
 	background: #e8eef5;
 	border: 1px solid #e8eef5;
 	border-radius: 10px;
@@ -108,16 +124,16 @@
 
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
-	font-size: 15px;
+	font-size: 0.9375em;
 	color: #111111;
 }
 
 .spaceLeft {
-	padding-left: 240px;
+	padding-left: 17vw;
 }
 
 .spaceRight {
-	padding-right: 240px;
+	padding-right: 17vw;
 }
 
 .forwardArrow {
@@ -132,7 +148,17 @@
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 15px;
+	font-size: 0.9375em;
 	text-align: center;
 	color: #111111;
+}
+
+@media (max-width: 1200px) {
+	.spaceLeft {
+		padding-left: 230px;
+	}
+
+	.spaceRight {
+		padding-right: 240px;
+	}
 }

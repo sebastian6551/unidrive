@@ -28,13 +28,13 @@ function Login() {
 
 	return (
 		<div>
-			<div className='space10px'></div>
+			<div className='space2vh'></div>
 			<span className='spaceRight'>
 				<button className='backArrow' title='Volver' onClick={handleBack}>
 					<img src={backArrow} />
 				</button>
 			</span>
-			<div className='space30px'></div>
+			<div className='space100px'></div>
 			<h1 className='login-tittle'>Inicia sesión</h1>
 			<div className='space10px'></div>
 			<form className='loginForm' onSubmit={handleSubmit(loginSubmit)}>

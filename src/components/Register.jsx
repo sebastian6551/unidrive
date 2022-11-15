@@ -40,6 +40,7 @@ export const Register = () => {
 				</button>
 			</span>
 			<div>
+				<div className='space10px'></div>
 				<h1 className='login-tittle'> Regístrate </h1>
 				<div className='space10px'></div>
 				<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>

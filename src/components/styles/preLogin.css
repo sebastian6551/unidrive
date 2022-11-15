@@ -1,7 +1,7 @@
 .preLoginBase {
 	position: relative;
 	width: 360px;
-	height: 800px;
+	height: 500px;
 
 	background: #ffffff;
 	border-radius: 10px;
@@ -11,13 +11,13 @@
 	position: absolute;
 	width: 221px;
 	height: 42px;
-	left: calc(50% - 221px / 2 - 0.5px);
+	left: calc(50% - 205px / 2 - 0.5px);
 	top: calc(50% - 42px / 2 - 162px);
 
 	font-family: 'Urbanist';
 	font-style: normal;
 	font-weight: 900;
-	font-size: 50px;
+	font-size: 45px;
 	line-height: 60px;
 	display: flex;
 	align-items: center;
@@ -45,10 +45,10 @@
 
 .buttonPasajero {
 	position: absolute;
-	width: 293px;
-	height: 49px;
-	left: 33px;
-	top: 403px;
+	width: 263.7px;
+	height: 44.1px;
+	left: 44px;
+	top: 253px;
 
 	background: #efd8f5;
 	border-radius: 10px;
@@ -58,7 +58,7 @@
 	font-family: 'Jost';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 1.125em;
 	line-height: 26px;
 	align-items: center;
 	text-align: center;
@@ -72,10 +72,10 @@
 
 .buttonOfertante {
 	position: absolute;
-	width: 293px;
-	height: 49px;
-	left: 33px;
-	top: 483px;
+	width: 263.7px;
+	height: 44.1px;
+	left: 44px;
+	top: 333px;
 
 	background: #e7c1f2;
 	border-radius: 10px;
@@ -85,7 +85,7 @@
 	font-family: 'Jost';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 1.125em;
 	line-height: 26px;
 	align-items: center;
 	text-align: center;
