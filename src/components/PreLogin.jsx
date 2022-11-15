@@ -16,20 +16,26 @@ export const PreLogin = () => {
 	};
 
 	return (
-		<div className='preLoginBase'>
+		<div>
+			<div className='space10vh'></div>
 			<h1 className='uniDriveTittle'> Uni-Drive</h1>
+			<div className='space9px'></div>
 			<h2 className='selectAccountCaption'>
 				¡Hola!, selecciona tu tipo de cuenta:
 			</h2>
+			<div className='space9px'></div>
 			<div>
 				<button
-					className='buttonPasajero'
+					className='buttonPassenger'
+					title='Pasajero'
 					onClick={handleSubmit}
 					value={'rider'}>
 					Pasajero{' '}
 				</button>
+				<div className='space9px'></div>
 				<button
-					className='buttonOfertante'
+					className='buttonDriver'
+					title='Conductor'
 					onClick={handleSubmit}
 					value={'bidder'}>
 					Conductor{' '}
@@ -37,9 +43,9 @@ export const PreLogin = () => {
 			</div>
 
 			<footer className='preloginFooter'>
-				<label className='tienesCuenta'>¿No tienes una cuenta?</label>
+				<label className='haveAnAccount'>¿No tienes una cuenta?</label>
 				<Link to="/SingUp">
-					<label className='registrate'>Registrate</label>
+					<button className='signUp' title='Regístrate'>Registrate</button>
 				</Link>
 			</footer>
 		</div>

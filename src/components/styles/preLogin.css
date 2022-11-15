@@ -1,55 +1,36 @@
-.preLoginBase {
-	position: relative;
-	width: 360px;
-	height: 500px;
-
-	background: #ffffff;
-	border-radius: 10px;
-}
-
 .uniDriveTittle {
-	position: absolute;
-	width: 221px;
-	height: 42px;
-	left: calc(50% - 205px / 2 - 0.5px);
-	top: calc(50% - 42px / 2 - 162px);
-
 	font-family: 'Urbanist';
 	font-style: normal;
 	font-weight: 900;
-	font-size: 45px;
-	line-height: 60px;
-	display: flex;
-	align-items: center;
+	font-size: 2.8125em;
+	text-align: center;
 	color: #111111;
+}
+
+.space10vh {
+	padding: 10vh;
+}
+
+.space9px {
+	padding: 9px;
 }
 
 .selectAccountCaption {
-	position: absolute;
-	width: 277px;
-	height: 49px;
-	left: calc(50% - 277px / 2 - 0.5px);
-	top: calc(50% - 49px / 2 - 52.5px);
-
 	font-family: 'Jost';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
-	line-height: 26px;
-	display: flex;
-	align-items: center;
+	font-size: 0.9375rem;
 	text-align: center;
-
 	color: #111111;
 }
 
-.buttonPasajero {
-	position: absolute;
-	width: 263.7px;
-	height: 44.1px;
-	left: 44px;
-	top: 253px;
-
+.buttonPassenger {
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
 	background: #efd8f5;
 	border-radius: 10px;
 	border: 1px solid #efd8f5;
@@ -59,24 +40,23 @@
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1.125em;
-	line-height: 26px;
 	align-items: center;
 	text-align: center;
 	color: #111111;
 }
 
-.buttonPasajero:hover {
+.buttonPassenger:hover {
 	background: #bdabc2;
 	border: 1px solid #bdabc2;
 }
 
-.buttonOfertante {
-	position: absolute;
-	width: 263.7px;
-	height: 44.1px;
-	left: 44px;
-	top: 333px;
-
+.buttonDriver {
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
 	background: #e7c1f2;
 	border-radius: 10px;
 	border: 1px solid #e7c1f2;
@@ -86,13 +66,12 @@
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1.125em;
-	line-height: 26px;
 	align-items: center;
 	text-align: center;
 	color: #111111;
 }
 
-.buttonOfertante:hover {
+.buttonDriver:hover {
 	background: #b698bf;
 	border: 1px solid #b698bf;
 }
@@ -101,32 +80,48 @@
 	font-family: 'Jost';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 15px;
-	line-height: 22px;
-	display: flex;
+	font-size: 0.9375em;
 	align-items: center;
 	text-align: center;
+	padding-top: 100px;
 }
 
-.tienesCuenta {
-	position: absolute;
-	width: 152px;
-	height: 49px;
-	left: calc(50% - 144px / 2 - 75px);
-	top: calc(50% - 49px / 2 + 313.5px);
+.haveAnAccount {
+	text-align: center;
+	padding-right: 40px;
 	color: #111111;
 }
 
-.registrate {
-	position: absolute;
-	width: 75px;
-	height: 49px;
-	left: calc(50% - 75px / 2 + 96.5px);
-	top: calc(50% - 49px / 2 + 313.5px);
+.signUp {
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
 	color: #e50914;
 	cursor: pointer;
+	background: none;
+	background: none;
+	border: none;
 }
 
-.registrate:hover {
+.signUp:hover {
 	color: #98050d;
+}
+
+@media (max-width: 1200px) {
+	.haveAnAccount {
+		padding-right: 70px;
+	}
+}
+
+@media (max-width: 900px) {
+	.haveAnAccount {
+		padding-right: 90px;
+	}
+}
+
+@media (max-width: 600px) {
+	.haveAnAccount {
+		padding-right: 120px;
+	}
 }
