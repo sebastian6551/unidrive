@@ -72,17 +72,17 @@ export const RegisterVehicle = () => {
 				'typeVehicle',
 				'brandVehicle',
 				'colorVehicle',
-				'yearVehicle'
+				'yearVehicle',
 			])
 		);
 		createUser(user, typeUser).then(res => {
 			if (res.status === 201) {
-				alert('Usuario y vehiculo registrado con exito')
+				alert('Usuario y vehiculo registrado con exito');
 				navigate('/');
 			} else if (res.status === 409) {
 				alert('Ya existe un usuario con ese email registrado');
 			} else {
-				alert(res.json())
+				alert(res.json());
 			}
 		});
 	};
@@ -99,7 +99,11 @@ export const RegisterVehicle = () => {
 			<h2 className='addAVehicleCaption'>Añade los datos de tu vehículo:</h2>
 			<div className='space9px'></div>
 			<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
-				<select className='selectButtonRegister' {...register('typeVehicle')}>
+				<select
+					className='selectButtonRegister'
+					title='Tipo de vehículo'
+					{...register('typeVehicle')}
+				>
 					<option hidden selected value='noVehicle'>
 						Tipo de vehículo
 					</option>
@@ -113,7 +117,11 @@ export const RegisterVehicle = () => {
 					</small>
 				</span>
 				<div className='space9px'></div>
-				<select className='selectButtonRegister' {...register('colorVehicle')}>
+				<select
+					className='selectButtonRegister'
+					title='Color'
+					{...register('colorVehicle')}
+				>
 					<option hidden selected value='noColor'>
 						Color
 					</option>
@@ -133,6 +141,7 @@ export const RegisterVehicle = () => {
 				<div className='space9px'></div>
 				<input
 					className='textField'
+					title='Placa'
 					type='text'
 					placeholder='Placa'
 					{...register('plate')}
@@ -146,6 +155,7 @@ export const RegisterVehicle = () => {
 				<div className='space9px'></div>
 				<input
 					className='textField'
+					title='Marca'
 					type='text'
 					placeholder='Marca'
 					{...register('brandVehicle')}
@@ -159,6 +169,7 @@ export const RegisterVehicle = () => {
 				<div className='space9px'></div>
 				<input
 					className='textField'
+					title='Modelo'
 					type='number'
 					placeholder='Modelo'
 					{...register('yearVehicle')}
@@ -176,6 +187,7 @@ export const RegisterVehicle = () => {
 				<div className='space9px'></div>
 				<input
 					className='textField'
+					title='Contraseña'
 					type='password'
 					placeholder='Contraseña'
 					{...register('password')}
@@ -183,6 +195,7 @@ export const RegisterVehicle = () => {
 				<div className='space9px'></div>
 				<input
 					className='textField'
+					title='Confirmar contraseña'
 					type='password'
 					placeholder='Confirmar contraseña'
 					{...register('confirmPassword')}
