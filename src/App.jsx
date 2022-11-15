@@ -50,9 +50,7 @@ function App() {
 					path="/SingUp"
 					element={
 						<ProtectedRoute accessBy="non-authenticated">
-							<SingUp>
-								<PreRegister />
-							</SingUp>
+							<SingUp />								
 						</ProtectedRoute>
 					}>
 				</Route>

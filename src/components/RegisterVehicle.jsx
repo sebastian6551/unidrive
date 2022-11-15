@@ -11,7 +11,8 @@ import RegisterServices from '../services/registerServices';
 export const RegisterVehicle = () => {
 	const navigate = useNavigate();
 	const { prevStep, userData, typeUser } = useContext(UserContext);
-	const createBidder = RegisterServices.createBidder;
+	const createUser = RegisterServices.createUser;
+	const createVehicle = RegisterServices.createVehicle;
 	const handleBack = event => {
 		event.preventDefault();
 		prevStep();
@@ -36,7 +37,7 @@ export const RegisterVehicle = () => {
 		password: Yup.string()
 			.required()
 			.matches(
-				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_-]{8,15}$/
 			),
 		confirmPassword: Yup.string().oneOf(
 			[Yup.ref('password')],
@@ -67,8 +68,9 @@ export const RegisterVehicle = () => {
 				'number',
 			])
 		);
-		createBidder(user, typeUser).then(res => {
+		createUser(user, typeUser).then(res => {
 			if (res.status === 201) {
+				createVehicle(userData.email);
 				navigate('/');
 			} else if (res.status === 409) {
 				console.log('Ya existe un conductor con ese email registrado');

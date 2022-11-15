@@ -11,7 +11,7 @@ import RegisterServices from '../services/registerServices';
 export const Register2 = () => {
 	const navigate = useNavigate();
 	const { prevStep, userData, typeUser } = useContext(UserContext);
-	const createBidder = RegisterServices.createBidder;
+	const createUser = RegisterServices.createUser;
 	const handleBack = event => {
 		event.preventDefault();
 		prevStep();
@@ -52,7 +52,7 @@ export const Register2 = () => {
 				'number',
 			])
 		);
-		createBidder(user, typeUser).then(res => {
+		createUser(user, typeUser).then(res => {
 			if (res.status === 201) {
 				navigate('/');
 			} else if (res.status === 409) {

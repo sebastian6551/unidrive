@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3000/";
 
-const createBidder = async (data, typeUser) => {
+const createUser = async (data, typeUser) => {
 
     const comp = typeUser + "/create";
     console.log(baseUrl + comp)
@@ -19,8 +19,27 @@ const createBidder = async (data, typeUser) => {
     })
 };
 
+const createVehicle = async (email) => {
+    await fetch(baseUrl + "/rider/getuser", {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'default',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(email)
+    })
+    .then(res => {
+        if(res.status === 201) {
+            alert("cracion vehiculo ok")
+        }
+    })
+}
+
 const RegisterServices = {
-    createBidder
+    createUser,
+    createVehicle
 }
 
 export default RegisterServices;
