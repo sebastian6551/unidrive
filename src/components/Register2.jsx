@@ -41,6 +41,7 @@ export const Register2 = () => {
 
 	const onSubmit = data => {
 		userData.password = data.password;
+		console.log("register2:" + userData);
 		JSON.stringify(userData);
 		const user = JSON.parse(
 			JSON.stringify(userData, [
@@ -50,13 +51,15 @@ export const Register2 = () => {
 				'password',
 				'birthDate',
 				'number',
+				'document'
 			])
 		);
 		createUser(user, typeUser).then(res => {
 			if (res.status === 201) {
+				alert('Usuario creado con exito')
 				navigate('/');
 			} else if (res.status === 409) {
-				alert('Ya existe un conductor con ese email registrado');
+				alert('Ya existe un usuario con ese email registrado');
 			}
 		});
 	};

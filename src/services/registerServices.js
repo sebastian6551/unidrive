@@ -19,27 +19,8 @@ const createUser = async (data, typeUser) => {
     })
 };
 
-const createVehicle = async (email) => {
-    await fetch(baseUrl + "bidder/getuser", {
-        method: 'POST',
-        mode: 'no-cors',
-        cache: 'default',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(email)
-    })
-    .then(res => {
-        if(res.status === 201) {
-            alert("cracion vehiculo ok")
-        }
-    })
-}
-
 const RegisterServices = {
-    createUser,
-    createVehicle
+    createUser
 }
 
 export default RegisterServices;

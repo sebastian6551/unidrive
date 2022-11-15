@@ -12,25 +12,24 @@ export const RegisterVehicle = () => {
 	const navigate = useNavigate();
 	const { prevStep, userData, typeUser } = useContext(UserContext);
 	const createUser = RegisterServices.createUser;
-	const createVehicle = RegisterServices.createVehicle;
 	const handleBack = event => {
 		event.preventDefault();
 		prevStep();
 	};
 
 	const formSchema = Yup.object().shape({
-		vehicle: Yup.string()
+		typeVehicle: Yup.string()
 			.required()
 			.notOneOf(['noVehicle'], 'Selecciona un tipo de vehículo.'),
-		color: Yup.string()
+		colorVehicle: Yup.string()
 			.required()
 			.notOneOf(['noColor'], 'Selecciona un color.'),
 		plate: Yup.string()
 			.required('Completa el campo.')
 			.min(6, 'La placa debe ser de 6 caracteres.')
 			.max(6, 'La placa debe ser de 6 caracteres.'),
-		brand: Yup.string().required('Completa el campo.'),
-		model: Yup.string()
+		brandVehicle: Yup.string().required('Completa el campo.'),
+		yearVehicle: Yup.string()
 			.required('Completa el campo.')
 			.min(4, 'Ingrese un año válido')
 			.max(4, 'Ingrese un año válido'),
@@ -56,23 +55,34 @@ export const RegisterVehicle = () => {
 	} = useForm(formOptions);
 
 	const onSubmit = data => {
-		userData.password = data.password;
-		JSON.stringify(userData);
+		data.available = 1;
+		const fullData = Object.assign(userData, data);
+		JSON.stringify(fullData);
 		const user = JSON.parse(
-			JSON.stringify(userData, [
+			JSON.stringify(fullData, [
 				'firstName',
 				'lastName',
 				'email',
 				'password',
 				'birthDate',
 				'number',
+				'document',
+				'plate',
+				'available',
+				'typeVehicle',
+				'brandVehicle',
+				'colorVehicle',
+				'yearVehicle'
 			])
 		);
 		createUser(user, typeUser).then(res => {
 			if (res.status === 201) {
-				createVehicle(userData.email);
+				alert('Usuario y vehiculo registrado con exito')
+				navigate('/');
 			} else if (res.status === 409) {
-				alert('Ya existe un conductor con ese email registrado');
+				alert('Ya existe un usuario con ese email registrado');
+			} else {
+				alert(res.json())
 			}
 		});
 	};
@@ -89,7 +99,7 @@ export const RegisterVehicle = () => {
 			<h2 className='addAVehicleCaption'>Añade los datos de tu vehículo:</h2>
 			<div className='space10px'></div>
 			<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
-				<select className='selectButtonRegister' {...register('vehicle')}>
+				<select className='selectButtonRegister' {...register('typeVehicle')}>
 					<option hidden selected value='noVehicle'>
 						Tipo de vehículo
 					</option>
@@ -99,11 +109,11 @@ export const RegisterVehicle = () => {
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.vehicle?.message}
+						{errors.typeVehicle?.message}
 					</small>
 				</span>
 				<div className='space10px'></div>
-				<select className='selectButtonRegister' {...register('color')}>
+				<select className='selectButtonRegister' {...register('colorVehicle')}>
 					<option hidden selected value='noColor'>
 						Color
 					</option>
@@ -117,7 +127,7 @@ export const RegisterVehicle = () => {
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.color?.message}
+						{errors.colorVehicle?.message}
 					</small>
 				</span>
 				<div className='space10px'></div>
@@ -138,12 +148,12 @@ export const RegisterVehicle = () => {
 					className='textField'
 					type='text'
 					placeholder='Marca'
-					{...register('brand')}
+					{...register('brandVehicle')}
 				/>
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.brand?.message}
+						{errors.brandVehicle?.message}
 					</small>
 				</span>
 				<div className='space10px'></div>
@@ -151,12 +161,12 @@ export const RegisterVehicle = () => {
 					className='textField'
 					type='number'
 					placeholder='Modelo'
-					{...register('model')}
+					{...register('yearVehicle')}
 				/>
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.model?.message}
+						{errors.yearVehicle?.message}
 					</small>
 				</span>
 				<div className='space10px'></div>
