@@ -10,7 +10,7 @@ export const HomeRider = () => {
             <div>
                 <h1> Rider </h1>
             </div>
-            <div className='spaceForEmailPasswordAndLogInButton'></div>
+            <div className='space9px'></div>
             <input
                 title='Logout'
                 className='logInButton'
@@ -18,7 +18,7 @@ export const HomeRider = () => {
                 value='Logout'
                 onClick={logout}
             />
-            <div className='spaceForEmailPasswordAndLogInButton'></div>
+            <div className='space9px'></div>
         </div>
     );
 };

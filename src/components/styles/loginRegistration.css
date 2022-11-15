@@ -78,16 +78,49 @@
 	color: #9f0000;
 }
 
-.space100px {
+.space10vh {
 	padding: 10vh;
 }
 
-.space10px {
+.space9px {
 	padding: 9px;
 }
 
-.space16px {
+.space14px {
 	padding: 14.4px;
+}
+
+.dateOfBirthInput {
+	background: #e8eef5;
+	border: 1px solid #e8eef5;
+	border-radius: 10px;
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	color: #111111;
+	border: 1px solid #e8eef5;
+}
+
+.dateOfBirthDiv {
+	margin: 0px auto;
+	text-align: center;
+	box-sizing: border-box;
+	width: 60.5vw;
+	height: 60px;
+	min-width: 180px;
+	max-width: 263.7px;
+	background: #e8eef5;
+	border: 1px solid #e8eef5;
+	border-radius: 10px;
+	text-align: left;
+	padding-top: 10px;
+	padding-left: 20px;
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	color: #111111;
 }
 
 .createAPasswordCaption {

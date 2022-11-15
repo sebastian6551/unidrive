@@ -89,15 +89,15 @@ export const RegisterVehicle = () => {
 
 	return (
 		<div>
-			<div className='space10px'></div>
+			<div className='space2vh'></div>
 			<span className='spaceRight'>
 				<button className='backArrow' title='Volver' onClick={handleBack}>
 					<img src={backArrow} />
 				</button>
 			</span>
-			<div className='space10px'></div>
+			<div className='space9px'></div>
 			<h2 className='addAVehicleCaption'>Añade los datos de tu vehículo:</h2>
-			<div className='space10px'></div>
+			<div className='space9px'></div>
 			<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
 				<select className='selectButtonRegister' {...register('typeVehicle')}>
 					<option hidden selected value='noVehicle'>
@@ -112,7 +112,7 @@ export const RegisterVehicle = () => {
 						{errors.typeVehicle?.message}
 					</small>
 				</span>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<select className='selectButtonRegister' {...register('colorVehicle')}>
 					<option hidden selected value='noColor'>
 						Color
@@ -130,7 +130,7 @@ export const RegisterVehicle = () => {
 						{errors.colorVehicle?.message}
 					</small>
 				</span>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<input
 					className='textField'
 					type='text'
@@ -143,7 +143,7 @@ export const RegisterVehicle = () => {
 						{errors.plate?.message}
 					</small>
 				</span>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<input
 					className='textField'
 					type='text'
@@ -156,7 +156,7 @@ export const RegisterVehicle = () => {
 						{errors.brandVehicle?.message}
 					</small>
 				</span>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<input
 					className='textField'
 					type='number'
@@ -169,18 +169,18 @@ export const RegisterVehicle = () => {
 						{errors.yearVehicle?.message}
 					</small>
 				</span>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<h2 className='createAPasswordCaption'>
 					Por último, crea una contraseña segura:
 				</h2>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<input
 					className='textField'
 					type='password'
 					placeholder='Contraseña'
 					{...register('password')}
 				/>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<input
 					className='textField'
 					type='password'
@@ -194,7 +194,7 @@ export const RegisterVehicle = () => {
 					type='submit'
 					value='Crear cuenta'
 				/>
-				<div className='space16px'></div>
+				<div className='space14px'></div>
 				<span id='error' className='errorMessage'>
 					<span>
 						{errors.password?.type === 'required' && (

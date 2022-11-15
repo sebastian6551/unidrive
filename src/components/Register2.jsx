@@ -66,28 +66,30 @@ export const Register2 = () => {
 
 	return (
 		<div>
-			<div className='space10px'></div>
+			<div className='space2vh'></div>
 			<span className='spaceRight'>
 				<button className='backArrow' title='Volver' onClick={handleBack}>
 					<img src={backArrow} />
 				</button>
 			</span>
-			<div className='space100px'></div>
+			<div className='space10vh'></div>
 			<h2 className='createAPasswordCaption'>
 				Por último, crea una contraseña segura:
 			</h2>
-			<div className='space10px'></div>
+			<div className='space9px'></div>
 			<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
 				<input
 					className='textField'
+					title='Contraseña'
 					name='password'
 					type='password'
 					{...register('password')}
 					placeholder='Contraseña'
 				/>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<input
 					className='textField'
+					title='Confirmar contraseña'
 					name='confirmPassword'
 					type='password'
 					{...register('confirmPassword')}
@@ -100,7 +102,7 @@ export const Register2 = () => {
 					type='submit'
 					value='Crear cuenta'
 				/>
-				<div className='space16px'></div>
+				<div className='space14px'></div>
 				<span id='error' className='errorMessage'>
 					<span>
 						{errors.password?.type === 'required' && (

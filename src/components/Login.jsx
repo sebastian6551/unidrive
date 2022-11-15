@@ -34,35 +34,37 @@ function Login() {
 					<img src={backArrow} />
 				</button>
 			</span>
-			<div className='space100px'></div>
+			<div className='space10vh'></div>
 			<h1 className='login-tittle'>Inicia sesión</h1>
 			<div className='space10px'></div>
 			<form className='loginForm' onSubmit={handleSubmit(loginSubmit)}>
 				<input
 					className='textField'
+					title='Correo electrónico'
 					type='email'
 					{...register('email', {
 						required: true,
 					})}
 					placeholder='Correo electrónico'
 				/>
-				<div className='space16px'></div>
+				<div className='space14px'></div>
 				<input
 					className='textField'
+					title='Contraseña'
 					type='password'
 					{...register('password', {
 						required: true,
 					})}
 					placeholder='Contraseña'
 				/>
-				<div className='space16px'></div>
+				<div className='space14px'></div>
 				<input
 					title='Iniciar sesión'
 					className='logInButton'
 					type='submit'
 					value='Iniciar sesión'
 				/>
-				<div className='space16px'></div>
+				<div className='space14px'></div>
 				<span id='error' className='errorMessage'>
 					{errors.email && (
 						<span>

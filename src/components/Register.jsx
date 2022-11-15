@@ -33,19 +33,20 @@ export const Register = () => {
 
 	return (
 		<div>
-			<div className='space10px'></div>
+			<div className='space2vh'></div>
 			<span className='spaceRight'>
 				<button className='backArrow' title='Volver' onClick={handleBack}>
 					<img src={backArrow} />
 				</button>
 			</span>
 			<div>
-				<div className='space10px'></div>
+				<div className='space9px'></div>
 				<h1 className='login-tittle'> Regístrate </h1>
 				<div className='space10px'></div>
 				<form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
 					<input
 						className='textField'
+						title='Nombre'
 						type='text'
 						placeholder='Nombre'
 						{...register('firstName', {
@@ -60,9 +61,10 @@ export const Register = () => {
 							</small>
 						)}
 					</span>
-					<div className='space10px'></div>
+					<div className='space9px'></div>
 					<input
 						className='textField'
+						title='Apellido'
 						type='text'
 						placeholder='Apellido'
 						{...register('lastName', {
@@ -77,9 +79,10 @@ export const Register = () => {
 							</small>
 						)}
 					</span>
-					<div className='space10px'></div>
+					<div className='space9px'></div>
 					<input
 						className='textField'
+						title='Número de identificación'
 						type='number'
 						placeholder='Número de identificación'
 						{...register('document', {
@@ -95,16 +98,21 @@ export const Register = () => {
 							</small>
 						)}
 					</span>
-					<div className='space10px'></div>
-					<input
-						className='textField'
-						type='date'
-						onChange={e => setDate(e.target.value)}
-						placeholder='Fecha de nacimiento'
-						{...register('birthDate', {
-							required: true,
-						})}
-					/>
+					<div className='space9px'></div>
+					<div className='dateOfBirthDiv'>
+						<label title='Fecha de nacimiento'>Fecha de nacimiento</label>
+						<br></br>
+						<input
+							className='dateOfBirthInput'
+							title='Fecha de nacimiento'
+							type='date'
+							onChange={e => setDate(e.target.value)}
+							placeholder='Fecha de nacimiento'
+							{...register('birthDate', {
+								required: true,
+							})}
+						/>
+					</div>
 					<span id='error' className='errorMessage'>
 						{errors.birthDate?.type === 'required' && (
 							<small>
@@ -112,9 +120,10 @@ export const Register = () => {
 							</small>
 						)}
 					</span>
-					<div className='space10px'></div>
+					<div className='space9px'></div>
 					<input
 						className='textField'
+						title='Celular'
 						type='number'
 						placeholder='Celular'
 						{...register('number', {
@@ -130,9 +139,10 @@ export const Register = () => {
 							</small>
 						)}
 					</span>
-					<div className='space10px'></div>
+					<div className='space9px'></div>
 					<input
 						className='textField'
+						title='Correo institucional'
 						placeholder='Correo institucional'
 						type='email'
 						{...register('email', {
@@ -146,9 +156,10 @@ export const Register = () => {
 							</small>
 						)}
 					</span>
-					<div className='space10px'></div>
+					<div className='space9px'></div>
 					<select
 						className='selectButtonRegister'
+						title='Ciudad de residencia'
 						{...register('residenceCity', {
 							required: true,
 							validate: value => value !== 'noCity',
