@@ -107,7 +107,6 @@ export const Register = () => {
 							title='Fecha de nacimiento'
 							type='date'
 							onChange={e => setDate(e.target.value)}
-							placeholder='Fecha de nacimiento'
 							{...register('birthDate', {
 								required: true,
 							})}
