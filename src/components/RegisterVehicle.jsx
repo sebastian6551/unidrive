@@ -29,10 +29,11 @@ export const RegisterVehicle = () => {
 			.min(6, 'La placa debe ser de 6 caracteres.')
 			.max(6, 'La placa debe ser de 6 caracteres.'),
 		brandVehicle: Yup.string().required('Completa el campo.'),
-		yearVehicle: Yup.string()
+		available: Yup.number()
 			.required('Completa el campo.')
-			.min(4, 'Ingrese un año válido')
-			.max(4, 'Ingrese un año válido'),
+			.min(1, 'Los cupos deben ser entre 1 y 4.')
+			.max(4, 'Los cupos deben ser entre 1 y 4.'),
+		yearVehicle: Yup.string().required('Completa el campo.'),
 		password: Yup.string()
 			.required()
 			.matches(
@@ -55,9 +56,11 @@ export const RegisterVehicle = () => {
 	} = useForm(formOptions);
 
 	const onSubmit = data => {
-		data.available = 1;
+		data.brandVehicle = Number(data.brandVehicle);
+		data.colorVehicle = Number(data.colorVehicle);
+		data.typeVehicle = Number(data.typeVehicle);
+		data.yearVehicle = Number(data.yearVehicle);
 		const fullData = Object.assign(userData, data);
-		JSON.stringify(fullData);
 		const user = JSON.parse(
 			JSON.stringify(fullData, [
 				'firstName',
@@ -80,9 +83,10 @@ export const RegisterVehicle = () => {
 				alert('Usuario y vehiculo registrado con exito');
 				navigate('/');
 			} else if (res.status === 409) {
-				alert('Ya existe un usuario con ese email registrado');
+				const req = res.json();
+				req.then(errors => alert(errors.errors));
 			} else {
-				alert(res.json());
+				console.log(res)
 			}
 		});
 	};
@@ -107,8 +111,8 @@ export const RegisterVehicle = () => {
 					<option hidden selected value='noVehicle'>
 						Tipo de vehículo
 					</option>
-					<option value='carro'>Carro</option>
-					<option value='moto'>Moto</option>
+					<option value={1}>Carro</option>
+					<option value={2}>Moto</option>
 				</select>
 				<span id='error' className='errorMessage'>
 					<small>
@@ -125,12 +129,12 @@ export const RegisterVehicle = () => {
 					<option hidden selected value='noColor'>
 						Color
 					</option>
-					<option value='azul'>Azul</option>
-					<option value='blanco'>Blanco</option>
-					<option value='dorado'>Dorado</option>
-					<option value='gris'>Gris</option>
-					<option value='negro'>Negro</option>
-					<option value='rojo'>Rojo</option>
+					<option value={1}>Azul</option>
+					<option value={2}>Blanco</option>
+					<option value={3}>Amarillo</option>
+					<option value={4}>Gris</option>
+					<option value={5}>Negro</option>
+					<option value={6}>Rojo</option>
 				</select>
 				<span id='error' className='errorMessage'>
 					<small>
@@ -153,13 +157,21 @@ export const RegisterVehicle = () => {
 					</small>
 				</span>
 				<div className='space9px'></div>
-				<input
-					className='textField'
+				<select
+					className='selectButtonRegister'
 					title='Marca'
-					type='text'
-					placeholder='Marca'
 					{...register('brandVehicle')}
-				/>
+				>
+					<option hidden selected value='noVehicle'>
+						Marca
+					</option>
+					<option value={1}>Tesla</option>
+					<option value={2}>Hyundai</option>
+					<option value={3}>Chevrolet</option>
+					<option value={4}>Honda</option>
+					<option value={5}>Suzuki</option>
+					<option value={6}>Yamaha</option>
+				</select>
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
@@ -167,17 +179,34 @@ export const RegisterVehicle = () => {
 					</small>
 				</span>
 				<div className='space9px'></div>
+				<select
+					className='selectButtonRegister'
+					title='Modelo'
+					{...register('yearVehicle')}
+				>
+					<option hidden selected value='noVehicle'>
+						Modelo
+					</option>
+					<option value={1}>2021</option>
+					<option value={2}>2020</option>
+					<option value={3}>2019</option>
+					<option value={4}>2018</option>
+					<option value={5}>2017</option>
+					<option value={6}>2016</option>
+					<option value={7}>2015</option>
+				</select>
+				<div className='space9px'></div>
 				<input
 					className='textField'
-					title='Modelo'
+					title='Cupos'
 					type='number'
-					placeholder='Modelo'
-					{...register('yearVehicle')}
+					placeholder='Cupos'
+					{...register('available')}
 				/>
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.yearVehicle?.message}
+						{errors.available?.message}
 					</small>
 				</span>
 				<div className='space9px'></div>

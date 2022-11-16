@@ -2,22 +2,24 @@ import '../components/styles/preLogin.css'
 import '../components/styles/loginRegistration.css';
 import AuthContext from "../services/AuthContext.jsx";
 import {useContext} from "react";
+import logOutArrow from '../assets/icons/logOutArrow.png';
 
-export const HomeBidder = () => {
+export const HomeRider = () => {
     const { logout } = useContext(AuthContext);
     return (
         <div className='base'>
             <div>
-                <h1> Bidder </h1>
+                <h1> !Hola Victor! </h1>
             </div>
             <div className='space9px'></div>
-            <input
+            <button
                 title='Logout'
-                className='logInButton'
+                className='backArrow'
                 type='submit'
-                value='Logout'
                 onClick={logout}
-            />
+            >
+                <img src={logOutArrow} />
+                </button>
             <div className='space9px'></div>
         </div>
     );

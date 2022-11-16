@@ -59,7 +59,8 @@ export const Register2 = () => {
 				alert('Usuario creado con exito')
 				navigate('/');
 			} else if (res.status === 409) {
-				alert('Ya existe un usuario con ese email registrado');
+				const req = res.json()
+				req.then(errors => alert(errors.errors));
 			}
 		});
 	};

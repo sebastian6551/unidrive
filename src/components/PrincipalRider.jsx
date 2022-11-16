@@ -4,7 +4,7 @@ import './styles/principalBidder.css';
 import {Box, Grid} from '@mui/material';
 import './styles/loginRegistration.css';
 
-export const PrincipalBidder = () => {
+export const PrincipalRider = () => {
   return (
     <div>
         <h1 className="h1Style">Hola Carlos!</h1>

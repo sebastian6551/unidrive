@@ -2,10 +2,12 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import './styles/preRegister.css';
 import { UserContext } from '../pages/Singup';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import backArrow from '../assets/icons/backArrow.png';
 
 export const PreRegister = () => {
-	const { SetTypeUser, prevStep, nextStep } = useContext(UserContext);
+	const { SetTypeUser, nextStep } = useContext(UserContext);
+	const navigate = useNavigate();
 
 	const handleClick = event => {
 		event.preventDefault();
@@ -15,7 +17,7 @@ export const PreRegister = () => {
 
 	const handleBack = event => {
 		event.preventDefault();
-		prevStep();
+		navigate("/")
 	};
 
 	return (
