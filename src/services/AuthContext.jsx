@@ -37,11 +37,12 @@ export const AuthContextProvider = ({ children }) => {
         })
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 if (res.jwt) {
                     localStorage.setItem("token", res.jwt)
                     setToken(res.jwt)
                     navigate("/"+typeUser)
+                } else {
+                    alert(res.errors)
                 }
             })
     };
