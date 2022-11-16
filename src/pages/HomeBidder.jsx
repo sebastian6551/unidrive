@@ -4,7 +4,7 @@ import AuthContext from "../services/AuthContext.jsx";
 import {useContext} from "react";
 import logOutArrow from '../assets/icons/logOutArrow.png';
 
-export const HomeRider = () => {
+export const HomeBidder = () => {
     const { logout } = useContext(AuthContext);
     return (
         <div className='base'>
