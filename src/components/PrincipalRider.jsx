@@ -3,13 +3,18 @@ import { AppBarComponent } from "./AppBarComponent";
 import './styles/principalBidder.css';
 import {Box, Grid} from '@mui/material';
 import './styles/loginRegistration.css';
+import AuthContext from "../services/AuthContext";
+import {useContext} from "react";
 
 export const PrincipalRider = () => {
+  const { logout } = useContext(AuthContext);
   return (
     <div>
         <h1 className="h1Style">Hola Carlos!</h1>
         
-        <button className="searchTravelButton">
+        <button 
+          className="searchTravelButton"
+          onClick={logout}>
           Buscar Viaje
         </button>
 
