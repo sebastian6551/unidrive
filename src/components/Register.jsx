@@ -7,10 +7,11 @@ import backArrow from '../assets/icons/backArrow.png';
 import forwardArrow from '../assets/icons/forwardArrow.png';
 
 export const Register = () => {
-	const { nextStep, prevStep, handleChange } = useContext(UserContext);
+	const { nextStep, prevStep, handleChange, userData } = useContext(UserContext);
 
 	const handleBack = event => {
 		event.preventDefault();
+		handleChange({})
 		prevStep();
 	};
 
@@ -48,6 +49,7 @@ export const Register = () => {
 						className='textField'
 						title='Nombre'
 						type='text'
+						value={userData ? userData.firstName : ''}
 						placeholder='Nombre'
 						{...register('firstName', {
 							required: true,
@@ -66,6 +68,7 @@ export const Register = () => {
 						className='textField'
 						title='Apellido'
 						type='text'
+						value={userData ? userData.lastName : ''}
 						placeholder='Apellido'
 						{...register('lastName', {
 							required: true,
@@ -84,6 +87,7 @@ export const Register = () => {
 						className='textField'
 						title='Número de identificación'
 						type='number'
+						value={userData ? userData.document : ''}
 						placeholder='Número de identificación'
 						{...register('document', {
 							required: true,
@@ -106,6 +110,7 @@ export const Register = () => {
 							className='dateOfBirthInput'
 							title='Fecha de nacimiento'
 							type='date'
+							value={userData ? userData.birthDate : ''}
 							onChange={e => setDate(e.target.value)}
 							{...register('birthDate', {
 								required: true,
@@ -124,6 +129,7 @@ export const Register = () => {
 						className='textField'
 						title='Celular'
 						type='number'
+						value={userData ? userData.number : ''}
 						placeholder='Celular'
 						{...register('number', {
 							required: true,
@@ -142,6 +148,7 @@ export const Register = () => {
 					<input
 						className='textField'
 						title='Correo institucional'
+						value={userData ? userData.email : ''}
 						placeholder='Correo institucional'
 						type='email'
 						{...register('email', {
@@ -159,7 +166,7 @@ export const Register = () => {
 					<select
 						className='selectButtonRegister'
 						title='Ciudad de residencia'
-						defaultValue={'noCity'}
+						defaultValue={userData ? userData.residenceCity : 'noCity'}
 						{...register('residenceCity', {
 							required: true,
 							validate: value => value !== 'noCity',

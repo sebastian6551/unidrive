@@ -12,6 +12,7 @@ export const RegisterVehicle = () => {
 	const navigate = useNavigate();
 	const { prevStep, userData, typeUser } = useContext(UserContext);
 	const createUser = RegisterServices.createUser;
+
 	const handleBack = event => {
 		event.preventDefault();
 		prevStep();
@@ -110,7 +111,7 @@ export const RegisterVehicle = () => {
 				<select
 					className='selectButtonRegister'
 					title='Tipo de vehículo'
-					defaultValue={'noVehicle'}
+					defaultValue={userData ? userData.typeVehicle : 'noVehicle'}
 					{...register('typeVehicle')}
 				>
 					<option defaultValue='noVehicle'>
@@ -214,7 +215,6 @@ export const RegisterVehicle = () => {
 					className='textField'
 					title='Cupos'
 					type='number'
-					value={0}
 					placeholder='Cupos'
 					{...register('available')}
 				/>

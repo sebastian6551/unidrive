@@ -43,7 +43,7 @@ export const SingUp = () => {
         case 2:
             return (
                 <>
-                    <UserContext.Provider value={{ nextStep, prevStep, handleChange }}>
+                    <UserContext.Provider value={{ nextStep, prevStep, handleChange, userData }}>
                         <Register />
                     </UserContext.Provider>
                 </>
