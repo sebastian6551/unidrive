@@ -159,12 +159,14 @@ export const Register = () => {
 					<select
 						className='selectButtonRegister'
 						title='Ciudad de residencia'
+						defaultValue={'noCity'}
 						{...register('residenceCity', {
 							required: true,
 							validate: value => value !== 'noCity',
 						})}
 					>
-						<option hidden selected value='noCity'>
+
+						<option defaultValue='noCity'>
 							Ciudad de residencia
 						</option>
 						<option value='cali'>Cali</option>

@@ -28,12 +28,16 @@ export const RegisterVehicle = () => {
 			.required('Completa el campo.')
 			.min(6, 'La placa debe ser de 6 caracteres.')
 			.max(6, 'La placa debe ser de 6 caracteres.'),
-		brandVehicle: Yup.string().required('Completa el campo.'),
+		brandVehicle: Yup.string()
+			.required()
+			.notOneOf(['noBrand'], 'Selecciona una marca.'),
 		available: Yup.number()
 			.required('Completa el campo.')
 			.min(1, 'Los cupos deben ser entre 1 y 4.')
 			.max(4, 'Los cupos deben ser entre 1 y 4.'),
-		yearVehicle: Yup.string().required('Completa el campo.'),
+		yearVehicle: Yup.string()
+			.required()
+			.notOneOf(['noModel'], 'Selecciona un modelo.'),
 		password: Yup.string()
 			.required()
 			.matches(
@@ -106,9 +110,10 @@ export const RegisterVehicle = () => {
 				<select
 					className='selectButtonRegister'
 					title='Tipo de vehículo'
+					defaultValue={'noVehicle'}
 					{...register('typeVehicle')}
 				>
-					<option hidden selected value='noVehicle'>
+					<option defaultValue='noVehicle'>
 						Tipo de vehículo
 					</option>
 					<option value={1}>Carro</option>
@@ -124,9 +129,10 @@ export const RegisterVehicle = () => {
 				<select
 					className='selectButtonRegister'
 					title='Color'
+					defaultValue={'noColor'}
 					{...register('colorVehicle')}
 				>
-					<option hidden selected value='noColor'>
+					<option defaultValue='noColor'>
 						Color
 					</option>
 					<option value={1}>Azul</option>
@@ -160,9 +166,10 @@ export const RegisterVehicle = () => {
 				<select
 					className='selectButtonRegister'
 					title='Marca'
+					defaultValue={'noBrand'}
 					{...register('brandVehicle')}
 				>
-					<option hidden selected value='noVehicle'>
+					<option defaultValue='noBrand'>
 						Marca
 					</option>
 					<option value={1}>Tesla</option>
@@ -182,9 +189,10 @@ export const RegisterVehicle = () => {
 				<select
 					className='selectButtonRegister'
 					title='Modelo'
+					defaultValue={'noModel'}
 					{...register('yearVehicle')}
 				>
-					<option hidden selected value='noVehicle'>
+					<option defaultValue='noModel'>
 						Modelo
 					</option>
 					<option value={1}>2021</option>
@@ -195,11 +203,18 @@ export const RegisterVehicle = () => {
 					<option value={6}>2016</option>
 					<option value={7}>2015</option>
 				</select>
+				<span id='error' className='errorMessage'>
+					<small>
+						<br></br>
+						{errors.yearVehicle?.message}
+					</small>
+				</span>
 				<div className='space9px'></div>
 				<input
 					className='textField'
 					title='Cupos'
 					type='number'
+					value={0}
 					placeholder='Cupos'
 					{...register('available')}
 				/>
