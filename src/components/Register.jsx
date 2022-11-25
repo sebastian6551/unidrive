@@ -9,9 +9,18 @@ import forwardArrow from '../assets/icons/forwardArrow.png';
 export const Register = () => {
 	const { nextStep, prevStep, handleChange, userData } = useContext(UserContext);
 
+	const [firstName, setFirstName] = useState(userData.firstName ? userData.firstName : '')
+	const [lastName, setLastName] = useState(userData.lastName ? userData.lastName : '')
+	const [document, setDocument] = useState(userData.document ? userData.document : '')
+	const [birthDate, setBirthDate] = useState(userData.birthDate ? userData.birthDate : '')
+	const [number, setNumber] = useState(userData.number ? userData.number : '')
+	const [email, setEmail] = useState(userData.email ? userData.email : '')
+	const [residenceCity, setResidenceCity] = useState(userData.residenceCity ? userData.residenceCity : '')
+
+
 	const handleBack = event => {
 		event.preventDefault();
-		handleChange({})
+		handleChange({});
 		prevStep();
 	};
 
@@ -30,8 +39,6 @@ export const Register = () => {
 		goForward();
 	};
 
-	const [setDate] = useState();
-
 	return (
 		<div>
 			<div className='space2vh'></div>
@@ -49,12 +56,13 @@ export const Register = () => {
 						className='textField'
 						title='Nombre'
 						type='text'
-						value={userData ? userData.firstName : ''}
-						placeholder='Nombre'
+						value={firstName}
+						placeholder={'Nombre'}
 						{...register('firstName', {
 							required: true,
 							maxLength: 20,
 						})}
+						onChange={(e) => { setFirstName(e.target.value) }}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.firstName?.type === 'required' && (
@@ -68,12 +76,13 @@ export const Register = () => {
 						className='textField'
 						title='Apellido'
 						type='text'
-						value={userData ? userData.lastName : ''}
+						value={lastName}
 						placeholder='Apellido'
 						{...register('lastName', {
 							required: true,
 							maxLength: 20,
 						})}
+						onChange={(e) => { setLastName(e.target.value) }}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.lastName?.type === 'required' && (
@@ -87,18 +96,25 @@ export const Register = () => {
 						className='textField'
 						title='Número de identificación'
 						type='number'
-						value={userData ? userData.document : ''}
-						placeholder='Número de identificación'
+						value={document}
+						placeholder={'Número de identificación'}
+						// placeholder={userData.document ? userData.document : 'Número de identificación'}
 						{...register('document', {
 							required: true,
 							minLength: 10,
 							maxLength: 10,
 						})}
+						onChange={(e) => { setDocument(e.target.value) }}
 					/>
 					<span id='error' className='errorMessage'>
-						{errors.document && (
+						{errors.document?.type === 'required' && (
 							<small>
-								<br></br>Ingresa un número de identificación valido.
+								<br></br> Ingresa un número de identificación valido
+							</small>
+						)}
+						{errors.document?.type === 'validate' && (
+							<small>
+								<br></br>Numero de documento ya registrado
 							</small>
 						)}
 					</span>
@@ -110,11 +126,11 @@ export const Register = () => {
 							className='dateOfBirthInput'
 							title='Fecha de nacimiento'
 							type='date'
-							value={userData ? userData.birthDate : ''}
-							onChange={e => setDate(e.target.value)}
+							value={birthDate}
 							{...register('birthDate', {
 								required: true,
 							})}
+							onChange={(e) => { setBirthDate(e.target.value) }}
 						/>
 					</div>
 					<span id='error' className='errorMessage'>
@@ -129,13 +145,14 @@ export const Register = () => {
 						className='textField'
 						title='Celular'
 						type='number'
-						value={userData ? userData.number : ''}
+						value={number}
 						placeholder='Celular'
 						{...register('number', {
 							required: true,
 							minLength: 10,
 							maxLength: 10,
 						})}
+						onChange={(e) => { setNumber(e.target.value) }}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.number && (
@@ -148,29 +165,38 @@ export const Register = () => {
 					<input
 						className='textField'
 						title='Correo institucional'
-						value={userData ? userData.email : ''}
-						placeholder='Correo institucional'
+						placeholder={'Correo institucional'}
+						value={email}
 						type='email'
 						{...register('email', {
 							required: true,
 						})}
+						onChange={(e) => { setEmail(e.target.value) }}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.email?.type === 'required' && (
 							<small>
-								<br></br>Ingresa un correo válido.
+								<br></br>El campo no puede estar vacío
 							</small>
 						)}
+						{errors.email?.type === 'validate' && (
+							<small>
+								<br></br>Correo ya registrado
+							</small>
+						)}
+
+
 					</span>
 					<div className='space9px'></div>
 					<select
 						className='selectButtonRegister'
 						title='Ciudad de residencia'
-						defaultValue={userData ? userData.residenceCity : 'noCity'}
+						value={residenceCity}
 						{...register('residenceCity', {
 							required: true,
 							validate: value => value !== 'noCity',
 						})}
+						onChange={(e) => { setResidenceCity(e.target.value) }}
 					>
 
 						<option defaultValue='noCity'>
