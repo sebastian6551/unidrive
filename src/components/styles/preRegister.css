@@ -1,0 +1,9 @@
+.preRegisterBase {
+	position: relative;
+	width: 360px;
+	height: 800px;
+
+	background: #ffffff;
+	border-radius: 10px;
+}
+

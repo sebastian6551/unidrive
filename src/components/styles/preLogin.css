@@ -1,0 +1,127 @@
+.uniDriveTittle {
+	font-family: 'Urbanist';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 2.8125em;
+	text-align: center;
+	color: #111111;
+}
+
+.space10vh {
+	padding: 10vh;
+}
+
+.space9px {
+	padding: 9px;
+}
+
+.selectAccountCaption {
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375rem;
+	text-align: center;
+	color: #111111;
+}
+
+.buttonPassenger {
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
+	background: #efd8f5;
+	border-radius: 10px;
+	border: 1px solid #efd8f5;
+	cursor: pointer;
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.125em;
+	align-items: center;
+	text-align: center;
+	color: #111111;
+}
+
+.buttonPassenger:hover {
+	background: #bdabc2;
+	border: 1px solid #bdabc2;
+}
+
+.buttonDriver {
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
+	background: #e7c1f2;
+	border-radius: 10px;
+	border: 1px solid #e7c1f2;
+	cursor: pointer;
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.125em;
+	align-items: center;
+	text-align: center;
+	color: #111111;
+}
+
+.buttonDriver:hover {
+	background: #b698bf;
+	border: 1px solid #b698bf;
+}
+
+.preloginFooter {
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	align-items: center;
+	text-align: center;
+	padding-top: 100px;
+}
+
+.haveAnAccount {
+	text-align: center;
+	padding-right: 40px;
+	color: #111111;
+}
+
+.signUp {
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	color: #e50914;
+	cursor: pointer;
+	background: none;
+	background: none;
+	border: none;
+}
+
+.signUp:hover {
+	color: #98050d;
+}
+
+@media (max-width: 1200px) {
+	.haveAnAccount {
+		padding-right: 70px;
+	}
+}
+
+@media (max-width: 900px) {
+	.haveAnAccount {
+		padding-right: 90px;
+	}
+}
+
+@media (max-width: 600px) {
+	.haveAnAccount {
+		padding-right: 120px;
+	}
+}

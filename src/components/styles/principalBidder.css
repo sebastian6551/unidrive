@@ -1,0 +1,96 @@
+.h1Style {
+	width: 305px;
+	height: 42px;
+	left: calc(50% - 305px / 2 - 0.5px);
+	top: calc(50% - 42px / 2 - 342px);
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 38px;
+	display: flex;
+	align-items: center;
+
+	color: #111111;
+}
+
+.h2Style {
+	width: 328px;
+	height: 47px;
+	left: calc(50% - 328px / 2 + 5.5px);
+	top: calc(50% - 47px / 2 - 215px);
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 43px;
+	display: flex;
+	align-items: center;
+
+	color: #ef5702;
+}
+
+.h3Style {
+	width: 251px;
+	height: 42px;
+	left: calc(50% - 251px / 2 - 23px);
+	top: calc(55% - 42px / 2 - 170.5px);
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 26px;
+	display: flex;
+	align-items: center;
+
+	color: #111111;
+}
+
+.h4Style {
+	width: 251px;
+	height: 42px;
+	left: calc(50% - 251px / 2 - 23px);
+	top: calc(50% - 42px / 2 - 8.5px);
+
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 26px;
+	display: flex;
+	align-items: center;
+
+	color: #111111;
+}
+
+.searchTravelButton {
+	width: 305px;
+	height: 49px;
+	left: calc(50% - 305px / 2 - 0.5px);
+	top: calc(60% - 42px / 2 - 342px);
+
+	background: #d83c3e;
+
+	border-radius: 10px;
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 29px;
+	display: flex;
+	align-items: center;
+
+	color: #ffffff;
+}
+
+.cardContainer {
+	width: 333px;
+	height: 513px;
+	left: 14px;
+	top: 190px;
+
+	background: #f9d7b6;
+}

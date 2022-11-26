@@ -1,0 +1,204 @@
+/* Style sheet for login and registration */
+.backArrow {
+	width: 36px;
+	height: 36px;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+
+.logOutArrow{
+	width: 23px;
+height: 23px;
+}
+
+.space2vh {
+	padding: 2vh;
+}
+
+.login-tittle {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2em;
+	text-align: center;
+	color: #111111;
+}
+
+.loginForm {
+	text-align: center;
+}
+
+.textField {
+	box-sizing: border-box;
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
+	background: #e8eef5;
+	border: 1px solid #e8eef5;
+	border-radius: 10px;
+
+	font-family: 'Jost', sans-serif;
+	padding: 20px;
+	font-style: normal;
+	font-size: 0.9375em;
+	color: #111111;
+}
+
+.textField::placeholder {
+	color: #111111;
+}
+
+.logInButton {
+	box-sizing: border-box;
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
+	background: #2645e5;
+	border: 1px solid #2645e5;
+	border-radius: 10px;
+	cursor: pointer;
+
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.9375em;
+	text-align: center;
+	color: #ffffff;
+}
+
+.logInButton:hover {
+	background: #192d98;
+	border: 1px solid #192d98;
+}
+
+.errorMessage {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-size: 0.9375em;
+	color: #9f0000;
+}
+
+.space10vh {
+	padding: 10vh;
+}
+
+.space9px {
+	padding: 9px;
+}
+
+.space14px {
+	padding: 14.4px;
+}
+
+.dateOfBirthInput {
+	background: #e8eef5;
+	border: 1px solid #e8eef5;
+	border-radius: 10px;
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	color: #111111;
+	border: 1px solid #e8eef5;
+}
+
+.dateOfBirthDiv {
+	margin: 0px auto;
+	text-align: center;
+	box-sizing: border-box;
+	width: 60.5vw;
+	height: 60px;
+	min-width: 180px;
+	max-width: 263.7px;
+	background: #e8eef5;
+	border: 1px solid #e8eef5;
+	border-radius: 10px;
+	text-align: left;
+	padding-top: 10px;
+	padding-left: 20px;
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	color: #111111;
+}
+
+.createAPasswordCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	text-align: center;
+	color: #111111;
+}
+
+.space30px {
+	padding: 30px;
+}
+
+.space20px {
+	padding: 20px;
+}
+
+.selectButtonRegister {
+	box-sizing: border-box;
+	width: 60.5vw;
+	height: 10.58711567vw;
+	min-width: 180px;
+	min-height: 30px;
+	max-width: 263.7px;
+	max-height: 44.1px;
+	background: #e8eef5;
+	border: 1px solid #e8eef5;
+	border-radius: 10px;
+	cursor: pointer;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-size: 0.9375em;
+	color: #111111;
+}
+
+.spaceLeft {
+	padding-left: 17vw;
+}
+
+.spaceRight {
+	padding-right: 17vw;
+}
+
+.forwardArrow {
+	width: 36px;
+	height: 36px;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+
+.addAVehicleCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9375em;
+	text-align: center;
+	color: #111111;
+}
+
+@media (max-width: 1200px) {
+	.spaceLeft {
+		padding-left: 230px;
+	}
+
+	.spaceRight {
+		padding-right: 240px;
+	}
+}
