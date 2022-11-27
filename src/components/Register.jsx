@@ -15,7 +15,7 @@ export const Register = () => {
 	const [birthDate, setBirthDate] = useState(userData.birthDate ? userData.birthDate : '')
 	const [number, setNumber] = useState(userData.number ? userData.number : '')
 	const [email, setEmail] = useState(userData.email ? userData.email : '')
-	const [residenceCity, setResidenceCity] = useState(userData.residenceCity ? userData.residenceCity : '')
+	const [city, setCity] = useState(userData.city ? userData.city : '')
 
 
 	const handleBack = event => {
@@ -35,6 +35,7 @@ export const Register = () => {
 	} = useForm();
 
 	const onSubmit = data => {
+		data.city = Number(data.city)
 		handleChange(data);
 		goForward();
 	};
@@ -191,20 +192,20 @@ export const Register = () => {
 					<select
 						className='selectButtonRegister'
 						title='Ciudad de residencia'
-						value={residenceCity}
-						{...register('residenceCity', {
+						value={city}
+						{...register('city', {
 							required: true,
 							validate: value => value !== 'noCity',
 						})}
-						onChange={(e) => { setResidenceCity(e.target.value) }}
+						onChange={(e) => { setCity(e.target.value) }}
 					>
 
 						<option defaultValue='noCity'>
 							Ciudad de residencia
 						</option>
-						<option value='cali'>Cali</option>
-						<option value='jamundi'>Jamundí</option>
-						<option value='palmira'>Palmira</option>
+						<option value={1}>Cali</option>
+						<option value={2}>Jamundí</option>
+						<option value={3}>Palmira</option>
 					</select>
 					<span id='error' className='errorMessage'>
 						{errors.residenceCity && (
