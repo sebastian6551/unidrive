@@ -10,7 +10,7 @@ export const PrincipalDriver = () => {
 	return (
 		<div>
 			<div className='space2vh'></div>
-			<span className='spaceLeft'>
+			<span className='spaceLeftForLogOut'>
 				<button
 					className='logOutArrow'
 					title='Cerrar sesión'
