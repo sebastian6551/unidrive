@@ -2,7 +2,7 @@ import './styles/loginRegistration.css';
 import './styles/register.css';
 import { useForm } from 'react-hook-form';
 import { useState, useContext } from 'react';
-import { UserContext } from '../pages/Singup';
+import { UserContext } from '../services/UserContext'
 import backArrow from '../assets/icons/backArrow.png';
 import forwardArrow from '../assets/icons/forwardArrow.png';
 
