@@ -75,6 +75,7 @@
 	background: #d83c3e;
 
 	border-radius: 10px;
+	border: 1px solid #d83c3e;
 	font-family: 'Jost';
 	font-style: normal;
 	font-weight: 600;
@@ -82,8 +83,13 @@
 	line-height: 29px;
 	display: flex;
 	align-items: center;
-
+	cursor: pointer;
 	color: #ffffff;
+}
+
+.searchTravelButton:hover {
+	background: #ca3739;
+	border: 1px solid #ca3739;
 }
 
 .cardContainer {
