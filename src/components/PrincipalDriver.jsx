@@ -1,5 +1,4 @@
 import './styles/principalDriver.css';
-import './styles/principalBidder.css';
 import AuthContext from '../services/AuthContext';
 import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
@@ -87,7 +86,7 @@ export const PrincipalDriver = () => {
 				</button>
 			</span>
 			<div className='space9px'></div>
-			<button className='searchTravelButton' title='Crear viaje' type='button'>
+			<button className='newTripButton' title='Crear viaje' type='button'>
 				Nuevo viaje +
 			</button>
 			<div className='space9px'></div>
