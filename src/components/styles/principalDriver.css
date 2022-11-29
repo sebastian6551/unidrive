@@ -173,6 +173,22 @@
     display: none;
 }
 
+.redDivDriver {
+	width: 305px;
+	height: 49px;
+	background: #d83c3e;
+	border-radius: 10px;
+	border: 1px solid #d83c3e;
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.125em;
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	padding-left: 10px;
+}
+
 .appBarPosition {
 	max-width: 340px;
 	max-height: 200;
