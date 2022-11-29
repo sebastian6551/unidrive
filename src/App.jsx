@@ -7,13 +7,14 @@ import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
 import { AuthContextProvider } from "./services/AuthContext";
 import {HomeBidder} from "./pages/HomeBidder";
 import {HomeRider} from "./pages/HomeRider";
-import { TravelInformationComponent} from './components/TravelInformationComponent';
+// import { TravelInformationComponent} from './components/TravelInformationComponent';
+import { OpeningPage} from './components/OpeningPage';
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Routes>
-				<Route path="/" element={<TravelInformationComponent typeOfTransport="tipo de transporte"/>}></Route>
+				<Route path="/" element={<OpeningPage/>}></Route>
 				<Route
 					path="/login"
 					element={
