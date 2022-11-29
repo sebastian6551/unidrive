@@ -14,16 +14,133 @@
 	padding: 9px;
 }
 
+.space14px {
+	padding: 14px;
+}
+
 .spaceLeftForLogOut {
 	padding-left: 80vw;
 }
 
-.inCourseContainer{
-	width: 291px;
-	height: 62vh;
-	background: #b3b0b0;
-	border: 1px solid #b3b0b0;
-	border-radius: 5px;
+.inCourseCaptionContainer {
+	width: 302px;
+	height: 4.5em;
+	border-radius: 10px;
+	display: flex;
+}
+
+.inCourseCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 2em;
+	text-align: left;
+	padding-left: 2px;
+	color: #111111;
+}
+
+.noTripInCourseCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 2px;
+	color: #111111;
+}
+
+.inCourseContainer {
+	width: 302px;
+	height: 6.25em;
+	background: #71e17c;
+	border: 1px solid #71e17c;
+	border-radius: 10px;
+
+	font-family: 'Jost';
+	font-style: normal;
+	color: #111111;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.dayCaptionInCourse {
+	font-weight: 600;
+	font-size: 1.6875em;
+}
+
+.hourCaptionInCourse {
+	font-weight: 500;
+	font-size: 1.6875em;
+}
+
+.departureArrivalCaptions {
+	font-weight: 400;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.firstLineInCourse {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.passengersCaptionContainer {
+	width: 302px;
+	height: 4em;
+	border-radius: 10px;
+	display: flex;
+}
+
+.passengersCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.6875em;
+	text-align: left;
+	padding-left: 2px;
+	color: #c60000;
+}
+
+.passengersContainer {
+	width: 302px;
+	height: 3.75em;
+	background: #c7c7c7;
+	border: 1px solid #c7c7c7;
+	border-radius: 10px;
+
+	font-family: 'Jost';
+	font-style: normal;
+	color: #111111;
+
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+}
+
+.pickupCaption {
+	font-weight: 400;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.passengerNameCaption {
+	font-weight: 800;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.passengersBodyContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .appBarPosition {
