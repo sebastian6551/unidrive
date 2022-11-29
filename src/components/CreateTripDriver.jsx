@@ -160,7 +160,7 @@ export const CreateTripDriver = () => {
 				<input
 					className='textFieldCreateTripDriver'
 					title='Punto de partida'
-					type='number'
+					type='text'
 					placeholder='Punto de partida'
 					{...register('startingPoint')}
 				/>
