@@ -56,7 +56,14 @@ export const PrincipalDriver = () => {
 						<label className='passengerNameCaption'>{passengerName}</label>
 						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>
 					</div>
-					<div className='space9px'></div>
+					<div className='passengersContainer'>
+						<label className='passengerNameCaption'>{passengerName}</label>
+						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>
+					</div>
+					<div className='passengersContainer'>
+						<label className='passengerNameCaption'>{passengerName}</label>
+						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>
+					</div>
 					<div className='passengersContainer'>
 						<label className='passengerNameCaption'>{passengerName}</label>
 						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>

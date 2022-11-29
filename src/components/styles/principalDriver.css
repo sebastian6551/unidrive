@@ -138,9 +138,17 @@
 }
 
 .passengersBodyContainer {
+	width: 320px;
+	height: 200px;
 	display: flex;
 	flex-direction: column;
+	gap: 20px;
 	align-items: center;
+	overflow-y:scroll;
+}
+
+.passengersBodyContainer::-webkit-scrollbar {
+    display: none;  /* Ocultar scroll */
 }
 
 .appBarPosition {
