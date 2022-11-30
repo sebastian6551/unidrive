@@ -3,7 +3,7 @@ import { Paper, Typography } from '@mui/material';
 export const RedBoxInterfaceTitleComponent = props => {
 	return (
 		<Paper
-			textAlign='left'
+			
 			sx={{
 				p: 2,
 				margin: 'auto',
@@ -16,8 +16,9 @@ export const RedBoxInterfaceTitleComponent = props => {
 			}}
 		>
 			<Typography
-				textAlign='left'
-				sx={{					
+				
+				sx={{		
+					textAlign: 'left',		
 					fontFamily: 'jost',
 					fontStyle: 'normal',
 					fontSize: 25,

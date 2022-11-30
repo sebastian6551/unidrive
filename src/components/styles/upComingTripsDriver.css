@@ -1,0 +1,54 @@
+.appBarPosition {
+	max-width: 340px;
+	max-height: 200;
+	position: absolute;
+	left: 0;
+	margin: auto;
+	right: 0;
+	bottom: 0px;
+}
+
+.redBoxPosition {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding-left: 10px;
+}
+
+.tripsContainer {
+    width: 320px;
+	height: 77vh;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	overflow-y:scroll;
+    padding-top: 5%;
+}
+
+.tripsContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.appBarPosition{
+    max-width: 340px;
+	max-height: 200;
+	position: absolute;
+	left: 0;
+	margin: auto;
+	right: 0;
+	bottom: 0px;
+}
+
+.spaceLeftForLogOut {
+	padding-left: 80vw;
+}
+
+
+.logOutArrow {
+	width: 23px;
+	height: 23px;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
