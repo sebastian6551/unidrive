@@ -22,7 +22,7 @@ function Login() {
 	} = useForm();
 
 	const loginSubmit = data => {
-		login(data,typeUser);
+		login(data);
 	};
 
 	if(typeUser) {

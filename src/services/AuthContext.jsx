@@ -13,7 +13,7 @@ export const AuthContextProvider = ({ children }) => {
           return JSON.parse(userProfle);
         }
         return null;
-      });
+    });
     
     const [token, setToken] = useState(() => {
         const token = localStorage.getItem("token");
@@ -32,8 +32,8 @@ export const AuthContextProvider = ({ children }) => {
      * @param {String} type
      * @returns json
      */
-    const login = async (data, typeUser2) => {
-        const comp = typeUser2 + "/login";
+    const login = async (data) => {
+        const comp = typeUser + "/login";
         return await fetch(baseUrl + comp, {
             method: 'POST',
             mode: 'cors',
@@ -53,7 +53,7 @@ export const AuthContextProvider = ({ children }) => {
                     console.log(res.user);
                     setToken(res.jwt)
                     setUser(res.user)
-                    navigate("/"+typeUser2)
+                    navigate("/"+typeUser)
                 } else {
                     alert(res.errors)
                 }
