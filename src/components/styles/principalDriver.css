@@ -22,6 +22,28 @@
 	padding-left: 80vw;
 }
 
+.newTripButton {
+	width: 305px;
+	height: 49px;
+	background: #d83c3e;
+	border-radius: 10px;
+	border: 1px solid #d83c3e;
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.125em;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: #ffffff;
+	padding-left: 10px;
+}
+
+.newTripButton:hover {
+	background: #ca3739;
+	border: 1px solid #ca3739;
+}
+
 .inCourseCaptionContainer {
 	width: 302px;
 	height: 4.5em;
@@ -138,9 +160,33 @@
 }
 
 .passengersBodyContainer {
+	width: 320px;
+	height: 35vh;
 	display: flex;
 	flex-direction: column;
+	gap: 20px;
 	align-items: center;
+	overflow-y:scroll;
+}
+
+.passengersBodyContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.redDivDriver {
+	width: 305px;
+	height: 49px;
+	background: #d83c3e;
+	border-radius: 10px;
+	border: 1px solid #d83c3e;
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.125em;
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	padding-left: 10px;
 }
 
 .appBarPosition {
