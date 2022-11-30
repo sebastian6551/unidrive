@@ -22,13 +22,13 @@ export const PrincipalRider = () => {
           <h2 className="h2Style">Viajes próximos a salir</h2>
           <h3 className="h3Style">Ahora</h3>
           
-          <CardComponent></CardComponent>
+          <CardComponent day="Day" hour="hour" startingPoint="startingPoint" arrivalPoint="arrivalPoint"></CardComponent>
 
           <h3 className="h4Style">Mas tarde</h3>
           <Grid direction='row' spacing={4}>
-            <item><CardComponent></CardComponent></item>
+            <item><CardComponent day="Day" hour="hour" startingPoint="startingPoint" arrivalPoint="arrivalPoint"></CardComponent></item>
             <div className='space10px'></div>
-            <item><CardComponent></CardComponent></item>
+            <item><CardComponent day="Day" hour="hour" startingPoint="startingPoint" arrivalPoint="arrivalPoint"></CardComponent></item>
           </Grid>
         </Box>
         

@@ -1,10 +1,6 @@
-import {
-	Typography,
-	Grid,
-	Paper,
-} from '@mui/material';
+import { Typography, Grid, Paper } from '@mui/material';
 
-export const CardComponent = () => {
+export const CardComponent = props => {
 	return (
 		<Paper
 			sx={{
@@ -12,74 +8,88 @@ export const CardComponent = () => {
 				margin: 'auto',
 				maxWidth: 500,
 				flexGrow: 1,
-				width: 250, height: 95, background: '#FDBA43', borderRadius: 5
-				
+				width: 250,
+				height: 95,
+				background: '#FDBA43',
+				borderRadius: 5,
 			}}
 		>
 			<Grid container spacing={2}>
 				<Grid item xs={12} sm container>
 					<Grid item xs container direction='column' spacing={2}>
 						<Grid item xs textAlign={'left'}>
-							<Typography 
-							textAlign='left'
-							sx={{   
-								fontFamily: 'jost',
-								fontStyle: 'normal',
-								fontSize: 27,
-								fontWeight: 700
-							}} >
-								Miercoles 
+							<Typography
+								textAlign='left'
+								sx={{
+									fontFamily: 'jost',
+									fontStyle: 'normal',
+									fontSize: 27,
+									fontWeight: 700,
+								}}
+							>
+								{' '}
+								{props.day}{' '}
 							</Typography>
-							<Typography sx={{   
-								fontFamily: 'jost',
-								fontStyle: 'normal',
-								fontSize: 20,
-								fontWeight: 400,
-								left:34
-							
-							}}>
-								Partida: 
+							<Typography
+								sx={{
+									fontFamily: 'jost',
+									fontStyle: 'normal',
+									fontSize: 20,
+									fontWeight: 400,
+									left: 34,
+								}}
+							>
+								Partida:
 							</Typography>
-							<Typography sx={{   
-								fontFamily: 'jost',
-								fontStyle: 'normal',
-								fontSize: 20,
-								fontWeight: 400,
-							}} >
+							<Typography
+								sx={{
+									fontFamily: 'jost',
+									fontStyle: 'normal',
+									fontSize: 20,
+									fontWeight: 400,
+								}}
+							>
 								LLegada:
 							</Typography>
 						</Grid>
-						
 					</Grid>
 
-
 					<Grid item textAlign={'left'}>
-						<Typography sx={{   
+						<Typography
+							sx={{
 								fontFamily: 'jost',
 								fontStyle: 'normal',
 								fontSize: 25,
 								fontWeight: 700,
-							}}>
-							3:00pm
+							}}
+						>
+							{' '}
+							{props.hour}{' '}
 						</Typography>
-						<Typography sx={{   
+						<Typography
+							sx={{
 								fontFamily: 'jost',
 								fontStyle: 'normal',
 								fontSize: 20,
 								fontWeight: 400,
-								color: '#FFFFFF'
-							}}>
-							Centro
+								color: '#FFFFFF',
+							}}
+						>
+							{' '}
+							{props.startingPoint}{' '}
 						</Typography>
 
-						<Typography sx={{   
+						<Typography
+							sx={{
 								fontFamily: 'jost',
 								fontStyle: 'normal',
 								fontSize: 20,
 								fontWeight: 400,
-								color: '#FFFFFF'
-							}}>
-							UV
+								color: '#FFFFFF',
+							}}
+						>
+							{' '}
+							{props.arrivalPoint}{' '}
 						</Typography>
 					</Grid>
 				</Grid>
