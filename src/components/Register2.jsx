@@ -2,7 +2,7 @@ import './styles/loginRegistration.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { UserContext } from '../pages/Singup';
+import { UserContext } from '../services/UserContext'
 import { useContext } from 'react';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';

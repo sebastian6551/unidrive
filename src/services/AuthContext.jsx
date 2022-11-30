@@ -5,10 +5,19 @@ const baseUrl = "http://localhost:3000/"
 const AuthContext = createContext(undefined);
 
 export const AuthContextProvider = ({ children }) => {
+
+    const [typeUser, setTypeUser] = useState(undefined);
+    const [user, setUser] = useState(() => {
+        let userProfle = localStorage.getItem("userProfile");
+        if (userProfle) {
+          return JSON.parse(userProfle);
+        }
+        return null;
+    });
+    
     const [token, setToken] = useState(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            console.log(token)
             return token;
         }
         return null;
@@ -23,7 +32,7 @@ export const AuthContextProvider = ({ children }) => {
      * @param {String} type
      * @returns json
      */
-    const login = async (data, typeUser) => {
+    const login = async (data) => {
         const comp = typeUser + "/login";
         return await fetch(baseUrl + comp, {
             method: 'POST',
@@ -39,7 +48,11 @@ export const AuthContextProvider = ({ children }) => {
             .then(res => {
                 if (res.jwt) {
                     localStorage.setItem("token", res.jwt)
+                    localStorage.setItem("userProfile", JSON.stringify(res.user));
+                    res.user.password = null;
+                    console.log(res.user);
                     setToken(res.jwt)
+                    setUser(res.user)
                     navigate("/"+typeUser)
                 } else {
                     alert(res.errors)
@@ -49,13 +62,15 @@ export const AuthContextProvider = ({ children }) => {
 
     const logout = async () => {
         localStorage.removeItem("token")
-        setToken(null);
-        navigate("/login");
+        localStorage.removeItem("userProfile")
+        setToken();
+        setUser();
+        navigate("/");
     }
 
     return (
         <>
-            <AuthContext.Provider value={{ token, login, logout }}>
+            <AuthContext.Provider value={{ token, login, logout, user, typeUser, setTypeUser}}>
                 {children}
             </AuthContext.Provider>
         </>

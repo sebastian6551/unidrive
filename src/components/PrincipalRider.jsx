@@ -7,10 +7,10 @@ import AuthContext from "../services/AuthContext";
 import {useContext} from "react";
 
 export const PrincipalRider = () => {
-  const { logout } = useContext(AuthContext);
+  const { logout,user } = useContext(AuthContext);
   return (
     <div>
-        <h1 className="h1Style">Hola Carlos!</h1>
+        <h1 className="h1Style">Hola {user.firstName}!</h1>
         
         <button 
           className="searchTravelButton"

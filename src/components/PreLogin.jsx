@@ -1,17 +1,16 @@
-import { createContext } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../services/AuthContext';
 import './styles/preLogin.css';
-
-
-export const TypeUser = createContext('admin');
 
 export const PreLogin = () => {
 
+	const { setTypeUser } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		TypeUser.Provider = event.target.value;
+		setTypeUser(event.target.value)
 		navigate("/login");
 	};
 
