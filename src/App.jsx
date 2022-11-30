@@ -7,8 +7,8 @@ import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
 import { AuthContextProvider } from "./services/AuthContext";
 import {HomeBidder} from "./pages/HomeBidder";
 import {HomeRider} from "./pages/HomeRider";
-// import { TravelInformationComponent} from './components/TravelInformationComponent';
-import { OpeningPage} from './components/OpeningPage';
+import { UserContextProvider } from "./services/UserContext";
+
 
 function App() {
 	return (
@@ -43,7 +43,9 @@ function App() {
 					path="/bidder"
 					element={
 						<ProtectedRoute accessBy="authenticated">
-							<HomeBidder />
+							<UserContextProvider>
+								<HomeBidder />
+							</UserContextProvider>							
 						</ProtectedRoute>
 					}
 				></Route>
@@ -51,7 +53,9 @@ function App() {
 					path="/SingUp"
 					element={
 						<ProtectedRoute accessBy="non-authenticated">
-							<SingUp />								
+							<UserContextProvider>
+								<SingUp />
+							</UserContextProvider>							
 						</ProtectedRoute>
 					}>
 				</Route>

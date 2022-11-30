@@ -1,0 +1,200 @@
+.logOutArrow {
+	width: 23px;
+	height: 23px;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+
+.space2vh {
+	padding: 2vh;
+}
+
+.space9px {
+	padding: 9px;
+}
+
+.space14px {
+	padding: 14px;
+}
+
+.spaceLeftForLogOut {
+	padding-left: 80vw;
+}
+
+.newTripButton {
+	width: 305px;
+	height: 49px;
+	background: #d83c3e;
+	border-radius: 10px;
+	border: 1px solid #d83c3e;
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.125em;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: #ffffff;
+	padding-left: 10px;
+}
+
+.newTripButton:hover {
+	background: #ca3739;
+	border: 1px solid #ca3739;
+}
+
+.inCourseCaptionContainer {
+	width: 302px;
+	height: 4.5em;
+	border-radius: 10px;
+	display: flex;
+}
+
+.inCourseCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 2em;
+	text-align: left;
+	padding-left: 2px;
+	color: #111111;
+}
+
+.noTripInCourseCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 2px;
+	color: #111111;
+}
+
+.inCourseContainer {
+	width: 302px;
+	height: 6.25em;
+	background: #71e17c;
+	border: 1px solid #71e17c;
+	border-radius: 10px;
+
+	font-family: 'Jost';
+	font-style: normal;
+	color: #111111;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.dayCaptionInCourse {
+	font-weight: 600;
+	font-size: 1.6875em;
+}
+
+.hourCaptionInCourse {
+	font-weight: 500;
+	font-size: 1.6875em;
+}
+
+.departureArrivalCaptions {
+	font-weight: 400;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.firstLineInCourse {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.passengersCaptionContainer {
+	width: 302px;
+	height: 4em;
+	border-radius: 10px;
+	display: flex;
+}
+
+.passengersCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.6875em;
+	text-align: left;
+	padding-left: 2px;
+	color: #c60000;
+}
+
+.passengersContainer {
+	width: 302px;
+	height: 3.75em;
+	background: #c7c7c7;
+	border: 1px solid #c7c7c7;
+	border-radius: 10px;
+
+	font-family: 'Jost';
+	font-style: normal;
+	color: #111111;
+
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+}
+
+.pickupCaption {
+	font-weight: 400;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.passengerNameCaption {
+	font-weight: 800;
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.passengersBodyContainer {
+	width: 320px;
+	height: 35vh;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	overflow-y:scroll;
+}
+
+.passengersBodyContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.redDivDriver {
+	width: 305px;
+	height: 49px;
+	background: #d83c3e;
+	border-radius: 10px;
+	border: 1px solid #d83c3e;
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.125em;
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	padding-left: 10px;
+}
+
+.appBarPosition {
+	max-width: 340px;
+	max-height: 200;
+	position: absolute;
+	left: 0;
+	margin: auto;
+	right: 0;
+	bottom: 0px;
+}

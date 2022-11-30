@@ -2,7 +2,7 @@ import './styles/loginRegistration.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { UserContext } from '../pages/Singup';
+import { UserContext } from '../services/UserContext'
 import { useContext } from 'react';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';
@@ -41,25 +41,16 @@ export const Register2 = () => {
 
 	const onSubmit = data => {
 		userData.password = data.password;
-		console.log("register2:" + userData);
-		JSON.stringify(userData);
-		const user = JSON.parse(
-			JSON.stringify(userData, [
-				'firstName',
-				'lastName',
-				'email',
-				'password',
-				'birthDate',
-				'number',
-				'document'
-			])
-		);
-		createUser(user, typeUser).then(res => {
+		console.log(data)
+		createUser(userData, typeUser).then(res => {
 			if (res.status === 201) {
 				alert('Usuario creado con exito')
 				navigate('/');
-			} else if (res.status === 409) {
+			} else if (res.status === 400) {
 				const req = res.json()
+				req.then(errors => alert(errors.errors));
+			} else {
+				const req = res.json();
 				req.then(errors => alert(errors.errors));
 			}
 		});

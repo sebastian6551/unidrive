@@ -1,6 +1,6 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import './styles/preRegister.css';
-import { UserContext } from '../pages/Singup';
+import { UserContext } from '../services/UserContext'
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backArrow from '../assets/icons/backArrow.png';

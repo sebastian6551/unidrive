@@ -1,4 +1,4 @@
-import {PrincipalRider} from "../components/PrincipalRider"
+import { PrincipalRider } from "../components/PrincipalRider"
 
 export const HomeRider = () => {
     return (

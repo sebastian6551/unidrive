@@ -19,8 +19,27 @@ const createUser = async (data, typeUser) => {
     })
 };
 
+const createTrip = async (data) => {
+
+    const comp = "trip/create";
+    console.log(baseUrl + comp)
+    console.log(data)
+
+    return await fetch(baseUrl + comp, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'default',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+};
+
 const RegisterServices = {
-    createUser
+    createUser,
+    createTrip
 }
 
 export default RegisterServices;
