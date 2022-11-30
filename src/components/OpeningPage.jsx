@@ -1,12 +1,16 @@
 import unidriveLogo from '../assets/icons/unidriveLogo.png';
-import IconButton from '@mui/material/IconButton';
+import { ImageButton } from  '@mui/material';
 
 export const OpeningPage = () => {
+    const handleClick = event => {
+		event.preventDefault();		
+	};
+
     return(
         <div>
-            <IconButton sx={{flexGrow: 1, height:800, display: { xs: 'flex', md: 'flex' }}}>
-                <img src={unidriveLogo}/>
-            </IconButton>
+            <ImageButton onClick={handleClick} style={ {backgroundImage: `url(${unidriveLogo})`}}>
+                jje
+               </ImageButton>
         </div>
     )
 }
