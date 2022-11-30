@@ -1,15 +1,15 @@
 import '../components/styles/preLogin.css'
 import '../components/styles/loginRegistration.css';
 import AuthContext from "../services/AuthContext.jsx";
-import {useContext} from "react";
+import { useContext } from "react";
 import logOutArrow from '../assets/icons/logOutArrow.png';
 
 export const HomeBidder = () => {
-    const { logout } = useContext(AuthContext);
+    const { logout,user } = useContext(AuthContext);
     return (
         <div className='base'>
             <div>
-                <h1> !Hola Victor! </h1>
+                <h1> !Hola {user.firstName}! </h1>
             </div>
             <div className='space9px'></div>
             <button
