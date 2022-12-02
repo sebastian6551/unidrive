@@ -8,6 +8,7 @@ import { AuthContextProvider } from "./services/AuthContext";
 import {HomeBidder} from "./pages/HomeBidder";
 import {HomeRider} from "./pages/HomeRider";
 import { UserContextProvider } from "./services/UserContext";
+import {OpeningPage} from "./components/OpeningPage"
 
 
 function App() {
