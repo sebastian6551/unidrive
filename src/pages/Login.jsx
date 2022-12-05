@@ -1,7 +1,7 @@
 import './styles/loginRegistration.css';
 import AuthContext from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import backArrow from '../assets/icons/backArrow.png';
@@ -25,7 +25,7 @@ function Login() {
 		login(data);
 	};
 
-	if(typeUser) {
+	if (typeUser) {
 		return (
 			<div>
 				<div className='space2vh'></div>
@@ -82,9 +82,8 @@ function Login() {
 			</div>
 		);
 	} else {
-		return <Navigate to="/"></Navigate>;
+		return <Navigate to='/'></Navigate>;
 	}
-	
 }
 
 export default Login;

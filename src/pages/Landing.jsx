@@ -1,17 +1,16 @@
-import {Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../services/AuthContext';
-import './styles/preLogin.css';
+import '../components/styles/preLogin.css';
 
-export const PreLogin = () => {
-
+export const Landing = () => {
 	const { setTypeUser } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		setTypeUser(event.target.value)
-		navigate("/login");
+		setTypeUser(event.target.value);
+		navigate('/login');
 	};
 
 	return (
@@ -28,7 +27,8 @@ export const PreLogin = () => {
 					className='buttonPassenger'
 					title='Pasajero'
 					onClick={handleSubmit}
-					value={'rider'}>
+					value={'rider'}
+				>
 					Pasajero{' '}
 				</button>
 				<div className='space9px'></div>
@@ -36,15 +36,18 @@ export const PreLogin = () => {
 					className='buttonDriver'
 					title='Conductor'
 					onClick={handleSubmit}
-					value={'bidder'}>
+					value={'bidder'}
+				>
 					Conductor{' '}
 				</button>
 			</div>
 
 			<footer className='preloginFooter'>
 				<label className='haveAnAccount'>¿No tienes una cuenta?</label>
-				<Link to="/SingUp">
-					<button className='signUp' title='Regístrate'>Registrate</button>
+				<Link to='/SingUp'>
+					<button className='signUp' title='Regístrate'>
+						Registrate
+					</button>
 				</Link>
 			</footer>
 		</div>
