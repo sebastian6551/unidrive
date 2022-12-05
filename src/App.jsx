@@ -8,7 +8,12 @@ import { HomeBidder } from './pages/HomeBidder';
 import { CreateTripDriver } from './components/CreateTripDriver';
 import { HomeRider } from './pages/HomeRider';
 import { HistorialRider } from './pages/HistorialRider';
+import { HistorialBidder } from './pages/HistorialBidder';
 import { UserContextProvider } from './services/UserContext';
+import { NotificationBidder } from './pages/NotificationBidder';
+import { NotificationRider } from './pages/NotificationRider';
+import { UpcomingTripsBidder } from './pages/UpcomingTripsBidder';
+import { UpcomingTripsRider } from './pages/UpcomingTripsRider';
 
 function App() {
 	return (
@@ -40,6 +45,22 @@ function App() {
 					}
 				></Route>
 				<Route
+					path='/rider/notification'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<NotificationRider />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/rider/upcomingtrips'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<UpcomingTripsRider />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
 					path='/bidder'
 					element={
 						<ProtectedRoute accessBy='authenticated'>
@@ -52,6 +73,30 @@ function App() {
 					element={
 						<ProtectedRoute accessBy='authenticated'>
 							<CreateTripDriver />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/bidder/notification'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<NotificationBidder />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/bidder/upcomingtrips'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<UpcomingTripsBidder />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/bidder/history'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<HistorialBidder />
 						</ProtectedRoute>
 					}
 				></Route>

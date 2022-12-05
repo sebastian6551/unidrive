@@ -24,6 +24,14 @@ export const AppBarComponent = () => {
 		navigate('/' + typeUser + '/history');
 	};
 
+	const handledNotification = () => {
+		navigate('/' + typeUser + '/notification');
+	};
+
+	const handledUpcoming = () => {
+		navigate('/' + typeUser + '/upcomingtrips');
+	};
+
 	return (
 		<Box
 			position='static'
@@ -46,6 +54,7 @@ export const AppBarComponent = () => {
 						color='inherit'
 						aria-label='menu'
 						sx={{ mr: 5, flexGrow: 5 }}
+						onClick={handledUpcoming}
 					>
 						<img src={travels} />
 					</IconButton>
@@ -65,6 +74,7 @@ export const AppBarComponent = () => {
 						color='inherit'
 						aria-label='menu'
 						sx={{ mr: 5, flexGrow: 5 }}
+						onClick={handledNotification}
 					>
 						<img src={notifications} />
 					</IconButton>

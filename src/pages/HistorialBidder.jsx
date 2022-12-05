@@ -3,7 +3,7 @@ import { CardComponent } from '../components/CardComponent';
 import { AppBarComponent } from '../components/AppBarComponent';
 import '../components/styles/navbar.css';
 
-export const HistorialRider = () => {
+export const HistorialBidder = () => {
 	return (
 		<div>
 			<RedBoxInterfaceTitleComponent title='Historial' />

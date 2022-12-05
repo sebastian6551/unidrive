@@ -1,0 +1,9 @@
+.appBarPosition {
+	max-width: 340px;
+	max-height: 200;
+	position: absolute;
+	left: 0;
+	margin: auto;
+	right: 0;
+	bottom: 0px;
+}
