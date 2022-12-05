@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { SingUp } from './pages/Singup';
-import Login from './components/Login';
+import Login from './pages/Login';
 import { Landing } from './pages/Landing';
 import { ProtectedRoute } from './services/ProtectedRoutes.jsx';
 import { AuthContextProvider } from './services/AuthContext';
 import { HomeBidder } from './pages/HomeBidder';
+import { CreateTripDriver } from './components/CreateTripDriver';
 import { HomeRider } from './pages/HomeRider';
 import { HistorialRider } from './pages/HistorialRider';
 import { UserContextProvider } from './services/UserContext';
@@ -42,9 +43,15 @@ function App() {
 					path='/bidder'
 					element={
 						<ProtectedRoute accessBy='authenticated'>
-							<UserContextProvider>
-								<HomeBidder />
-							</UserContextProvider>
+							<HomeBidder />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/bidder/createTrip'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<CreateTripDriver />
 						</ProtectedRoute>
 					}
 				></Route>

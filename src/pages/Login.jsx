@@ -1,4 +1,4 @@
-import './styles/loginRegistration.css';
+import '../components/styles/loginRegistration.css';
 import AuthContext from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
