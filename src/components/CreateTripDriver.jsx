@@ -5,17 +5,29 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TagsInput } from 'react-tag-input-component';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
+import RegisterServices from '../services/registerServices';
 
 export const CreateTripDriver = () => {
 	const { logout } = useContext(AuthContext);
 	const [routeTagInput, setRouteTagInput] = useState([]);
+	const createTrip = RegisterServices.createTrip;
+	const navigate = useNavigate();
+
+	const handleBack = event => {
+		event.preventDefault();
+		navigate('/bidder');
+	};
+
 	// JSON.stringify(routeTagInput) To get the data from the tagsInput element
 
 	const formSchema = Yup.object().shape({
-		day: Yup.string().required().notOneOf(['noDay'], 'Selecciona un día.'),
+		date: Yup.string()
+			.required()
+			.notOneOf(['noDate'], 'Selecciona una fecha de partida.'),
 		hour: Yup.string().required('Completa el campo.'),
 		typeVehicle: Yup.string()
 			.required()
@@ -45,6 +57,19 @@ export const CreateTripDriver = () => {
 
 	const onSubmit = data => {
 		console.log(data);
+
+		createTrip(data).then(res => {
+			if (res.status === 201) {
+				alert('Viaje creado con exito');
+				navigate('/bidder');
+			} else if (res.status === 400) {
+				const req = res.json();
+				req.then(errors => alert(errors.errors));
+			} else {
+				const req = res.json();
+				req.then(errors => alert(errors.errors));
+			}
+		});
 	};
 
 	return (
@@ -64,27 +89,17 @@ export const CreateTripDriver = () => {
 			<div className='redDivDriver'>Viaje</div>
 			<div className='space9px'></div>
 			<form className='loginFormDriver' onSubmit={handleSubmit(onSubmit)}>
-				<select
+				<input
 					className='selectFieldCreateTripDriver'
-					title='Día'
-					{...register('day')}
-				>
-					<option hidden value='noDay'>
-						Día
-					</option>
-					<option value={1}>Lunes</option>
-					<option value={2}>Martes</option>
-					<option value={3}>Miércoles</option>
-					<option value={4}>Jueves</option>
-					<option value={5}>Viernes</option>
-					<option value={6}>Sábado</option>
-					<option value={7}>Domingo</option>
-				</select>
+					type='date'
+					{...register('date')}
+				></input>
 				<span id='error' className='errorMessage'>
-					<small>
-						<br></br>
-						{errors.day?.message}
-					</small>
+					{errors.date?.type === 'required' && (
+						<small>
+							<br></br>El campo no puede estar vacío.
+						</small>
+					)}
 				</span>
 				<div className='space9px'></div>
 				<input
@@ -191,12 +206,13 @@ export const CreateTripDriver = () => {
 						className='cancellButton'
 						type='button'
 						value='Cancelar'
+						onClick={handleBack}
 					/>
 					<input
 						title='Activar'
 						className='activateButton'
 						type='submit'
-						value='Activar'
+						value='Crear'
 					/>
 				</div>
 				<div className='space16px'></div>

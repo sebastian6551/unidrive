@@ -1,69 +1,73 @@
-import { Route, Routes } from "react-router-dom";
-import { DashBoard } from "./components/DashBoard";
-import { SingUp } from "./pages/Singup"
-import Login from "./components/Login"
-// import { PreLogin } from './components/PreLogin';
-import { ProtectedRoute } from "./services/ProtectedRoutes.jsx";
-import { AuthContextProvider } from "./services/AuthContext";
-import {HomeBidder} from "./pages/HomeBidder";
-import {HomeRider} from "./pages/HomeRider";
-import { UserContextProvider } from "./services/UserContext";
-import {OpeningPage} from "./components/OpeningPage"
-
+import { Route, Routes } from 'react-router-dom';
+import { SingUp } from './pages/Singup';
+import Login from './pages/Login';
+import { Landing } from './pages/Landing';
+import { ProtectedRoute } from './services/ProtectedRoutes.jsx';
+import { AuthContextProvider } from './services/AuthContext';
+import { HomeBidder } from './pages/HomeBidder';
+import { CreateTripDriver } from './components/CreateTripDriver';
+import { HomeRider } from './pages/HomeRider';
+import { HistorialRider } from './pages/HistorialRider';
+import { UserContextProvider } from './services/UserContext';
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Routes>
-				<Route path="/" element={<OpeningPage/>}></Route>
+				<Route path='/' element={<Landing />}></Route>
 				<Route
-					path="/login"
+					path='/login'
 					element={
-					<ProtectedRoute accessBy="non-authenticated">
-						<Login />
-					</ProtectedRoute>
-					}
-				></Route>
-				<Route
-					path="/dash"
-					element={
-						<ProtectedRoute accessBy="authenticated">
-							<DashBoard />
+						<ProtectedRoute accessBy='non-authenticated'>
+							<Login />
 						</ProtectedRoute>
 					}
 				></Route>
 				<Route
-					path="/rider"
+					path='/rider'
 					element={
-						<ProtectedRoute accessBy="authenticated">
+						<ProtectedRoute accessBy='authenticated'>
 							<HomeRider />
 						</ProtectedRoute>
 					}
 				></Route>
 				<Route
-					path="/bidder"
+					path='/rider/history'
 					element={
-						<ProtectedRoute accessBy="authenticated">
-							<UserContextProvider>
-								<HomeBidder />
-							</UserContextProvider>							
+						<ProtectedRoute accessBy='authenticated'>
+							<HistorialRider />
 						</ProtectedRoute>
 					}
 				></Route>
 				<Route
-					path="/SingUp"
+					path='/bidder'
 					element={
-						<ProtectedRoute accessBy="non-authenticated">
+						<ProtectedRoute accessBy='authenticated'>
+							<HomeBidder />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/bidder/createTrip'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<CreateTripDriver />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/SingUp'
+					element={
+						<ProtectedRoute accessBy='non-authenticated'>
 							<UserContextProvider>
 								<SingUp />
-							</UserContextProvider>							
+							</UserContextProvider>
 						</ProtectedRoute>
-					}>
-				</Route>
-			</Routes >
+					}
+				></Route>
+			</Routes>
 		</AuthContextProvider>
 	);
 }
 
 export default App;
-

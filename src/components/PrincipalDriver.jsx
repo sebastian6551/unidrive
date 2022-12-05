@@ -1,11 +1,18 @@
 import './styles/principalDriver.css';
 import AuthContext from '../services/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 
 export const PrincipalDriver = () => {
-	const { logout } = useContext(AuthContext);
+	const { logout, user } = useContext(AuthContext);
+	const navigate = useNavigate();
+
+	const handledClick = event => {
+		event.preventDefault();
+		navigate('/bidder/createTrip');
+	};
 
 	// If there is no trip in progress when calling the DB, a message is displayed
 	const tripInCourse = dataCall => {
@@ -85,8 +92,14 @@ export const PrincipalDriver = () => {
 					<img src={logOutArrow} />
 				</button>
 			</span>
-			<div className='space9px'></div>
-			<button className='newTripButton' title='Crear viaje' type='button'>
+			<h1 className='h1Style'>Hola {user.firstName}!</h1>
+			<div className='space2px'></div>
+			<button
+				className='newTripButton'
+				title='Crear viaje'
+				type='button'
+				onClick={handledClick}
+			>
 				Nuevo viaje +
 			</button>
 			<div className='space9px'></div>
