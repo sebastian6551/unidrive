@@ -2,7 +2,7 @@ import './styles/loginRegistration.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { UserContext } from '../services/UserContext'
+import { UserContext } from '../services/UserContext';
 import { useContext, useState } from 'react';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';
@@ -13,39 +13,34 @@ export const RegisterVehicle = () => {
 	const { prevStep, userData, typeUser } = useContext(UserContext);
 	const createUser = RegisterServices.createUser;
 
-	const [vehicle, setVehicle] = useState(userData.typeVehicle ? userData.typeVehicle : '')
+	const [vehicle, setVehicle] = useState(
+		userData.typeVehicle ? userData.typeVehicle : ''
+	);
 
 	const handleBack = event => {
 		event.preventDefault();
 		prevStep();
 	};
 
-	const changeNumber = (data) => {
-		data.brandVehicle = Number(data.brandVehicle);
-		data.colorVehicle = Number(data.colorVehicle);
-		data.typeVehicle = Number(data.typeVehicle);
-		data.yearVehicle = Number(data.yearVehicle);
-	}
-
 	const formSchema = Yup.object().shape({
-		typeVehicle: Yup.string()
+		typeVehicle: Yup.number()
 			.required()
 			.notOneOf(['noVehicle'], 'Selecciona un tipo de vehículo.'),
-		colorVehicle: Yup.string()
+		colorVehicle: Yup.number()
 			.required()
 			.notOneOf(['noColor'], 'Selecciona un color.'),
 		plate: Yup.string()
 			.required('Completa el campo.')
 			.min(6, 'La placa debe ser de 6 caracteres.')
 			.max(6, 'La placa debe ser de 6 caracteres.'),
-		brandVehicle: Yup.string()
+		brandVehicle: Yup.number()
 			.required()
 			.notOneOf(['noBrand'], 'Selecciona una marca.'),
 		available: Yup.number()
 			.required('Completa el campo.')
 			.min(1, 'Los cupos deben ser entre 1 y 4.')
 			.max(4, 'Los cupos deben ser entre 1 y 4.'),
-		yearVehicle: Yup.string()
+		yearVehicle: Yup.number()
 			.required()
 			.notOneOf(['noModel'], 'Selecciona un modelo.'),
 		password: Yup.string()
@@ -70,7 +65,6 @@ export const RegisterVehicle = () => {
 	} = useForm(formOptions);
 
 	const onSubmit = data => {
-		changeNumber(data);
 		const fullData = Object.assign(userData, data);
 		const user = JSON.parse(
 			JSON.stringify(fullData, [
@@ -87,7 +81,7 @@ export const RegisterVehicle = () => {
 				'brandVehicle',
 				'colorVehicle',
 				'yearVehicle',
-				'city'
+				'city',
 			])
 		);
 		createUser(user, typeUser).then(res => {
@@ -120,16 +114,15 @@ export const RegisterVehicle = () => {
 					className='selectButtonRegister'
 					title='Tipo de vehículo'
 					value={vehicle}
-					{...register('typeVehicle',{
-						required:true,
+					{...register('typeVehicle', {
+						required: true,
 						validate: value => value !== 'noVehicle',
 					})}
-
-					onChange={(e) => { setVehicle(e.target.value) }}
+					onChange={e => {
+						setVehicle(e.target.value);
+					}}
 				>
-					<option defaultValue='noVehicle'>
-						Tipo de vehículo
-					</option>
+					<option defaultValue='noVehicle'>Tipo de vehículo</option>
 					<option value={1}>Carro</option>
 					<option value={2}>Moto</option>
 				</select>
@@ -146,9 +139,7 @@ export const RegisterVehicle = () => {
 					defaultValue={'noColor'}
 					{...register('colorVehicle')}
 				>
-					<option defaultValue='noColor'>
-						Color
-					</option>
+					<option defaultValue='noColor'>Color</option>
 					<option value={1}>Azul</option>
 					<option value={2}>Blanco</option>
 					<option value={3}>Amarillo</option>
@@ -183,9 +174,7 @@ export const RegisterVehicle = () => {
 					defaultValue={'noBrand'}
 					{...register('brandVehicle')}
 				>
-					<option defaultValue='noBrand'>
-						Marca
-					</option>
+					<option defaultValue='noBrand'>Marca</option>
 					<option value={1}>Tesla</option>
 					<option value={2}>Hyundai</option>
 					<option value={3}>Chevrolet</option>
@@ -206,9 +195,7 @@ export const RegisterVehicle = () => {
 					defaultValue={'noModel'}
 					{...register('yearVehicle')}
 				>
-					<option defaultValue='noModel'>
-						Modelo
-					</option>
+					<option defaultValue='noModel'>Modelo</option>
 					<option value={1}>2021</option>
 					<option value={2}>2020</option>
 					<option value={3}>2019</option>

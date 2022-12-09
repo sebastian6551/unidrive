@@ -1,45 +1,60 @@
-const baseUrl = "http://localhost:3000/";
+const baseUrl = 'http://localhost:3000/';
 
 const createUser = async (data, typeUser) => {
+	const comp = typeUser + '/create';
+	console.log(baseUrl + comp);
+	console.log(data);
+	console.log(typeUser);
 
-    const comp = typeUser + "/create";
-    console.log(baseUrl + comp)
-    console.log(data)
-    console.log(typeUser)
-
-    return await fetch(baseUrl + comp, {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'default',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
+	return await fetch(baseUrl + comp, {
+		method: 'POST',
+		mode: 'cors',
+		cache: 'default',
+		credentials: 'same-origin',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	});
 };
 
-const createTrip = async (data) => {
+const createTrip = async (data, auth) => {
+	const comp = 'trip/create';
+	console.log(baseUrl + comp);
+	console.log(data);
 
-    const comp = "trip/create";
-    console.log(baseUrl + comp)
-    console.log(data)
+	return await fetch(baseUrl + comp, {
+		method: 'POST',
+		mode: 'cors',
+		cache: 'default',
+		credentials: 'same-origin',
+		headers: {
+			Authorization: auth,
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	});
+};
 
-    return await fetch(baseUrl + comp, {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'default',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
+const getVehicle = async auth => {
+	const comp = 'bidder/vehicles';
+	return await fetch(baseUrl + comp, {
+		method: 'GET',
+		mode: 'cors',
+		cache: 'default',
+		credentials: 'same-origin',
+		headers: {
+			Authorization: auth,
+			'Content-Type': 'application/json',
+		},
+		// body: JSON.stringify(data)
+	});
 };
 
 const RegisterServices = {
-    createUser,
-    createTrip
-}
+	createUser,
+	createTrip,
+	getVehicle,
+};
 
 export default RegisterServices;

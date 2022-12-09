@@ -1,6 +1,6 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import './styles/preRegister.css';
-import { UserContext } from '../services/UserContext'
+import './styles/preLogin.css';
+import { UserContext } from '../services/UserContext';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backArrow from '../assets/icons/backArrow.png';
@@ -17,7 +17,7 @@ export const PreRegister = () => {
 
 	const handleBack = event => {
 		event.preventDefault();
-		navigate("/")
+		navigate('/');
 	};
 
 	return (
@@ -65,24 +65,14 @@ export const PreRegister = () => {
 					>
 						Selecciona el tipo de cuenta que deseas crear:
 					</Typography>
-					<Button
+					<button
+						className='buttonPassenger'
 						onClick={handleClick}
+						title='Pasajero'
 						value={'rider'}
-						sx={{
-							marginTop: 2,
-							borderRadius: 10,
-							width: 293,
-							fontFamily: 'Jost',
-							fontStyle: 'normal',
-							fontWeight: 400,
-							fontSize: '0.9375em',
-							background: '#EFD8F5',
-							color: '#111111',
-						}}
-						variant='contained'
 					>
 						Pasajero
-					</Button>
+					</button>
 					<Typography
 						padding={1}
 						textAlign='center'
@@ -95,24 +85,14 @@ export const PreRegister = () => {
 					>
 						PIDE, separa y organiza tus viajes
 					</Typography>
-					<Button
+					<button
+						className='buttonDriver'
+						title='Conductor'
 						onClick={handleClick}
 						value={'bidder'}
-						sx={{
-							marginTop: 2,
-							borderRadius: 10,
-							width: 293,
-							fontFamily: 'Jost',
-							fontStyle: 'normal',
-							fontWeight: 400,
-							fontSize: '0.9375em',
-							background: '#E7C1F2',
-							color: '#111111',
-						}}
-						variant='contained'
 					>
 						Conductor
-					</Button>
+					</button>
 					<Typography
 						padding={1}
 						textAlign='center'

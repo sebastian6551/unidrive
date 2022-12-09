@@ -10,7 +10,7 @@ export const Landing = () => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		setTypeUser(event.target.value);
-		navigate('/login');
+		navigate('/login', { replace: true });
 	};
 
 	return (
