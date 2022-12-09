@@ -19,6 +19,13 @@ export const AuthContextProvider = ({ children }) => {
 		}
 		return null;
 	});
+	const [userVehicles, setUserVehicles] = useState(() => {
+		const vehicles = localStorage.getItem('vehicles');
+		if (vehicles) {
+			return vehicles;
+		}
+		return null;
+	});
 
 	const [token, setToken] = useState(() => {
 		const token = localStorage.getItem('token');
@@ -71,6 +78,7 @@ export const AuthContextProvider = ({ children }) => {
 		localStorage.removeItem('token');
 		localStorage.removeItem('userProfile');
 		localStorage.removeItem('typeUser');
+		localStorage.removeItem('vehicles');
 		setToken();
 		setUser();
 		setTypeUser();
@@ -80,7 +88,16 @@ export const AuthContextProvider = ({ children }) => {
 	return (
 		<>
 			<AuthContext.Provider
-				value={{ token, login, logout, user, typeUser, setTypeUser }}
+				value={{
+					token,
+					login,
+					logout,
+					user,
+					typeUser,
+					setTypeUser,
+					userVehicles,
+					setUserVehicles,
+				}}
 			>
 				{children}
 			</AuthContext.Provider>

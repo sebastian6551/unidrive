@@ -12,8 +12,10 @@ import logOutArrow from '../assets/icons/logOutArrow.png';
 import RegisterServices from '../services/registerServices';
 
 export const CreateTripDriver = () => {
-	const { logout } = useContext(AuthContext);
+	const { logout, userVehicles, token } = useContext(AuthContext);
 	const [routeTagInput, setRouteTagInput] = useState([]);
+	const [message, setMessagge] = useState('Indica tu punto de');
+
 	const createTrip = RegisterServices.createTrip;
 	const navigate = useNavigate();
 
@@ -22,14 +24,24 @@ export const CreateTripDriver = () => {
 		navigate('/bidder');
 	};
 
+	const optionVehicules =
+		userVehicles !== null ? (
+			userVehicles.map(vehicle => (
+				<option key={vehicle.id} value={vehicle.id}>
+					{vehicle.TypeVehicle.description} {vehicle.BrandVehicle.description} -{' '}
+					{vehicle.plate}
+				</option>
+			))
+		) : (
+			<option value={0}>Sin vehiculos registrados</option>
+		);
+
 	// JSON.stringify(routeTagInput) To get the data from the tagsInput element
 
 	const formSchema = Yup.object().shape({
-		date: Yup.string()
-			.required()
-			.notOneOf(['noDate'], 'Selecciona una fecha de partida.'),
+		date: Yup.date().required('La fecha de partida es requerida').nullable(),
 		hour: Yup.string().required('Completa el campo.'),
-		typeVehicle: Yup.string()
+		vehicle: Yup.number()
 			.required()
 			.notOneOf(['noVehicle'], 'Selecciona un tipo de vehículo.'),
 		available: Yup.number()
@@ -37,12 +49,17 @@ export const CreateTripDriver = () => {
 			.required('Completa el campo.')
 			.min(1, 'Los cupos deben ser entre 1 y 4.')
 			.max(4, 'Los cupos deben ser entre 1 y 4.'),
-		fee: Yup.number()
+		rate: Yup.number()
 			.typeError('Completa el campo.')
 			.required('Completa el campo.')
 			.min(0, 'La tarifa ingresada no es válida.'),
-		startingPoint: Yup.string().required('Completa el campo.'),
-		arrivalPoint: Yup.string().required('Completa el campo.'),
+		description: Yup.string()
+			.typeError('Completa el campo.')
+			.required('Completa el campo.'),
+		toUniversity: Yup.boolean()
+			.required()
+			.notOneOf(['noToUniversity'], 'Selecciona un opción.'),
+		meetPoint: Yup.string().required('Completa el campo.'),
 	});
 
 	const formOptions = {
@@ -56,9 +73,21 @@ export const CreateTripDriver = () => {
 	} = useForm(formOptions);
 
 	const onSubmit = data => {
-		console.log(data);
-
-		createTrip(data).then(res => {
+		console.log(userVehicles);
+		const fullData = { ...data, day: data.date.getDay() };
+		const dataTrip = JSON.parse(
+			JSON.stringify(fullData, [
+				'vehicle',
+				'date',
+				'day',
+				'rate',
+				'description',
+				'toUniversity',
+				'meetPoint',
+			])
+		);
+		console.log(dataTrip);
+		createTrip(dataTrip, token).then(res => {
 			if (res.status === 201) {
 				alert('Viaje creado con exito');
 				navigate('/bidder');
@@ -97,7 +126,8 @@ export const CreateTripDriver = () => {
 				<span id='error' className='errorMessage'>
 					{errors.date?.type === 'required' && (
 						<small>
-							<br></br>El campo no puede estar vacío.
+							<br></br>
+							{errors.date?.message}
 						</small>
 					)}
 				</span>
@@ -118,19 +148,18 @@ export const CreateTripDriver = () => {
 				<div className='space9px'></div>
 				<select
 					className='selectFieldCreateTripDriver'
-					title='Tipo de vehículo'
-					{...register('typeVehicle')}
+					title='Vehículo'
+					{...register('vehicle')}
 				>
 					<option hidden value='noVehicle'>
-						Tipo de vehículo
+						Vehículo
 					</option>
-					<option value={1}>Carro</option>
-					<option value={2}>Moto</option>
+					{optionVehicules}
 				</select>
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.typeVehicle?.message}
+						{errors.Vehicle?.message}
 					</small>
 				</span>
 				<div className='space9px'></div>
@@ -153,50 +182,65 @@ export const CreateTripDriver = () => {
 					title='Tarifa'
 					type='number'
 					placeholder='Tarifa'
-					{...register('fee')}
+					{...register('rate')}
 				/>
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.fee?.message}
-					</small>
-				</span>
-				<div className='space9px'></div>
-				<TagsInput
-					classNames={{ input: 'tagsInputField', tag: 'tagsCaption' }}
-					value={routeTagInput}
-					onChange={setRouteTagInput}
-					separators={['Enter', ',']}
-					name='Ruta (barrios a recorrer)'
-					required={true}
-					placeHolder='Ruta (barrios a recorrer)'
-				/>
-				<div className='space9px'></div>
-				<input
-					className='textFieldCreateTripDriver'
-					title='Punto de partida'
-					type='text'
-					placeholder='Punto de partida'
-					{...register('startingPoint')}
-				/>
-				<span id='error' className='errorMessage'>
-					<small>
-						<br></br>
-						{errors.startingPoint?.message}
+						{errors.rate?.message}
 					</small>
 				</span>
 				<div className='space9px'></div>
 				<input
 					className='textFieldCreateTripDriver'
-					title='Punto de llegada'
+					title='description'
 					type='text'
-					placeholder='Punto de llegada'
-					{...register('arrivalPoint')}
+					placeholder={'Ruta (barrios a recorrer)'}
+					{...register('description')}
 				/>
 				<span id='error' className='errorMessage'>
 					<small>
 						<br></br>
-						{errors.arrivalPoint?.message}
+						{errors.description?.message}
+					</small>
+				</span>
+				<div className='space9px'></div>
+				<select
+					className='selectFieldCreateTripDriver'
+					title='toUniversity'
+					{...register('toUniversity')}
+					onChange={e => {
+						if (e.target.value === true) {
+							setMessagge('Indica tu punto de partida');
+						} else {
+							setMessagge('Indica tu punto de llegada');
+						}
+					}}
+				>
+					<option hidden value='noToUniversity'>
+						¿Vas a la universidad?
+					</option>
+					<option value={true}>Si</option>
+					<option value={false}>No</option>
+				</select>
+				<span id='error' className='errorMessage'>
+					<small>
+						<br></br>
+						{errors.toUniversity?.message}
+					</small>
+				</span>
+				<div className='space9px'></div>
+				<input
+					className='textFieldCreateTripDriver'
+					title={message}
+					type='text'
+					placeholder={message}
+					{...register('meetPoint')}
+				/>
+				<span id='error' className='errorMessage'>
+					<small>
+						<br></br>
+						{errors.meetPoint?.message}
 					</small>
 				</span>
 				<div className='space9px'></div>
@@ -209,7 +253,7 @@ export const CreateTripDriver = () => {
 						onClick={handleBack}
 					/>
 					<input
-						title='Activar'
+						title='Crear'
 						className='activateButton'
 						type='submit'
 						value='Crear'
@@ -219,7 +263,7 @@ export const CreateTripDriver = () => {
 			</form>
 			<div className='space9px'></div>
 			<div className='appBarPosition'>
-				<AppBarComponent></AppBarComponent>
+				<AppBarComponent />
 			</div>
 		</div>
 	);
