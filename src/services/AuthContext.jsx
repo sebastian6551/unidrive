@@ -24,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
 		if (vehicles) {
 			return vehicles;
 		}
-		return null;
+		return [];
 	});
 
 	const [token, setToken] = useState(() => {
