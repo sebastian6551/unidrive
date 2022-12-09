@@ -1,5 +1,5 @@
-import { PrincipalDriver } from '../components/PrincipalDriver';
+import { PrincipalBidder } from '../components/PrincipalBidder';
 
 export const HomeBidder = () => {
-	return <PrincipalDriver />;
+	return <PrincipalBidder />;
 };

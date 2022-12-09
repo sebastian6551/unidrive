@@ -6,7 +6,7 @@ import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 import RegisterServices from '../services/registerServices';
 
-export const PrincipalDriver = () => {
+export const PrincipalBidder = () => {
 	const { logout, user, token, setUserVehicles } = useContext(AuthContext);
 	const navigate = useNavigate();
 
