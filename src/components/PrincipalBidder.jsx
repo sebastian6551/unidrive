@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 import RegisterServices from '../services/registerServices';
+import { PassengersContainerBidder } from './passengersContainerBidder';
 
 export const PrincipalBidder = () => {
 	const { logout, user, token, setUserVehicles } = useContext(AuthContext);
@@ -57,8 +58,6 @@ export const PrincipalBidder = () => {
 		const [hourCaption] = useState('6:30 am');
 		const [departureCaption] = useState('Centro');
 		const [arrivalCaption] = useState('Univalle');
-		const [passengerName] = useState('Victor');
-		const [pickupPlace] = useState('Cra 80 Cll 13');
 
 		return (
 			<div>
@@ -78,22 +77,22 @@ export const PrincipalBidder = () => {
 					<h1 className='passengersCaption'>Pasajeros</h1>
 				</div>
 				<div className='passengersBodyContainer'>
-					<div className='passengersContainer'>
-						<label className='passengerNameCaption'>{passengerName}</label>
-						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>
-					</div>
-					<div className='passengersContainer'>
-						<label className='passengerNameCaption'>{passengerName}</label>
-						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>
-					</div>
-					<div className='passengersContainer'>
-						<label className='passengerNameCaption'>{passengerName}</label>
-						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>
-					</div>
-					<div className='passengersContainer'>
-						<label className='passengerNameCaption'>{passengerName}</label>
-						<label className='pickupCaption'>Recoger en: {pickupPlace}</label>
-					</div>
+					<PassengersContainerBidder
+						passengerName='Victor'
+						pickupPlace='Cra 80 Cll 13'
+					/>
+					<PassengersContainerBidder
+						passengerName='Sara'
+						pickupPlace='Cra 80 Cll 13'
+					/>
+					<PassengersContainerBidder
+						passengerName='Frank'
+						pickupPlace='Cra 80 Cll 13'
+					/>
+					<PassengersContainerBidder
+						passengerName='Chris'
+						pickupPlace='Cra 80 Cll 13'
+					/>
 				</div>
 			</div>
 		);
