@@ -12,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
 		}
 		return null;
 	});
+
 	const [user, setUser] = useState(() => {
 		const userProfle = localStorage.getItem('userProfile');
 		if (userProfle) {
@@ -19,18 +20,27 @@ export const AuthContextProvider = ({ children }) => {
 		}
 		return null;
 	});
+
 	const [userVehicles, setUserVehicles] = useState(() => {
 		const vehicles = localStorage.getItem('vehicles');
 		if (vehicles) {
 			return vehicles;
 		}
-		return [];
+		return null;
 	});
 
 	const [token, setToken] = useState(() => {
 		const token = localStorage.getItem('token');
 		if (token) {
 			return token;
+		}
+		return null;
+	});
+
+	const [userTrips, setUserTrips] = useState(() => {
+		const trips = localStorage.getItem('trips');
+		if (trips) {
+			return trips;
 		}
 		return null;
 	});
@@ -74,11 +84,16 @@ export const AuthContextProvider = ({ children }) => {
 			});
 	};
 
-	const logout = async () => {
+	const removeItems = () => {
 		localStorage.removeItem('token');
 		localStorage.removeItem('userProfile');
 		localStorage.removeItem('typeUser');
 		localStorage.removeItem('vehicles');
+		localStorage.removeItem('trips');
+	};
+
+	const logout = async () => {
+		removeItems();
 		setToken();
 		setUser();
 		setTypeUser();

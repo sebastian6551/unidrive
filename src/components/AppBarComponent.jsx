@@ -10,11 +10,14 @@ import notifications from '../assets/icons/notifications.png';
 import menu from '../assets/icons/menu.png';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../services/AuthContext';
+import AuthContext from '../hooks/AuthContext';
+import BidderServices from '../hooks/bidder.services';
 
 export const AppBarComponent = () => {
-	const { typeUser } = useContext(AuthContext);
+	const { typeUser, token, setUserTrips } = useContext(AuthContext);
 	const navigate = useNavigate();
+
+	const getTrips = BidderServices.getTrips;
 
 	const handledHome = () => {
 		navigate('/' + typeUser);
@@ -28,8 +31,24 @@ export const AppBarComponent = () => {
 		navigate('/' + typeUser + '/notification');
 	};
 
-	const handledUpcoming = () => {
-		navigate('/' + typeUser + '/upcomingtrips');
+	const handledUpcoming = event => {
+		event.preventDefault();
+		getTrips(token).then(res => {
+			console.log(res);
+			console.log(token);
+			if (res.status === 200) {
+				const req = res.json();
+				console.log(req);
+				req.then(value => {
+					localStorage.setItem('trips', JSON.stringify(value));
+					setUserTrips(value);
+				});
+				navigate('/' + typeUser + '/upcomingtrips');
+			} else {
+				const req = res.json();
+				req.then(errors => alert(errors.errors));
+			}
+		});
 	};
 
 	return (

@@ -2,21 +2,29 @@ import './styles/loginRegistration.css';
 import './styles/register.css';
 import { useForm } from 'react-hook-form';
 import { useState, useContext } from 'react';
-import { UserContext } from '../services/UserContext'
+import { UserContext } from '../hooks/UserContext';
 import backArrow from '../assets/icons/backArrow.png';
 import forwardArrow from '../assets/icons/forwardArrow.png';
 
 export const Register = () => {
-	const { nextStep, prevStep, handleChange, userData } = useContext(UserContext);
+	const { nextStep, prevStep, handleChange, userData } =
+		useContext(UserContext);
 
-	const [firstName, setFirstName] = useState(userData.firstName ? userData.firstName : '')
-	const [lastName, setLastName] = useState(userData.lastName ? userData.lastName : '')
-	const [document, setDocument] = useState(userData.document ? userData.document : '')
-	const [birthDate, setBirthDate] = useState(userData.birthDate ? userData.birthDate : '')
-	const [number, setNumber] = useState(userData.number ? userData.number : '')
-	const [email, setEmail] = useState(userData.email ? userData.email : '')
-	const [city, setCity] = useState(userData.city ? userData.city : '')
-
+	const [firstName, setFirstName] = useState(
+		userData.firstName ? userData.firstName : ''
+	);
+	const [lastName, setLastName] = useState(
+		userData.lastName ? userData.lastName : ''
+	);
+	const [document, setDocument] = useState(
+		userData.document ? userData.document : ''
+	);
+	const [birthDate, setBirthDate] = useState(
+		userData.birthDate ? userData.birthDate : ''
+	);
+	const [number, setNumber] = useState(userData.number ? userData.number : '');
+	const [email, setEmail] = useState(userData.email ? userData.email : '');
+	const [city, setCity] = useState(userData.city ? userData.city : '');
 
 	const handleBack = event => {
 		event.preventDefault();
@@ -35,7 +43,7 @@ export const Register = () => {
 	} = useForm();
 
 	const onSubmit = data => {
-		data.city = Number(data.city)
+		data.city = Number(data.city);
 		handleChange(data);
 		goForward();
 	};
@@ -63,7 +71,9 @@ export const Register = () => {
 							required: true,
 							maxLength: 20,
 						})}
-						onChange={(e) => { setFirstName(e.target.value) }}
+						onChange={e => {
+							setFirstName(e.target.value);
+						}}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.firstName?.type === 'required' && (
@@ -83,7 +93,9 @@ export const Register = () => {
 							required: true,
 							maxLength: 20,
 						})}
-						onChange={(e) => { setLastName(e.target.value) }}
+						onChange={e => {
+							setLastName(e.target.value);
+						}}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.lastName?.type === 'required' && (
@@ -105,7 +117,9 @@ export const Register = () => {
 							minLength: 10,
 							maxLength: 10,
 						})}
-						onChange={(e) => { setDocument(e.target.value) }}
+						onChange={e => {
+							setDocument(e.target.value);
+						}}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.document?.type === 'required' && (
@@ -131,7 +145,9 @@ export const Register = () => {
 							{...register('birthDate', {
 								required: true,
 							})}
-							onChange={(e) => { setBirthDate(e.target.value) }}
+							onChange={e => {
+								setBirthDate(e.target.value);
+							}}
 						/>
 					</div>
 					<span id='error' className='errorMessage'>
@@ -153,7 +169,9 @@ export const Register = () => {
 							minLength: 10,
 							maxLength: 10,
 						})}
-						onChange={(e) => { setNumber(e.target.value) }}
+						onChange={e => {
+							setNumber(e.target.value);
+						}}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.number && (
@@ -172,7 +190,9 @@ export const Register = () => {
 						{...register('email', {
 							required: true,
 						})}
-						onChange={(e) => { setEmail(e.target.value) }}
+						onChange={e => {
+							setEmail(e.target.value);
+						}}
 					/>
 					<span id='error' className='errorMessage'>
 						{errors.email?.type === 'required' && (
@@ -185,8 +205,6 @@ export const Register = () => {
 								<br></br>Correo ya registrado
 							</small>
 						)}
-
-
 					</span>
 					<div className='space9px'></div>
 					<select
@@ -197,12 +215,11 @@ export const Register = () => {
 							required: true,
 							validate: value => value !== 'noCity',
 						})}
-						onChange={(e) => { setCity(e.target.value) }}
+						onChange={e => {
+							setCity(e.target.value);
+						}}
 					>
-
-						<option defaultValue='noCity'>
-							Ciudad de residencia
-						</option>
+						<option defaultValue='noCity'>Ciudad de residencia</option>
 						<option value={1}>Cali</option>
 						<option value={2}>Jamundí</option>
 						<option value={3}>Palmira</option>

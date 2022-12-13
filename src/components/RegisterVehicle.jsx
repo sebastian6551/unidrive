@@ -2,11 +2,11 @@ import './styles/loginRegistration.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { UserContext } from '../services/UserContext';
+import { UserContext } from '../hooks/UserContext';
 import { useContext, useState } from 'react';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';
-import RegisterServices from '../services/registerServices';
+import RegisterServices from '../hooks/register.services';
 
 export const RegisterVehicle = () => {
 	const navigate = useNavigate();

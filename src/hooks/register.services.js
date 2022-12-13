@@ -36,25 +36,9 @@ const createTrip = async (data, auth) => {
 	});
 };
 
-const getVehicle = async auth => {
-	const comp = 'bidder/vehicles';
-	return await fetch(baseUrl + comp, {
-		method: 'GET',
-		mode: 'cors',
-		cache: 'default',
-		credentials: 'same-origin',
-		headers: {
-			Authorization: auth,
-			'Content-Type': 'application/json',
-		},
-		// body: JSON.stringify(data)
-	});
-};
-
 const RegisterServices = {
 	createUser,
 	createTrip,
-	getVehicle,
 };
 
 export default RegisterServices;

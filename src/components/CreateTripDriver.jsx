@@ -1,6 +1,6 @@
 import './styles/createTripDriver.css';
 import './styles/principalDriver.css';
-import AuthContext from '../services/AuthContext';
+import AuthContext from '../hooks/AuthContext';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { TagsInput } from 'react-tag-input-component';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
-import RegisterServices from '../services/registerServices';
+import RegisterServices from '../hooks/register.services';
 
 export const CreateTripDriver = () => {
 	const { logout, userVehicles, token } = useContext(AuthContext);
@@ -217,7 +217,7 @@ export const CreateTripDriver = () => {
 						}
 					}}
 				>
-					<option hidden value='noToUniversity'>
+					<option hidden value={false}>
 						¿Vas a la universidad?
 					</option>
 					<option value={true}>Si</option>

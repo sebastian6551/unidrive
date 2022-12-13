@@ -3,7 +3,7 @@ import { AppBarComponent } from './AppBarComponent';
 import './styles/principalBidder.css';
 import { Box, Grid } from '@mui/material';
 import './styles/loginRegistration.css';
-import AuthContext from '../services/AuthContext';
+import AuthContext from '../hooks/AuthContext';
 import { useContext } from 'react';
 
 export const PrincipalRider = () => {
