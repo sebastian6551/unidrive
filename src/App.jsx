@@ -2,18 +2,19 @@ import { Route, Routes } from 'react-router-dom';
 import { SingUp } from './pages/Singup';
 import Login from './pages/Login';
 import { Landing } from './pages/Landing';
-import { ProtectedRoute } from './services/ProtectedRoutes.jsx';
-import { AuthContextProvider } from './services/AuthContext';
+import { ProtectedRoute } from './hooks/ProtectedRoutes.jsx';
+import { AuthContextProvider } from './hooks/AuthContext';
 import { HomeBidder } from './pages/HomeBidder';
 import { CreateTripDriver } from './components/CreateTripDriver';
 import { HomeRider } from './pages/HomeRider';
 import { HistorialRider } from './pages/HistorialRider';
 import { HistorialBidder } from './pages/HistorialBidder';
-import { UserContextProvider } from './services/UserContext';
+import { UserContextProvider } from './hooks/UserContext';
 import { NotificationBidder } from './pages/NotificationBidder';
 import { NotificationRider } from './pages/NotificationRider';
 import { UpcomingTripsBidder } from './pages/UpcomingTripsBidder';
 import { UpcomingTripsRider } from './pages/UpcomingTripsRider';
+import { ConfirmProvider } from 'material-ui-confirm';
 
 function App() {
 	return (
@@ -88,7 +89,9 @@ function App() {
 					path='/bidder/upcomingtrips'
 					element={
 						<ProtectedRoute accessBy='authenticated'>
-							<UpcomingTripsBidder />
+							<ConfirmProvider>
+								<UpcomingTripsBidder />
+							</ConfirmProvider>
 						</ProtectedRoute>
 					}
 				></Route>

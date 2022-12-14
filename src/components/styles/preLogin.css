@@ -31,23 +31,23 @@
 	min-height: 30px;
 	max-width: 263.7px;
 	max-height: 44.1px;
-	background: #efd8f5;
+	background: #B2B0B0;
 	border-radius: 10px;
 	border: 1px solid #efd8f5;
 	cursor: pointer;
 
 	font-family: 'Jost';
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 1.125em;
 	align-items: center;
 	text-align: center;
-	color: #111111;
+	color: #FFFFFF;
 }
 
 .buttonPassenger:hover {
-	background: #bdabc2;
-	border: 1px solid #bdabc2;
+	background: #706D6D;
+	border: 1px solid #706D6D;
 }
 
 .buttonDriver {
@@ -57,23 +57,23 @@
 	min-height: 30px;
 	max-width: 263.7px;
 	max-height: 44.1px;
-	background: #e7c1f2;
+	background: #D83C3E;
 	border-radius: 10px;
 	border: 1px solid #e7c1f2;
 	cursor: pointer;
 
 	font-family: 'Jost';
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 1.125em;
 	align-items: center;
 	text-align: center;
-	color: #111111;
+	color: #FFFFFF;
 }
 
 .buttonDriver:hover {
-	background: #b698bf;
-	border: 1px solid #b698bf;
+	background: #DF0608;
+	border: 1px solid #DF0608;
 }
 
 .preloginFooter {

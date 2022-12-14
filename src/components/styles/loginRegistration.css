@@ -55,22 +55,22 @@
 	min-height: 30px;
 	max-width: 263.7px;
 	max-height: 44.1px;
-	background: #2645e5;
-	border: 1px solid #2645e5;
+	background: #D83C3E;
+	border: 1px solid #D83C3E;
 	border-radius: 10px;
 	cursor: pointer;
 
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
-	font-weight: 600;
-	font-size: 0.9375em;
+	font-weight: 700;
+	font-size: 15px;
 	text-align: center;
 	color: #ffffff;
 }
 
 .logInButton:hover {
-	background: #192d98;
-	border: 1px solid #192d98;
+	background: #DF0608;
+	border: 1px solid #DF0608;
 }
 
 .errorMessage {

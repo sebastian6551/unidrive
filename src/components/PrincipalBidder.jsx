@@ -1,19 +1,19 @@
 import './styles/principalDriver.css';
-import AuthContext from '../services/AuthContext';
+import AuthContext from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
-import RegisterServices from '../services/registerServices';
+import BidderServices from '../hooks/bidder.services';
 import { PassengersContainerBidderComponent } from './PassengersContainerBidderComponent';
 import { TripInfoBidderComponent } from './TripInfoBidderComponent';
 export const PrincipalBidder = () => {
 	const { logout, user, token, setUserVehicles } = useContext(AuthContext);
 	const navigate = useNavigate();
 
-	const getVehicle = RegisterServices.getVehicle;
+	const getVehicle = BidderServices.getVehicle;
 
-	const handledClick = event => {
+	const handleCreateTrip = event => {
 		event.preventDefault();
 		getVehicle(token).then(res => {
 			console.log(res);
@@ -21,13 +21,10 @@ export const PrincipalBidder = () => {
 				const req = res.json();
 				console.log(req);
 				req.then(value => {
-					localStorage.setItem('vehicle', JSON.stringify(value));
+					localStorage.setItem('vehicles', JSON.stringify(value));
 					setUserVehicles(value);
 				});
 				navigate('/bidder/createTrip');
-			} else if (res.status === 400) {
-				const req = res.json();
-				req.then(errors => alert(errors.errors));
 			} else {
 				const req = res.json();
 				req.then(errors => alert(errors.errors));
@@ -108,7 +105,7 @@ export const PrincipalBidder = () => {
 				className='newTripButton'
 				title='Crear viaje'
 				type='button'
-				onClick={handledClick}
+				onClick={handleCreateTrip}
 			>
 				Nuevo viaje +
 			</button>

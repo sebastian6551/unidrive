@@ -16,6 +16,8 @@
 		"@hookform/resolvers": "^2.9.10",
 		"@mui/icons-material": "^5.10.9",
 		"@mui/material": "^5.10.13",
+		"material-ui-confirm": "^3.0.7",
+		"moment": "^2.29.4",
 		"react": "^18.2.0",
 		"react-calendar": "^4.0.0",
 		"react-calendars": "^1.0.6",
