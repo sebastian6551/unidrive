@@ -1,4 +1,5 @@
-import { Typography, Grid, Paper } from '@mui/material';
+import { Typography, Grid, Paper, Button } from '@mui/material';
+import deleteIcon from '../assets/icons/deleteIcon.png';
 
 export const CardComponent = props => {
 	return (
@@ -92,6 +93,18 @@ export const CardComponent = props => {
 							{props.arrivalPoint}{' '}
 						</Typography>
 					</Grid>
+					<Button
+					
+					sx={{
+						position: 'relative',
+						width: '8.3%',
+						height: '8.3%',
+						left: '8.3%',
+						bottom: '8.3%',
+
+					}}>
+						<img src ={deleteIcon} />
+					</Button>
 				</Grid>
 			</Grid>
 		</Paper>
