@@ -218,9 +218,9 @@ export const CreateTripDriver = () => {
 					title='toUniversity'
 					{...register('toUniversity')}
 					onChange={e => {
-						if (e.target.value === true) {
+						if (e.target.value === 'true') {
 							setMessagge('Indica tu punto de partida');
-						} else {
+						} else if (e.target.value === 'false') {
 							setMessagge('Indica tu punto de llegada');
 						}
 					}}

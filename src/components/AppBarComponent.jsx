@@ -14,7 +14,7 @@ import AuthContext from '../hooks/AuthContext';
 import BidderServices from '../hooks/bidder.services';
 
 export const AppBarComponent = () => {
-	const { typeUser, token, setUserTrips } = useContext(AuthContext);
+	const { typeUser, token, setUserTrips, userTrips } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const getTrips = BidderServices.getTrips;
@@ -31,7 +31,7 @@ export const AppBarComponent = () => {
 		navigate('/' + typeUser + '/notification');
 	};
 
-	const handledUpcoming = event => {
+	const handledUpcoming = async event => {
 		// navigate('/bidder/upcomingtrips');
 		event.preventDefault();
 		getTrips(token).then(res => {
@@ -43,7 +43,9 @@ export const AppBarComponent = () => {
 					localStorage.setItem('trips', JSON.stringify(value));
 					setUserTrips(value);
 				});
-				navigate('/bidder/upcomingtrips');
+				if (userTrips !== null) {
+					navigate('/bidder/upcomingtrips');
+				}
 			} else {
 				const req = res.json();
 				req.then(errors => alert(errors.errors));
