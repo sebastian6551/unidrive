@@ -12,7 +12,6 @@ export const PrincipalBidder = () => {
 	const navigate = useNavigate();
 
 	const getVehicle = BidderServices.getVehicle;
-	const getTrips = BidderServices.getTrips;
 
 	const handleCreateTrip = event => {
 		event.preventDefault();

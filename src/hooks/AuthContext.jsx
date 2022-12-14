@@ -112,6 +112,8 @@ export const AuthContextProvider = ({ children }) => {
 					setTypeUser,
 					userVehicles,
 					setUserVehicles,
+					userTrips,
+					setUserTrips,
 				}}
 			>
 				{children}

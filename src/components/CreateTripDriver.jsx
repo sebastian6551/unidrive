@@ -24,17 +24,16 @@ export const CreateTripDriver = () => {
 		navigate('/bidder');
 	};
 
-	const optionVehicules =
-		userVehicles !== null ? (
-			userVehicles.map(vehicle => (
-				<option key={vehicle.id} value={vehicle.id}>
-					{vehicle.TypeVehicle.description} {vehicle.BrandVehicle.description} -{' '}
-					{vehicle.plate}
-				</option>
-			))
-		) : (
-			<option value={0}>Sin vehiculos registrados</option>
-		);
+	const optionVehicules = userVehicles ? (
+		userVehicles.map(vehicle => (
+			<option key={vehicle.id} value={vehicle.id}>
+				{vehicle.TypeVehicle.description} {vehicle.BrandVehicle.description} -{' '}
+				{vehicle.plate}
+			</option>
+		))
+	) : (
+		<option value={0}>Sin vehiculos registrados</option>
+	);
 
 	// JSON.stringify(routeTagInput) To get the data from the tagsInput element
 
@@ -72,14 +71,23 @@ export const CreateTripDriver = () => {
 		formState: { errors },
 	} = useForm(formOptions);
 
+	const setTime = str => {
+		const hour = str.split(':');
+		return hour;
+	};
+
 	const onSubmit = data => {
+		console.log(data);
+		const arrHour = setTime(data.hour);
 		console.log(userVehicles);
+		data.date.setHours(arrHour[0], arrHour[1]);
 		const fullData = { ...data, day: data.date.getDay() };
 		const dataTrip = JSON.parse(
 			JSON.stringify(fullData, [
 				'vehicle',
 				'date',
 				'day',
+				'hour',
 				'rate',
 				'description',
 				'toUniversity',

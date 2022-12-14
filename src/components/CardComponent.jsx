@@ -2,6 +2,12 @@ import { Typography, Grid, Paper, Button } from '@mui/material';
 import deleteIcon from '../assets/icons/deleteIcon.png';
 
 export const CardComponent = props => {
+	const handleDelete = event => {
+		event.preventDefault();
+		const temp = props.handleDelete;
+		temp(props.id);
+	};
+
 	return (
 		<Paper
 			sx={{
@@ -94,16 +100,16 @@ export const CardComponent = props => {
 						</Typography>
 					</Grid>
 					<Button
-					
-					sx={{
-						position: 'relative',
-						width: '8.3%',
-						height: '8.3%',
-						left: '8.3%',
-						bottom: '8.3%',
-
-					}}>
-						<img src ={deleteIcon} />
+						onClick={handleDelete}
+						sx={{
+							position: 'relative',
+							width: '8.3%',
+							height: '8.3%',
+							left: '8.3%',
+							bottom: '8.3%',
+						}}
+					>
+						<img src={deleteIcon} />
 					</Button>
 				</Grid>
 			</Grid>

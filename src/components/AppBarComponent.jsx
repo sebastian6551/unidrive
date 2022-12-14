@@ -32,10 +32,10 @@ export const AppBarComponent = () => {
 	};
 
 	const handledUpcoming = event => {
+		// navigate('/bidder/upcomingtrips');
 		event.preventDefault();
 		getTrips(token).then(res => {
 			console.log(res);
-			console.log(token);
 			if (res.status === 200) {
 				const req = res.json();
 				console.log(req);
@@ -43,7 +43,7 @@ export const AppBarComponent = () => {
 					localStorage.setItem('trips', JSON.stringify(value));
 					setUserTrips(value);
 				});
-				navigate('/' + typeUser + '/upcomingtrips');
+				navigate('/bidder/upcomingtrips');
 			} else {
 				const req = res.json();
 				req.then(errors => alert(errors.errors));

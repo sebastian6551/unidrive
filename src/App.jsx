@@ -14,6 +14,7 @@ import { NotificationBidder } from './pages/NotificationBidder';
 import { NotificationRider } from './pages/NotificationRider';
 import { UpcomingTripsBidder } from './pages/UpcomingTripsBidder';
 import { UpcomingTripsRider } from './pages/UpcomingTripsRider';
+import { ConfirmProvider } from 'material-ui-confirm';
 
 function App() {
 	return (
@@ -88,7 +89,9 @@ function App() {
 					path='/bidder/upcomingtrips'
 					element={
 						<ProtectedRoute accessBy='authenticated'>
-							<UpcomingTripsBidder />
+							<ConfirmProvider>
+								<UpcomingTripsBidder />
+							</ConfirmProvider>
 						</ProtectedRoute>
 					}
 				></Route>
