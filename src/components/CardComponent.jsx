@@ -97,10 +97,10 @@ export const CardComponent = props => {
 					
 					sx={{
 						position: 'relative',
-						width: '8.3%',
-						height: '8.3%',
-						left: '8.3%',
-						bottom: '8.3%',
+						width: '13.89%',
+						height: '13.89%',
+						left: '7.32%',
+						bottom: '31.71%',
 
 					}}>
 						<img src ={deleteIcon} />
