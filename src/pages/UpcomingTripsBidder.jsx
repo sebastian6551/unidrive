@@ -10,61 +10,9 @@ import { useConfirm } from 'material-ui-confirm';
 import BidderServices from '../hooks/bidder.services';
 
 export const UpcomingTripsBidder = () => {
-	const [trips, setTrips] = useState(null);
 	const { logout, userTrips, token } = useContext(AuthContext);
 	const disableTrip = BidderServices.disableTrip;
 	const confirm = useConfirm();
-	// const temp = [
-	// 	{
-	// 		id: 1,
-	// 		day: 'Domingo',
-	// 		hour: '11:10',
-	// 		startingPoint: 'UV',
-	// 		arrivalPoint: 'Palmira',
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		day: 'Lunes',
-	// 		hour: '11:00',
-	// 		startingPoint: 'UV',
-	// 		arrivalPoint: 'Jamundi',
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		day: 'Martes',
-	// 		hour: '1:00',
-	// 		startingPoint: 'Palmira',
-	// 		arrivalPoint: 'UV',
-	// 	},
-	// 	{
-	// 		id: 4,
-	// 		day: 'Miercoles',
-	// 		hour: '2:00',
-	// 		startingPoint: 'Aut. Sur',
-	// 		arrivalPoint: 'UV',
-	// 	},
-	// 	{
-	// 		id: 5,
-	// 		day: 'Jueves',
-	// 		hour: '5:30',
-	// 		startingPoint: 'UV',
-	// 		arrivalPoint: 'casa',
-	// 	},
-	// 	{
-	// 		id: 6,
-	// 		day: 'Viernes',
-	// 		hour: '11:10',
-	// 		startingPoint: 'UV',
-	// 		arrivalPoint: 'casa',
-	// 	},
-	// 	{
-	// 		id: 7,
-	// 		day: 'Sabado',
-	// 		hour: '8:45',
-	// 		startingPoint: 'UV',
-	// 		arrivalPoint: 'casa',
-	// 	},
-	// ];
 
 	const handleDisableTrip = id => {
 		disableTrip(token, id).then(res => {
@@ -91,17 +39,17 @@ export const UpcomingTripsBidder = () => {
 			.catch(() => console.log('Deletion cancelled.'));
 	};
 
-	const handleTemp = event => {
-		event.preventDefault();
-		setTrips(userTrips);
-		console.log(userTrips);
-		toTimestamp(userTrips[0].date);
-	};
+	// // const handleTemp = event => {
+	// // 	event.preventDefault();
+	// // 	setTrips(userTrips);
+	// // 	console.log(userTrips);
+	// // 	toTimestamp(userTrips[0].date);
+	// // };
 
-	const toTimestamp = strDate => {
-		let m = moment(strDate);
-		return m.toLocaleString();
-	};
+	// const toTimestamp = strDate => {
+	// 	let m = moment(strDate);
+	// 	return m.toLocaleString();
+	// };
 
 	const setDay = num => {
 		switch (num) {
@@ -122,8 +70,8 @@ export const UpcomingTripsBidder = () => {
 		}
 	};
 
-	const cards = trips ? (
-		trips.map(point => (
+	const cards = userTrips ? (
+		userTrips.map(point => (
 			<CardComponent
 				key={point.id}
 				id={point.id}
@@ -149,9 +97,6 @@ export const UpcomingTripsBidder = () => {
 				>
 					<img src={logOutArrow} />
 				</button>
-			</span>
-			<span>
-				<button onClick={handleTemp}>click</button>
 			</span>
 			<RedBoxInterfaceTitleComponent title='Próximos viajes' />
 			<div className='tripsContainer'>{cards}</div>
