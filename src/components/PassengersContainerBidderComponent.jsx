@@ -1,4 +1,7 @@
-export const PassengersContainerBidder = ({ passengerName, pickupPlace }) => {
+export const PassengersContainerBidderComponent = ({
+	passengerName,
+	pickupPlace,
+}) => {
 	return (
 		<div className='passengersContainer'>
 			<label className='passengerNameCaption'>{passengerName}</label>

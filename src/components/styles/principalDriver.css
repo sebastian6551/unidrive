@@ -74,8 +74,6 @@
 .inCourseContainer {
 	width: 302px;
 	height: 6.25em;
-	background: #71e17c;
-	border: 1px solid #71e17c;
 	border-radius: 10px;
 
 	font-family: 'Jost';
@@ -166,11 +164,11 @@
 	flex-direction: column;
 	gap: 20px;
 	align-items: center;
-	overflow-y:scroll;
+	overflow-y: scroll;
 }
 
 .passengersBodyContainer::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .redDivDriver {
@@ -187,6 +185,20 @@
 	align-items: center;
 	color: #ffffff;
 	padding-left: 10px;
+}
+
+.tripHistoryBodyContainer {
+	width: 320px;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	overflow-y: scroll;
+}
+
+.tripHistoryBodyContainer::-webkit-scrollbar {
+	display: none;
 }
 
 .appBarPosition {
