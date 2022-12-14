@@ -38,11 +38,7 @@ export const PrincipalBidder = () => {
 	// If there is no trip in progress when calling the DB, a message is displayed
 	const tripInCourse = dataCall => {
 		if (dataCall) {
-			return (
-				<div>
-					<PrincipalDriverBody />
-				</div>
-			);
+			return <PrincipalDriverBody />;
 		} else {
 			return (
 				<div className='inCourseCaptionContainer'>
