@@ -10,7 +10,8 @@ import { useConfirm } from 'material-ui-confirm';
 import BidderServices from '../hooks/bidder.services';
 
 export const UpcomingTripsBidder = () => {
-	const { logout, userTrips, token } = useContext(AuthContext);
+	const { logout, userTrips, token, setUserTrips } = useContext(AuthContext);
+	const [trips, setTrips] = useState(userTrips);
 	const disableTrip = BidderServices.disableTrip;
 	const confirm = useConfirm();
 
@@ -27,29 +28,18 @@ export const UpcomingTripsBidder = () => {
 	};
 
 	const handleDelete = id => {
-		console.log(trips);
 		confirm({
 			title: '¿Esta seguro de eliminar este viaje?',
 			description: `Esto puede ser permanente.`,
 		})
 			.then(() => {
-				setTrips(trips.filter(trip => trip.id !== id));
+				const newTrips = trips.filter(trip => trip.id !== id);
+				setTrips(newTrips);
 				handleDisableTrip(id);
+				setUserTrips(newTrips);
 			})
 			.catch(() => console.log('Deletion cancelled.'));
 	};
-
-	// // const handleTemp = event => {
-	// // 	event.preventDefault();
-	// // 	setTrips(userTrips);
-	// // 	console.log(userTrips);
-	// // 	toTimestamp(userTrips[0].date);
-	// // };
-
-	// const toTimestamp = strDate => {
-	// 	let m = moment(strDate);
-	// 	return m.toLocaleString();
-	// };
 
 	const setDay = num => {
 		switch (num) {
@@ -70,8 +60,8 @@ export const UpcomingTripsBidder = () => {
 		}
 	};
 
-	const cards = userTrips ? (
-		userTrips.map(point => (
+	const cards = trips ? (
+		trips.map(point => (
 			<CardComponent
 				key={point.id}
 				id={point.id}
@@ -93,7 +83,7 @@ export const UpcomingTripsBidder = () => {
 					className='logOutArrow'
 					title='Cerrar sesión'
 					type='button'
-					onClick={handleDelete}
+					onClick={logout}
 				>
 					<img src={logOutArrow} />
 				</button>
