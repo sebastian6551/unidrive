@@ -1,5 +1,5 @@
 import './styles/principalDriver.css';
-import AuthContext from '../services/AuthContext';
+import AuthContext from '../hooks/AuthContext';
 import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
