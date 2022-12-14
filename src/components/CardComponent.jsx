@@ -100,7 +100,6 @@ export const CardComponent = props => {
 						</Typography>
 					</Grid>
 					<Button
-						onClick={handleDelete}
 						sx={{
 							position: 'relative',
 							width: '8.3%',
