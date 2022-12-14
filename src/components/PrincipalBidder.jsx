@@ -5,8 +5,8 @@ import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 import RegisterServices from '../services/registerServices';
-import { PassengersContainerBidder } from './passengersContainerBidder';
-
+import { PassengersContainerBidderComponent } from './PassengersContainerBidderComponent';
+import { TripInfoBidderComponent } from './TripInfoBidderComponent';
 export const PrincipalBidder = () => {
 	const { logout, user, token, setUserVehicles } = useContext(AuthContext);
 	const navigate = useNavigate();
@@ -38,11 +38,7 @@ export const PrincipalBidder = () => {
 	// If there is no trip in progress when calling the DB, a message is displayed
 	const tripInCourse = dataCall => {
 		if (dataCall) {
-			return (
-				<div>
-					<PrincipalDriverBody />
-				</div>
-			);
+			return <PrincipalDriverBody />;
 		} else {
 			return (
 				<div className='inCourseCaptionContainer'>
@@ -61,35 +57,30 @@ export const PrincipalBidder = () => {
 
 		return (
 			<div>
-				<div className='inCourseContainer'>
-					<div className='firstLineInCourse'>
-						<label className='dayCaptionInCourse'>{dayCaption}</label>
-						<label className='hourCaptionInCourse'>{hourCaption}</label>
-					</div>
-					<label className='departureArrivalCaptions'>
-						Partida: {departureCaption}
-					</label>
-					<label className='departureArrivalCaptions'>
-						Llegada: {arrivalCaption}
-					</label>
-				</div>
+				<TripInfoBidderComponent
+					dayCaption={dayCaption}
+					hourCaption={hourCaption}
+					departureCaption={departureCaption}
+					arrivalCaption={arrivalCaption}
+					color='#71e17c'
+				/>
 				<div className='passengersCaptionContainer'>
 					<h1 className='passengersCaption'>Pasajeros</h1>
 				</div>
 				<div className='passengersBodyContainer'>
-					<PassengersContainerBidder
+					<PassengersContainerBidderComponent
 						passengerName='Victor'
 						pickupPlace='Cra 80 Cll 13'
 					/>
-					<PassengersContainerBidder
+					<PassengersContainerBidderComponent
 						passengerName='Sara'
 						pickupPlace='Cra 80 Cll 13'
 					/>
-					<PassengersContainerBidder
+					<PassengersContainerBidderComponent
 						passengerName='Frank'
 						pickupPlace='Cra 80 Cll 13'
 					/>
-					<PassengersContainerBidder
+					<PassengersContainerBidderComponent
 						passengerName='Chris'
 						pickupPlace='Cra 80 Cll 13'
 					/>
