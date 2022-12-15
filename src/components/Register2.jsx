@@ -3,14 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { UserContext } from '../hooks/UserContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import * as Yup from 'yup';
 import backArrow from '../assets/icons/backArrow.png';
 import RegisterServices from '../hooks/register.services';
+import SuccessAlert from '../components/alerts/SuccessAlert';
 
 export const Register2 = () => {
 	const navigate = useNavigate();
 	const { prevStep, userData, typeUser } = useContext(UserContext);
+	const [alert, setAlert] = useState(false);
+	const handleAlertClose = () => setAlert(false);
 	const createUser = RegisterServices.createUser;
 	const handleBack = event => {
 		event.preventDefault();

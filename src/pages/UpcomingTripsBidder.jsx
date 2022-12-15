@@ -4,16 +4,37 @@ import { AppBarComponent } from '../components/AppBarComponent';
 import { RedBoxInterfaceTitleComponent } from '../components/RedBoxInterfaceTitleComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 import AuthContext from '../hooks/AuthContext';
-import { useContext, useState } from 'react';
-import moment from 'moment';
+import { useContext, useEffect, useState } from 'react';
 import { useConfirm } from 'material-ui-confirm';
 import BidderServices from '../hooks/bidder.services';
 
 export const UpcomingTripsBidder = () => {
-	const { logout, userTrips, token, setUserTrips } = useContext(AuthContext);
-	const [trips, setTrips] = useState(userTrips);
+	const { logout, token, setUserTrips } = useContext(AuthContext);
+	const [trips, setTrips] = useState();
 	const disableTrip = BidderServices.disableTrip;
+	const getTrips = BidderServices.getTrips;
 	const confirm = useConfirm();
+
+	useEffect(() => {
+		setTrips(null);
+		let ignore = false;
+		getTrips(token).then(res => {
+			if (res.status === 200) {
+				const req = res.json();
+				req.then(value => {
+					if (!ignore) {
+						setTrips(value);
+					}
+				});
+			} else {
+				const req = res.json();
+				req.then(errors => alert(errors.errors));
+			}
+		});
+		return () => {
+			ignore = true;
+		};
+	}, []);
 
 	const handleDisableTrip = id => {
 		disableTrip(token, id).then(res => {
@@ -48,24 +69,30 @@ export const UpcomingTripsBidder = () => {
 			case 2:
 				return 'Martes';
 			case 3:
-				return 'Miercoles';
+				return 'Miércoles';
 			case 4:
-				return 'Juves';
+				return 'Jueves';
 			case 5:
-				return 'Vierenes';
+				return 'Viernes';
 			case 6:
 				return 'Sabado';
 			default:
-				break;
+				return 'Domingo';
 		}
 	};
 
-	const cards = trips ? (
+	const setTime = str => {
+		const date = new Date(str);
+		const other = date.toDateString();
+		return other.substring(3, 11);
+	};
+
+	const cards = Array.isArray(trips) ? (
 		trips.map(point => (
 			<CardComponent
 				key={point.id}
 				id={point.id}
-				day={setDay(point.day)}
+				day={setTime(point.date) + setDay(point.day)}
 				hour={point.hour}
 				startingPoint={point.toUniversity ? point.meetPoint : 'Univalle'}
 				arrivalPoint={point.toUniversity ? 'Univalle' : point.meetPoint}
@@ -73,7 +100,7 @@ export const UpcomingTripsBidder = () => {
 			></CardComponent>
 		))
 	) : (
-		<h1>No hay Viajes disponibles</h1>
+		<h1>Cargando...</h1>
 	);
 
 	return (

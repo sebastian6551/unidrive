@@ -14,7 +14,7 @@ export const CardComponent = props => {
 			sx={{
 				p: 2,
 				margin: 'auto',
-				width: 250,
+				width: 300,
 				background: '#FDBA43',
 				borderRadius: 5,
 			}}

@@ -4,28 +4,56 @@ import AuthContext from '../hooks/AuthContext';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TagsInput } from 'react-tag-input-component';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 import RegisterServices from '../hooks/register.services';
+import BidderServices from '../hooks/bidder.services';
+import SuccessAlert from './alerts/SuccessAlert';
 
 export const CreateTripDriver = () => {
 	const { logout, userVehicles, token } = useContext(AuthContext);
 	const [routeTagInput, setRouteTagInput] = useState([]);
 	const [message, setMessagge] = useState('Indica tu punto de');
+	const [vehicles, setVehicles] = useState();
+	const [alert, setAlert] = useState(false);
 
 	const createTrip = RegisterServices.createTrip;
+	const getVehicle = BidderServices.getVehicle;
 	const navigate = useNavigate();
+
+	const handleAlertClose = () => setAlert(false);
+
+	useEffect(() => {
+		setVehicles(null);
+		let ignore = false;
+		getVehicle(token).then(res => {
+			if (res.status === 200) {
+				const req = res.json();
+				req.then(value => {
+					if (!ignore) {
+						setVehicles(value);
+					}
+				});
+			} else {
+				const req = res.json();
+				req.then(errors => alert(errors.errors));
+			}
+		});
+		return () => {
+			ignore = true;
+		};
+	}, []);
 
 	const handleBack = event => {
 		event.preventDefault();
 		navigate('/bidder');
 	};
 
-	const optionVehicules = userVehicles ? (
-		userVehicles.map(vehicle => (
+	const optionVehicules = Array.isArray(vehicles) ? (
+		vehicles.map(vehicle => (
 			<option key={vehicle.id} value={vehicle.id}>
 				{vehicle.TypeVehicle.description} {vehicle.BrandVehicle.description} -{' '}
 				{vehicle.plate}
@@ -97,8 +125,8 @@ export const CreateTripDriver = () => {
 		console.log(dataTrip);
 		createTrip(dataTrip, token).then(res => {
 			if (res.status === 201) {
-				alert('Viaje creado con exito');
-				navigate('/bidder');
+				setAlert(true);
+				setTimeout(() => navigate('/bidder'), 1000);
 			} else if (res.status === 400) {
 				const req = res.json();
 				req.then(errors => alert(errors.errors));
@@ -273,6 +301,11 @@ export const CreateTripDriver = () => {
 			<div className='appBarPosition'>
 				<AppBarComponent />
 			</div>
+			<SuccessAlert
+				open={alert}
+				onClose={handleAlertClose}
+				message={'Viaje creado exitosamene'}
+			/>
 		</div>
 	);
 };

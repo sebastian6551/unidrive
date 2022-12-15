@@ -31,26 +31,8 @@ export const AppBarComponent = () => {
 		navigate('/' + typeUser + '/notification');
 	};
 
-	const handledUpcoming = async event => {
-		// navigate('/bidder/upcomingtrips');
-		event.preventDefault();
-		getTrips(token).then(res => {
-			console.log(res);
-			if (res.status === 200) {
-				const req = res.json();
-				console.log(req);
-				req.then(value => {
-					localStorage.setItem('trips', JSON.stringify(value));
-					setUserTrips(value);
-				});
-				if (userTrips !== null) {
-					navigate('/bidder/upcomingtrips');
-				}
-			} else {
-				const req = res.json();
-				req.then(errors => alert(errors.errors));
-			}
-		});
+	const handledUpcoming = () => {
+		navigate('/bidder/upcomingtrips');
 	};
 
 	return (
