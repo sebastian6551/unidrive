@@ -1,0 +1,110 @@
+.appBarPosition {
+	max-width: 340px;
+	max-height: 200;
+	position: absolute;
+	left: 0;
+	margin: auto;
+	right: 0;
+	bottom: 0px;
+}
+
+.redBoxPosition {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding-left: 10px;
+}
+
+.tripsContainer {
+	width: 350px;
+	height: 77vh;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: initial;
+	overflow-y: scroll;
+	padding-top: 5%;
+}
+
+.tripsContainer::-webkit-scrollbar {
+	display: none;
+}
+
+
+.spaceLeftForLogOut {
+	padding-left: 80vw;
+}
+
+.logOutArrow {
+	width: 23px;
+	height: 23px;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+
+.cardPosition {
+	max-width: 266px;
+	max-height: 98;
+	display: flex;
+	padding-top: 15px;
+	align-items: center;
+	padding-left: 10px;	
+}
+
+.passengersCaptionContainer {
+	width: 302px;
+	height: 30;
+	border-radius: 10px;
+	display: flex;
+    padding-top: 20px;
+}
+
+.passengersCaption {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 25px;
+	text-align: left;
+	padding-left: 2px;
+	color: #c60000;
+}
+
+.passengersContainer {
+	width: 302px;
+	height: 100px;
+	background: #c7c7c7;
+	border: 1px solid #c7c7c7;
+	border-radius: 10px;
+
+	font-family: 'Jost';
+	font-style: normal;
+	color: #111111;
+
+	display: flex;
+	flex-direction: column;	
+}
+
+.pickupCaption {
+	font-weight: 500;
+	font-size: 17px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.passengerNameCaption {
+	font-weight: 700;
+	font-size: 20px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.passengersTripBodyContainer {
+	width: 320px;
+	height: 35vh;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+    padding-top: 30px;   
+}

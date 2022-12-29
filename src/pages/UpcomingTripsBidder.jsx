@@ -115,7 +115,7 @@ export const UpcomingTripsBidder = () => {
 					<img src={logOutArrow} />
 				</button>
 			</span>
-			<RedBoxInterfaceTitleComponent title='Próximos viajes' />
+			<RedBoxInterfaceTitleComponent title='Próximos viajes'/>
 			<div className='tripsContainer'>{cards}</div>
 			<div className='appBarPosition'>
 				<AppBarComponent />
