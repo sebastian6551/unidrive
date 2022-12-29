@@ -110,21 +110,40 @@
 
 .cardInfoContainer {
 	width: 302px;
-	height: 300px;
-	background: #c7c7c7;
-	border: 1px solid #c7c7c7;
-	border-radius: 10px;
-	
+	height: 380px;
+
 	font-family: 'Jost';
 	font-style: normal;
 	font-size: 18px;
 	text-align: left;
-	
+
 	color: #111111;
 
 	gap: 20px;
-	padding-top: 20px;
-	
+	padding-top: 30px;
+
 	display: flex;
 	flex-direction: column;
 }
+
+.whatsapp_BookingButton {
+	box-sizing: border-box;
+
+	position: relative;
+	width: 172px;
+	height: 35px;
+	background: #E8E8E8;
+	border: 1px solid #c7c7c7;
+	border-radius: 10px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+	
+}
+
+
+
+
+
+

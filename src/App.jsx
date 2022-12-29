@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { SingUp } from './pages/Singup';
 import Login from './pages/Login';
-// import { Landing } from './pages/Landing';
+import { Landing } from './pages/Landing';
 import { ProtectedRoute } from './hooks/ProtectedRoutes.jsx';
 import { AuthContextProvider } from './hooks/AuthContext';
 import { HomeBidder } from './pages/HomeBidder';
@@ -15,13 +15,13 @@ import { NotificationRider } from './pages/NotificationRider';
 import { UpcomingTripsBidder } from './pages/UpcomingTripsBidder';
 import { UpcomingTripsRider } from './pages/UpcomingTripsRider';
 import { ConfirmProvider } from 'material-ui-confirm';
-import { CardDetailRider } from './components/CardDetailRider';
+
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Routes>
-				<Route path='/' element={<CardDetailRider />}></Route>
+				<Route path='/' element={<Landing />}></Route>
 				<Route
 					path='/login'
 					element={
