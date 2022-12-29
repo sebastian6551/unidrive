@@ -15,13 +15,13 @@ import { NotificationRider } from './pages/NotificationRider';
 import { UpcomingTripsBidder } from './pages/UpcomingTripsBidder';
 import { UpcomingTripsRider } from './pages/UpcomingTripsRider';
 import { ConfirmProvider } from 'material-ui-confirm';
-import { TripDetailBidder } from './components/TripDetailBidder';
+import { CardDetailRider } from './components/CardDetailRider';
 
 function App() {
 	return (
 		<AuthContextProvider>
 			<Routes>
-				<Route path='/' element={<TripDetailBidder />}></Route>
+				<Route path='/' element={<CardDetailRider />}></Route>
 				<Route
 					path='/login'
 					element={

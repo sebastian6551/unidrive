@@ -30,7 +30,6 @@
 	display: none;
 }
 
-
 .spaceLeftForLogOut {
 	padding-left: 80vw;
 }
@@ -49,7 +48,7 @@
 	display: flex;
 	padding-top: 15px;
 	align-items: center;
-	padding-left: 10px;	
+	padding-left: 10px;
 }
 
 .passengersCaptionContainer {
@@ -57,7 +56,7 @@
 	height: 30;
 	border-radius: 10px;
 	display: flex;
-    padding-top: 20px;
+	padding-top: 20px;
 }
 
 .passengersCaption {
@@ -82,7 +81,7 @@
 	color: #111111;
 
 	display: flex;
-	flex-direction: column;	
+	flex-direction: column;
 }
 
 .pickupCaption {
@@ -106,5 +105,26 @@
 	flex-direction: column;
 	gap: 20px;
 	align-items: center;
-    padding-top: 30px;   
+	padding-top: 30px;
+}
+
+.cardInfoContainer {
+	width: 302px;
+	height: 300px;
+	background: #c7c7c7;
+	border: 1px solid #c7c7c7;
+	border-radius: 10px;
+	
+	font-family: 'Jost';
+	font-style: normal;
+	font-size: 18px;
+	text-align: left;
+	
+	color: #111111;
+
+	gap: 20px;
+	padding-top: 20px;
+	
+	display: flex;
+	flex-direction: column;
 }
