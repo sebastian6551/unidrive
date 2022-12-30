@@ -16,22 +16,22 @@
 }
 
 .tripsContainer {
-    width: 320px;
+	width: 350px;
 	height: 77vh;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	align-items: center;
-	overflow-y:scroll;
-    padding-top: 5%;
+	align-items: initial;
+	overflow-y: scroll;
+	padding-top: 5%;
 }
 
 .tripsContainer::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
-.appBarPosition{
-    max-width: 340px;
+.appBarPosition {
+	max-width: 340px;
 	max-height: 200;
 	position: absolute;
 	left: 0;
@@ -43,7 +43,6 @@
 .spaceLeftForLogOut {
 	padding-left: 80vw;
 }
-
 
 .logOutArrow {
 	width: 23px;

@@ -1,5 +1,5 @@
-import { Typography, Grid, Paper, Button } from '@mui/material';
-import deleteIcon from '../components/styles/deleteIcon.png';
+import { Typography, Grid, Paper, IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const CardComponent = props => {
 	const handleDelete = event => {
@@ -13,14 +13,22 @@ export const CardComponent = props => {
 			sx={{
 				p: 2,
 				margin: 'auto',
-				maxWidth: 500,
-				flexGrow: 1,
-				width: 250,
-				height: 95,
+				width: 300,
 				background: '#FDBA43',
 				borderRadius: 5,
 			}}
 		>
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'flex-end',
+				}}
+			>
+				<IconButton onClick={handleDelete} style={{ padding: '0' }}>
+					<DeleteIcon fontSize='small' />
+				</IconButton>
+			</div>
 			<Grid container spacing={2}>
 				<Grid item xs={12} sm container>
 					<Grid item xs container direction='column' spacing={2}>
@@ -34,10 +42,10 @@ export const CardComponent = props => {
 									fontWeight: 700,
 								}}
 							>
-								{' '}
-								{props.day}{' '}
+								{props.day}
 							</Typography>
 							<Typography
+								textAlign='left'
 								sx={{
 									fontFamily: 'jost',
 									fontStyle: 'normal',
@@ -49,6 +57,7 @@ export const CardComponent = props => {
 								Partida:
 							</Typography>
 							<Typography
+								textAlign='left'
 								sx={{
 									fontFamily: 'jost',
 									fontStyle: 'normal',
@@ -63,6 +72,7 @@ export const CardComponent = props => {
 
 					<Grid item textAlign={'left'}>
 						<Typography
+							textAlign='right'
 							sx={{
 								fontFamily: 'jost',
 								fontStyle: 'normal',
@@ -70,10 +80,10 @@ export const CardComponent = props => {
 								fontWeight: 700,
 							}}
 						>
-							{' '}
-							{props.hour}{' '}
+							{props.hour}
 						</Typography>
 						<Typography
+							textAlign='right'
 							sx={{
 								fontFamily: 'jost',
 								fontStyle: 'normal',
@@ -82,11 +92,11 @@ export const CardComponent = props => {
 								color: '#FFFFFF',
 							}}
 						>
-							{' '}
-							{props.startingPoint}{' '}
+							{props.startingPoint}
 						</Typography>
 
 						<Typography
+							textAlign='right'
 							sx={{
 								fontFamily: 'jost',
 								fontStyle: 'normal',
@@ -95,22 +105,9 @@ export const CardComponent = props => {
 								color: '#FFFFFF',
 							}}
 						>
-							{' '}
-							{props.arrivalPoint}{' '}
+							{props.arrivalPoint}
 						</Typography>
 					</Grid>
-					<Button
-						onClick={handleDelete}
-						sx={{
-							position: 'relative',
-							width: '8.3%',
-							height: '8.3%',
-							left: '8.3%',
-							bottom: '8.3%',
-						}}
-					>
-						<img src={deleteIcon} />
-					</Button>
 				</Grid>
 			</Grid>
 		</Paper>

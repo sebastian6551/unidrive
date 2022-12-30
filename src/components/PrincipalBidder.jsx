@@ -4,32 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
-import BidderServices from '../hooks/bidder.services';
 import { PassengersContainerBidderComponent } from './PassengersContainerBidderComponent';
 import { TripInfoBidderComponent } from './TripInfoBidderComponent';
 export const PrincipalBidder = () => {
-	const { logout, user, token, setUserVehicles } = useContext(AuthContext);
+	const { logout, user } = useContext(AuthContext);
 	const navigate = useNavigate();
 
-	const getVehicle = BidderServices.getVehicle;
-
-	const handleCreateTrip = event => {
-		event.preventDefault();
-		getVehicle(token).then(res => {
-			console.log(res);
-			if (res.status === 200) {
-				const req = res.json();
-				console.log(req);
-				req.then(value => {
-					localStorage.setItem('vehicles', JSON.stringify(value));
-					setUserVehicles(value);
-				});
-				navigate('/bidder/createTrip');
-			} else {
-				const req = res.json();
-				req.then(errors => alert(errors.errors));
-			}
-		});
+	const handleCreateTrip = () => {
+		navigate('/bidder/createTrip');
 	};
 
 	// If there is no trip in progress when calling the DB, a message is displayed
