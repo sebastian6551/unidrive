@@ -7,12 +7,17 @@ import AuthContext from '../hooks/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import { useConfirm } from 'material-ui-confirm';
 import BidderServices from '../hooks/bidder.services';
+import stringFormat from '../hooks/stingFormat';
 
 export const UpcomingTripsBidder = () => {
 	const { logout, token, setUserTrips } = useContext(AuthContext);
 	const [trips, setTrips] = useState();
 	const disableTrip = BidderServices.disableTrip;
 	const getTrips = BidderServices.getTrips;
+	const setTime = stringFormat.setTime;
+	const getHour = stringFormat.getHour;
+	const setDay = stringFormat.setDay;
+	const setMeetPoint = stringFormat.setMeetPoint;
 	const confirm = useConfirm();
 
 	useEffect(() => {
@@ -62,40 +67,19 @@ export const UpcomingTripsBidder = () => {
 			.catch(() => console.log('Deletion cancelled.'));
 	};
 
-	const setDay = num => {
-		switch (num) {
-			case 1:
-				return 'Lunes';
-			case 2:
-				return 'Martes';
-			case 3:
-				return 'Miércoles';
-			case 4:
-				return 'Jueves';
-			case 5:
-				return 'Viernes';
-			case 6:
-				return 'Sabado';
-			default:
-				return 'Domingo';
-		}
-	};
-
-	const setTime = str => {
-		const date = new Date(str);
-		const other = date.toDateString();
-		return other.substring(3, 11);
-	};
-
 	const cards = Array.isArray(trips) ? (
 		trips.map(point => (
 			<CardComponent
 				key={point.id}
 				id={point.id}
 				day={setTime(point.date) + setDay(point.day)}
-				hour={point.hour}
-				startingPoint={point.toUniversity ? point.meetPoint : 'Univalle'}
-				arrivalPoint={point.toUniversity ? 'Univalle' : point.meetPoint}
+				hour={getHour(point.date)}
+				startingPoint={
+					point.toUniversity ? setMeetPoint(point.meetPoint) : 'Univalle'
+				}
+				arrivalPoint={
+					point.toUniversity ? 'Univalle' : setMeetPoint(point.meetPoint)
+				}
 				handleDelete={handleDelete}
 			></CardComponent>
 		))
