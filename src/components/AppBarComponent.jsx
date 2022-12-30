@@ -11,13 +11,10 @@ import menu from '../assets/icons/menu.png';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../hooks/AuthContext';
-import BidderServices from '../hooks/bidder.services';
 
 export const AppBarComponent = () => {
-	const { typeUser, token, setUserTrips, userTrips } = useContext(AuthContext);
+	const { typeUser } = useContext(AuthContext);
 	const navigate = useNavigate();
-
-	const getTrips = BidderServices.getTrips;
 
 	const handledHome = () => {
 		navigate('/' + typeUser);
