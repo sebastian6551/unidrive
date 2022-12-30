@@ -1,0 +1,10 @@
+.searchTripFormRider {
+	display: flex;
+	width: 320px;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	gap: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
