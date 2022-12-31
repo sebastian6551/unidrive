@@ -86,7 +86,7 @@
 	font-weight: 600;
 	font-size: 1.625em;
 	text-align: center;
-	color: #231f20;
+	color: #111111;
 }
 
 .cancellButton:hover {
@@ -98,8 +98,8 @@
 	box-sizing: border-box;
 	width: 135px;
 	height: 39px;
-	background: #ffa048;
-	border: 1px solid #ffa048;
+	background: #EDBE44;
+	border: 1px solid #EDBE44;
 	border-radius: 10px;
 	cursor: pointer;
 
@@ -108,12 +108,12 @@
 	font-weight: 600;
 	font-size: 1.625em;
 	text-align: center;
-	color: #231f20;
+	color: #111111;
 }
 
 .activateButton:hover {
-	background: #cc7f39;
-	border: 1px solid #cc7f39;
+	background: #ba9535;
+	border: 1px solid #ba9535;
 }
 
 .buttonsLineCreateTripDriver {

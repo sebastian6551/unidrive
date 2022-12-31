@@ -1,10 +1,83 @@
 .searchTripFormRider {
 	display: flex;
-	width: 320px;
-	align-items: center;
-	text-align: center;
+	box-sizing: border-box;
+	width: 310px;
+	background: #cccccc;
+	border-radius: 10px;
+
+	text-align:left;
+
 	flex-direction: column;
 	gap: 10px;
+	padding: 10px;
+}
+
+.rowFormRider {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.buttonRowFormRider {
+	display: flex;
+	justify-content: right;
+}
+
+.buttonFormRider {
+	box-sizing: border-box;
+	width: 140px;
+	height: 3vw;
+	min-height: 30px;
+	max-height: 44.1px;
+	background: #ba9535 ;
+	border: 1px solid #ba9535 ;
+	border-radius: 10px;
+	cursor: pointer;
+
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.buttonFormRider:hover {
+	background: #ba6335;
+	border: 1px solid #ba6335;
+}
+
+.captionFormRider {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.125em;
+}
+
+.selectFieldSearchTripRider {
+	display: flex;
+	justify-content: left;
+	background: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	border-radius: 10px;
+	width: 120px;
+
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-size: 0.875em;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.searchTripRiderBody {
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	align-items: center;
+	height: 65vh;
+	overflow-y: scroll;
+}
+
+.searchTripRiderBody::-webkit-scrollbar {
+	display: none;
 }

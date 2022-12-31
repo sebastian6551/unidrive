@@ -156,6 +156,7 @@ export const CreateTripDriver = () => {
 			<form className='loginFormDriver' onSubmit={handleSubmit(onSubmit)}>
 				<input
 					className='selectFieldCreateTripDriver'
+					title='Día'
 					type='date'
 					{...register('date')}
 				></input>
