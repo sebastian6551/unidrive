@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
-import BidderServices from '../hooks/bidder.services';
 import { PassengersContainerBidderComponent } from './PassengersContainerBidderComponent';
 import { TripInfoBidderComponent } from './TripInfoBidderComponent';
 export const PrincipalBidder = () => {

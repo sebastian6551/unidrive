@@ -6,16 +6,42 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TagsInput } from 'react-tag-input-component';
+import dayjs from 'dayjs';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import TextField from '@mui/material/TextField';
+import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AppBarComponent } from './AppBarComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 import RegisterServices from '../hooks/register.services';
 import BidderServices from '../hooks/bidder.services';
 import SuccessAlert from './alerts/SuccessAlert';
+import stringFormat from '../hooks/stingFormat';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 export const CreateTripDriver = () => {
-	const { logout, userVehicles, token } = useContext(AuthContext);
-	const [routeTagInput, setRouteTagInput] = useState([]);
+	const [dateTime, setDateTime] = useState(null);
+	const [minHour, setMinminHour] = useState(null);
+	const [minDate, setMinDate] = useState(null);
+	const [address, setAddress] = useState('');
+
+	const handleSelect = async value => {
+		setAddress(value);
+	};
+
+	// limite principal search area to valle del cauca
+	const searchOptions = {
+		// eslint-disable-next-line no-undef
+		location: new google.maps.LatLng(3.8008893, -76.64127119999999),
+		radius: 200,
+		types: ['address'],
+	};
+
+	const handleChange = event => {
+		console.log(event.$d);
+		setDateTime(dayjs(event.$d));
+	};
+
+	const { logout, token } = useContext(AuthContext);
 	const [message, setMessagge] = useState('Indica tu punto de');
 	const [vehicles, setVehicles] = useState();
 	const [alert, setAlert] = useState(false);
@@ -28,6 +54,11 @@ export const CreateTripDriver = () => {
 
 	useEffect(() => {
 		setVehicles(null);
+		setMinDate(null);
+		setMinminHour(null);
+		const nowDate = dayjs();
+		const limit = (nowDate.hour() + 1).toString();
+		const limitHour = stringFormat.replaceAt(nowDate.format(), 11, limit);
 		let ignore = false;
 		getVehicle(token).then(res => {
 			if (res.status === 200) {
@@ -42,6 +73,8 @@ export const CreateTripDriver = () => {
 				req.then(errors => alert(errors.errors));
 			}
 		});
+		setMinDate(nowDate);
+		setMinminHour(limitHour.substring(0, 16));
 		return () => {
 			ignore = true;
 		};
@@ -63,11 +96,8 @@ export const CreateTripDriver = () => {
 		<option value={0}>Sin vehiculos registrados</option>
 	);
 
-	// JSON.stringify(routeTagInput) To get the data from the tagsInput element
-
 	const formSchema = Yup.object().shape({
-		date: Yup.date().required('La fecha de partida es requerida').nullable(),
-		hour: Yup.string().required('Completa el campo.'),
+		// date: Yup.date().required('La fecha de partida es requerida').nullable(),
 		vehicle: Yup.number()
 			.required()
 			.notOneOf(['noVehicle'], 'Selecciona un tipo de vehículo.'),
@@ -86,7 +116,7 @@ export const CreateTripDriver = () => {
 		toUniversity: Yup.boolean()
 			.required()
 			.notOneOf(['noToUniversity'], 'Selecciona un opción.'),
-		meetPoint: Yup.string().required('Completa el campo.'),
+		// meetPoint: Yup.string().required('Completa el campo.'),
 	});
 
 	const formOptions = {
@@ -99,17 +129,11 @@ export const CreateTripDriver = () => {
 		formState: { errors },
 	} = useForm(formOptions);
 
-	const setTime = str => {
-		const hour = str.split(':');
-		return hour;
-	};
-
 	const onSubmit = data => {
-		console.log(data);
-		const arrHour = setTime(data.hour);
-		console.log(userVehicles);
-		data.date.setHours(arrHour[0], arrHour[1]);
+		data.date = dateTime.$d;
+		data.meetPoint = address;
 		const fullData = { ...data, day: data.date.getDay() };
+		console.log(fullData);
 		const dataTrip = JSON.parse(
 			JSON.stringify(fullData, [
 				'vehicle',
@@ -154,12 +178,21 @@ export const CreateTripDriver = () => {
 			<div className='redDivDriver'>Viaje</div>
 			<div className='space9px'></div>
 			<form className='loginFormDriver' onSubmit={handleSubmit(onSubmit)}>
-				<input
-					className='selectFieldCreateTripDriver'
-					title='Día'
-					type='date'
-					{...register('date')}
-				></input>
+				<div className='space9px'></div>
+				<LocalizationProvider dateAdapter={AdapterDayjs}>
+					<DateTimePicker
+						title='date'
+						label='Fecha y hora'
+						value={dateTime}
+						type='date'
+						onChange={handleChange}
+						minDate={minDate}
+						minTime={dayjs(minHour)}
+						renderInput={params => (
+							<TextField {...params} {...register('date')} />
+						)}
+					/>
+				</LocalizationProvider>
 				<span id='error' className='errorMessage'>
 					{errors.date?.type === 'required' && (
 						<small>
@@ -167,20 +200,6 @@ export const CreateTripDriver = () => {
 							{errors.date?.message}
 						</small>
 					)}
-				</span>
-				<div className='space9px'></div>
-				<input
-					className='textFieldCreateTripDriver'
-					title='Hora'
-					type='time'
-					placeholder='Hora'
-					{...register('hour')}
-				/>
-				<span id='error' className='errorMessage'>
-					<small>
-						<br></br>
-						{errors.hour?.message}
-					</small>
 				</span>
 				<div className='space9px'></div>
 				<select
@@ -267,19 +286,57 @@ export const CreateTripDriver = () => {
 					</small>
 				</span>
 				<div className='space9px'></div>
-				<input
-					className='textFieldCreateTripDriver'
-					title={message}
-					type='text'
-					placeholder={message}
-					{...register('meetPoint')}
-				/>
-				<span id='error' className='errorMessage'>
-					<small>
-						<br></br>
-						{errors.meetPoint?.message}
-					</small>
-				</span>
+				<PlacesAutocomplete
+					value={address}
+					onChange={setAddress}
+					onSelect={handleSelect}
+					searchOptions={searchOptions}
+				>
+					{({
+						getInputProps,
+						suggestions,
+						getSuggestionItemProps,
+						loading,
+					}) => (
+						<div>
+							<input
+								className='textFieldCreateTripDriver'
+								title={message}
+								{...getInputProps({ placeholder: message })}
+								// {...register('meetPoint')}
+							/>
+							{/* <span id='error' className='errorMessage'>
+								<small>
+									<br></br>
+									{errors.meetPoint?.message}
+								</small>
+							</span> */}
+							<div>
+								{loading ? <div>....is loading</div> : null}
+								{suggestions.map(suggestion => {
+									const className = suggestion.active
+										? 'suggestion-item--active'
+										: 'suggestion-item';
+									// inline style for demonstration purpose
+									const style = suggestion.active
+										? { backgroundColor: '#fafafa', cursor: 'pointer' }
+										: { backgroundColor: '#ffffff', cursor: 'pointer' };
+									return (
+										<div
+											key={suggestion.index}
+											{...getSuggestionItemProps(suggestion, {
+												className,
+												style,
+											})}
+										>
+											{suggestion.description}
+										</div>
+									);
+								})}
+							</div>
+						</div>
+					)}
+				</PlacesAutocomplete>
 				<div className='space9px'></div>
 				<div className='buttonsLineCreateTripDriver'>
 					<input

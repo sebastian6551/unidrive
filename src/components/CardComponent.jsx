@@ -1,5 +1,4 @@
-import { Typography, Grid, Paper, Button, IconButton } from '@mui/material';
-import deleteIcon from '../components/styles/deleteIcon.png';
+import { Typography, Grid, Paper, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const CardComponent = props => {
@@ -43,8 +42,7 @@ export const CardComponent = props => {
 									fontWeight: 700,
 								}}
 							>
-								{' '}
-								{props.day}{' '}
+								{props.day}
 							</Typography>
 							<Typography
 								textAlign='left'
