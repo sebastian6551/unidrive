@@ -6,13 +6,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useContext } from 'react';
 import { AppBarComponent } from '../components/AppBarComponent';
+import { TripInfoBidderComponent } from '../components/TripInfoBidderComponent';
 import logOutArrow from '../assets/icons/logOutArrow.png';
 
 export const SearchTripRider = () => {
 	const { logout } = useContext(AuthContext);
 
+	const today = new Date();
+
 	const formSchema = Yup.object().shape({
-		dates: Yup.string().required('La fecha del viaje es requerida.'),
+		dates: Yup.date()
+			.typeError('La fecha del viaje es requerida.')
+			.min(today.toLocaleDateString(), 'La fecha debe ser de hoy en adelante.')
+			.required('La fecha del viaje es requerida.'),
 		hour: Yup.string().required('La hora del viaje es requerida.'),
 		departure: Yup.string().required('Escribe un punto de partida.'),
 		arrival: Yup.string().required('Escribe un punto de llegada.'),
@@ -75,7 +81,7 @@ export const SearchTripRider = () => {
 						<label className='captionFormRider'>Punto de partida:</label>
 						<input
 							className='selectFieldSearchTripRider'
-							title='Punto de partida:'
+							title='Punto de partida'
 							type='text'
 							placeholder='Ej: Univalle'
 							{...register('departure')}
@@ -88,7 +94,7 @@ export const SearchTripRider = () => {
 						<label className='captionFormRider'>Punto de llegada:</label>
 						<input
 							className='selectFieldSearchTripRider'
-							title='Punto de llegada:'
+							title='Punto de llegada'
 							type='text'
 							placeholder='Ej: San Fernando'
 							{...register('arrival')}
@@ -106,6 +112,30 @@ export const SearchTripRider = () => {
 						/>
 					</div>
 				</form>
+				<TripInfoBidderComponent
+					dayCaption='Prueba de'
+					hourCaption='scroll'
+					departureCaption='...'
+					arrivalCaption='...'
+					color='#EDBE44'
+				/>
+				<div className='captionSearchTripRiderContainer'>
+					<label className='captionSearchTripRider'>Otras opciones:</label>
+				</div>
+				<TripInfoBidderComponent
+					dayCaption='Prueba de'
+					hourCaption='scroll'
+					departureCaption='...'
+					arrivalCaption='...'
+					color='#EDBE44'
+				/>
+				<TripInfoBidderComponent
+					dayCaption='Prueba de'
+					hourCaption='scroll'
+					departureCaption='...'
+					arrivalCaption='...'
+					color='#EDBE44'
+				/>
 			</div>
 			<div className='appBarPosition'>
 				<AppBarComponent></AppBarComponent>

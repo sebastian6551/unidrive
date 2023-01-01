@@ -171,6 +171,24 @@
 	display: none;
 }
 
+@media (min-height: 667px) {
+	.passengersBodyContainer {
+		height: 28vh;
+	}
+}
+
+@media (min-height: 720px) {
+	.passengersBodyContainer {
+		height: 32vh;
+	}
+}
+
+@media (min-height: 820px) {
+	.passengersBodyContainer {
+		height: 38vh;
+	}
+}
+
 .redDivDriver {
 	width: 305px;
 	height: 49px;

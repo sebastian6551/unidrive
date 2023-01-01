@@ -69,6 +69,18 @@
 	padding-right: 10px;
 }
 
+.captionSearchTripRiderContainer {
+	width: 302px;
+	display: flex;
+}
+
+.captionSearchTripRider {
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.125em;
+}
+
 .searchTripRiderBody {
 	display: flex;
 	gap: 10px;
