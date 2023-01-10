@@ -159,7 +159,7 @@
 
 .passengersBodyContainer {
 	width: 320px;
-	height: 35vh;
+	height: 20vh;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -169,6 +169,24 @@
 
 .passengersBodyContainer::-webkit-scrollbar {
 	display: none;
+}
+
+@media (min-height: 667px) {
+	.passengersBodyContainer {
+		height: 28vh;
+	}
+}
+
+@media (min-height: 720px) {
+	.passengersBodyContainer {
+		height: 32vh;
+	}
+}
+
+@media (min-height: 820px) {
+	.passengersBodyContainer {
+		height: 38vh;
+	}
 }
 
 .redDivDriver {

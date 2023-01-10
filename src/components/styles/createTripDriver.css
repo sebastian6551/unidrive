@@ -1,13 +1,35 @@
 .loginFormDriver {
 	width: 320px;
-	height: 65vh;
-	align-items: center;
-	text-align: center;
+	height: 66.5vh;
 	overflow-y: scroll;
 }
 
 .loginFormDriver::-webkit-scrollbar {
 	display: none;
+}
+
+@media (min-height: 667px) {
+	.loginFormDriver {
+		height: 68vh;
+	}
+}
+
+@media (min-height: 720px) {
+	.loginFormDriver {
+		height: 71vh;
+	}
+}
+
+@media (min-height: 820px) {
+	.loginFormDriver {
+		height: 72vh;
+	}
+}
+
+@media (min-height: 830px) {
+	.loginFormDriver {
+		height: 74vh;
+	}
 }
 
 .textFieldCreateTripDriver {
@@ -86,7 +108,7 @@
 	font-weight: 600;
 	font-size: 1.625em;
 	text-align: center;
-	color: #231f20;
+	color: #111111;
 }
 
 .cancellButton:hover {
@@ -98,8 +120,8 @@
 	box-sizing: border-box;
 	width: 135px;
 	height: 39px;
-	background: #ffa048;
-	border: 1px solid #ffa048;
+	background: #edbe44;
+	border: 1px solid #edbe44;
 	border-radius: 10px;
 	cursor: pointer;
 
@@ -108,12 +130,12 @@
 	font-weight: 600;
 	font-size: 1.625em;
 	text-align: center;
-	color: #231f20;
+	color: #111111;
 }
 
 .activateButton:hover {
-	background: #cc7f39;
-	border: 1px solid #cc7f39;
+	background: #ba9535;
+	border: 1px solid #ba9535;
 }
 
 .buttonsLineCreateTripDriver {
