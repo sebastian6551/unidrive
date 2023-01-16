@@ -29,7 +29,7 @@ export const AppBarComponent = () => {
 	};
 
 	const handledUpcoming = () => {
-		navigate('/bidder/upcomingtrips');
+		navigate('/' + typeUser + '/upcomingtrips');
 	};
 
 	return (

@@ -30,16 +30,6 @@
 	display: none;
 }
 
-.appBarPosition {
-	max-width: 340px;
-	max-height: 200;
-	position: absolute;
-	left: 0;
-	margin: auto;
-	right: 0;
-	bottom: 0px;
-}
-
 .spaceLeftForLogOut {
 	padding-left: 80vw;
 }
@@ -50,4 +40,13 @@
 	border: none;
 	cursor: pointer;
 	background: none;
+}
+
+.cardPosition {
+	max-width: 266px;
+	max-height: 98;
+	display: flex;
+	padding-top: 15px;
+	align-items: center;
+	padding-left: 10px;
 }

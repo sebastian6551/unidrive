@@ -46,6 +46,7 @@ export const PrincipalBidder = () => {
 				<div className='passengersCaptionContainer'>
 					<h1 className='passengersCaption'>Pasajeros</h1>
 				</div>
+				<div className='space9px'></div>
 				<div className='passengersBodyContainer'>
 					<PassengersContainerBidderComponent
 						passengerName='Victor'

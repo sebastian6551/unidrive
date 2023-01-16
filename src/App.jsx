@@ -15,6 +15,7 @@ import { NotificationRider } from './pages/NotificationRider';
 import { UpcomingTripsBidder } from './pages/UpcomingTripsBidder';
 import { UpcomingTripsRider } from './pages/UpcomingTripsRider';
 import { ConfirmProvider } from 'material-ui-confirm';
+import { SearchTripRider } from './pages/SearchTripRider';
 
 function App() {
 	return (
@@ -34,6 +35,14 @@ function App() {
 					element={
 						<ProtectedRoute accessBy='authenticated'>
 							<HomeRider />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/rider/searchTrip'
+					element={
+						<ProtectedRoute accessBy='authenticated'>
+							<SearchTripRider />
 						</ProtectedRoute>
 					}
 				></Route>

@@ -129,7 +129,7 @@
 
 .passengersContainer {
 	width: 302px;
-	height: 3.75em;
+	height: 100px;
 	background: #c7c7c7;
 	border: 1px solid #c7c7c7;
 	border-radius: 10px;
@@ -144,15 +144,15 @@
 }
 
 .pickupCaption {
-	font-weight: 400;
-	font-size: 1.125em;
+	font-weight: 500;
+	font-size: 17px;
 	text-align: left;
 	padding-left: 10px;
 }
 
 .passengerNameCaption {
-	font-weight: 800;
-	font-size: 1.125em;
+	font-weight: 700;
+	font-size: 20px;
 	text-align: left;
 	padding-left: 10px;
 }

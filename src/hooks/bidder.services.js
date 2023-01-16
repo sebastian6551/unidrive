@@ -1,5 +1,10 @@
 const baseUrl = 'http://localhost:3000/';
 
+/**
+ * Get all vehicles
+ * @param {string} auth token
+ * @returns Promise<Response>
+ */
 const getVehicle = async auth => {
 	const comp = 'bidder/vehicles';
 	return await fetch(baseUrl + comp, {
@@ -14,6 +19,12 @@ const getVehicle = async auth => {
 	});
 };
 
+/**
+ * Get all trips
+ * @param {string} auth token
+ * @returns Promise<Response>
+ *
+ * */
 const getTrips = async auth => {
 	const comp = 'bidder/trips';
 	return await fetch(baseUrl + comp, {
@@ -28,12 +39,15 @@ const getTrips = async auth => {
 	});
 };
 
+/**
+ * Disable a trip by id
+ * @param {String} auth
+ * @param {int} id
+ * @returns Promise<Response>
+ */
 const disableTrip = async (auth, id) => {
-	// const comp = `bidder/trips/:{id.id}`;
-	const comp = 'bidder/trips/' + id;
-	const obj = { id: id };
+	const comp = 'bidder/trips/:' + id;
 	console.log(comp);
-	console.log(obj);
 	return await fetch(baseUrl + comp, {
 		method: 'PUT',
 		mode: 'cors',
@@ -43,7 +57,7 @@ const disableTrip = async (auth, id) => {
 			Authorization: auth,
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify(obj),
+		body: JSON.stringify({ id }),
 	});
 };
 

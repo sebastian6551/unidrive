@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useConfirm } from 'material-ui-confirm';
 import BidderServices from '../hooks/bidder.services';
 import stringFormat from '../hooks/stingFormat';
+import jsonFormat from '../hooks/jsonFormat';
 
 export const UpcomingTripsBidder = () => {
 	const { logout, token, setUserTrips } = useContext(AuthContext);
@@ -18,6 +19,7 @@ export const UpcomingTripsBidder = () => {
 	const getHour = stringFormat.getHour;
 	const setDay = stringFormat.setDay;
 	const setMeetPoint = stringFormat.setMeetPoint;
+	const sortArray = jsonFormat.sortArrayDate;
 	const confirm = useConfirm();
 
 	useEffect(() => {
@@ -26,7 +28,11 @@ export const UpcomingTripsBidder = () => {
 		getTrips(token).then(res => {
 			if (res.status === 200) {
 				const req = res.json();
+				console.log(req);
 				req.then(value => {
+					console.log(value);
+					sortArray(value);
+					console.log(value);
 					if (!ignore) {
 						setTrips(value);
 					}
@@ -75,12 +81,18 @@ export const UpcomingTripsBidder = () => {
 				day={setTime(point.date) + setDay(point.day)}
 				hour={getHour(point.date)}
 				startingPoint={
-					point.toUniversity ? setMeetPoint(point.meetPoint) : 'Univalle'
+					point.toUniversity
+						? setMeetPoint(point.meetPoint)
+						: 'Univalle - Melendez'
 				}
 				arrivalPoint={
-					point.toUniversity ? 'Univalle' : setMeetPoint(point.meetPoint)
+					point.toUniversity
+						? 'Univalle - Melendez'
+						: setMeetPoint(point.meetPoint)
 				}
 				handleDelete={handleDelete}
+				typeUser='bidder'
+				other={[point.rate, point.description]}
 			></CardComponent>
 		))
 	) : (
