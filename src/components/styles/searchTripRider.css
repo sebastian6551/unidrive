@@ -29,8 +29,8 @@
 	height: 3vw;
 	min-height: 30px;
 	max-height: 44.1px;
-	background: #ba9535;
-	border: 1px solid #ba9535;
+	background: #d83c3e;
+	border: 1px solid #d83c3e;
 	border-radius: 10px;
 	cursor: pointer;
 
@@ -43,15 +43,15 @@
 }
 
 .buttonFormRider:hover {
-	background: #ba6335;
-	border: 1px solid #ba6335;
+	background: #ec3838;
+	border: 1px solid #ec3838;
 }
 
 .captionFormRider {
 	font-family: 'Jost', sans-serif;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 1.125em;
+	font-size: 1em;
 }
 
 .selectFieldSearchTripRider {
