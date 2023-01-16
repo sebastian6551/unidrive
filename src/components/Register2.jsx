@@ -12,8 +12,8 @@ import SuccessAlert from '../components/alerts/SuccessAlert';
 export const Register2 = () => {
 	const navigate = useNavigate();
 	const { prevStep, userData, typeUser } = useContext(UserContext);
-	const [alert, setAlert] = useState(false);
-	const handleAlertClose = () => setAlert(false);
+	const [alertMui, setAlertMui] = useState(false);
+	const handleAlertClose = () => setAlertMui(false);
 	const createUser = RegisterServices.createUser;
 	const handleBack = event => {
 		event.preventDefault();
@@ -47,8 +47,8 @@ export const Register2 = () => {
 		console.log(data);
 		createUser(userData, typeUser).then(res => {
 			if (res.status === 201) {
-				alert('Usuario creado con exito');
-				navigate('/');
+				setAlertMui(true);
+				setTimeout(() => navigate('/'), 1200);
 			} else if (res.status === 400) {
 				const req = res.json();
 				req.then(errors => alert(errors.errors));
@@ -122,6 +122,11 @@ export const Register2 = () => {
 					</span>
 				</span>
 			</form>
+			<SuccessAlert
+				open={alertMui}
+				onClose={handleAlertClose}
+				message={'Usuario creado exitosamente!!'}
+			/>
 		</div>
 	);
 };

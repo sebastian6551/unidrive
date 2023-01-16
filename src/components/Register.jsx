@@ -111,7 +111,6 @@ export const Register = () => {
 						type='number'
 						value={document}
 						placeholder={'Número de identificación'}
-						// placeholder={userData.document ? userData.document : 'Número de identificación'}
 						{...register('document', {
 							required: true,
 							minLength: 10,
@@ -124,7 +123,8 @@ export const Register = () => {
 					<span id='error' className='errorMessage'>
 						{errors.document?.type === 'required' && (
 							<small>
-								<br></br> Ingresa un número de identificación valido
+								<br></br> Ingresa un número de identificación valido, longitud
+								10
 							</small>
 						)}
 						{errors.document?.type === 'validate' && (
@@ -176,7 +176,7 @@ export const Register = () => {
 					<span id='error' className='errorMessage'>
 						{errors.number && (
 							<small>
-								<br></br>Ingresa un celular válido.
+								<br></br>Ingresa un celular válido, logitud 10.
 							</small>
 						)}
 					</span>

@@ -30,7 +30,6 @@
 	display: none;
 }
 
-
 .spaceLeftForLogOut {
 	padding-left: 80vw;
 }
@@ -49,5 +48,5 @@
 	display: flex;
 	padding-top: 15px;
 	align-items: center;
-	padding-left: 10px;	
+	padding-left: 10px;
 }

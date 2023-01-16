@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import './styles/tripDetailBidder.css';
 import { AppBarComponent } from '../components/AppBarComponent';
 import { CardComponent } from './CardComponent';
-import {PassengersContainerBidderComponent} from './PassengersContainerBidderComponent';
+import { PassengersContainerBidderComponent } from './PassengersContainerBidderComponent';
 
 export const TripDetailBidder = () => {
 	const { logout } = useContext(AuthContext);
@@ -22,30 +22,30 @@ export const TripDetailBidder = () => {
 			</span>
 
 			<div className='cardPosition'>
-				<CardComponent />
+				<CardComponent other={[]} />
 			</div>
 
 			<div className='passengersCaptionContainer'>
-					<h1 className='passengersCaption'>Pasajeros</h1>
-				</div>
-				<div className='passengersTripBodyContainer'>
-					<PassengersContainerBidderComponent
-						passengerName='Victor'
-						pickupPlace='Cra 80 Cll 13'
-					/>
-					<PassengersContainerBidderComponent
-						passengerName='Sara'
-						pickupPlace='Cra 80 Cll 13'
-					/>
-					<PassengersContainerBidderComponent
-						passengerName='Frank'
-						pickupPlace='Cra 80 Cll 13'
-					/>
-					<PassengersContainerBidderComponent
-						passengerName='Chris'
-						pickupPlace='Cra 80 Cll 13'
-					/>
-				</div>
+				<h1 className='passengersCaption'>Pasajeros</h1>
+			</div>
+			<div className='passengersTripBodyContainer'>
+				<PassengersContainerBidderComponent
+					passengerName='Victor'
+					pickupPlace='Cra 80 Cll 13'
+				/>
+				<PassengersContainerBidderComponent
+					passengerName='Sara'
+					pickupPlace='Cra 80 Cll 13'
+				/>
+				<PassengersContainerBidderComponent
+					passengerName='Frank'
+					pickupPlace='Cra 80 Cll 13'
+				/>
+				<PassengersContainerBidderComponent
+					passengerName='Chris'
+					pickupPlace='Cra 80 Cll 13'
+				/>
+			</div>
 
 			<div className='appBarPosition'>
 				<AppBarComponent />
