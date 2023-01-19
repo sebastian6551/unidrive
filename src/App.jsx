@@ -9,7 +9,6 @@ import { CreateTripDriver } from './components/CreateTripDriver';
 import { HomeRider } from './pages/HomeRider';
 import { HistorialRider } from './pages/HistorialRider';
 import { HistorialBidder } from './pages/HistorialBidder';
-import { SearchTripRider } from './pages/SearchTripRider';
 import { UserContextProvider } from './hooks/UserContext';
 import { NotificationBidder } from './pages/NotificationBidder';
 import { NotificationRider } from './pages/NotificationRider';
