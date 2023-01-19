@@ -26,7 +26,7 @@ function App() {
 					path='/login'
 					element={
 						<ProtectedRoute accessBy='non-authenticated'>
-							<SearchTripRider />
+							<Login />
 						</ProtectedRoute>
 					}
 				></Route>
